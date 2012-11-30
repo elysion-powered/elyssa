@@ -1,4 +1,4 @@
-elyzia
+elyssa
 ======
 
-JavaScript Canvas game engine - Part of the Elysion game engine family
+CoffeeScript Canvas game engine - Part of the Elysion game engine family
