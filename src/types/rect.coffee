@@ -20,8 +20,11 @@
       w: @w += w
       h: @h += h
   
-    toString: ->
-      JSON.stringify {@x, @y, @w, @h}
+    toSize: -> new Elyssa.Size {@w, @h}
+    
+    toVector: -> new Elyssa.Vector {@x, @y, z: 0}
+      
+    toString: -> JSON.stringify {@x, @y, @w, @h}
       
 
 )(@, @Elyssa or= {})

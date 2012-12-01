@@ -1,6 +1,6 @@
 ((window, Elyssa) ->
   
-  class Color
+  class Elyssa.Color
     constructor: ({@r, @g, @b, @a} = {r: 255, g: 255, b: 255, a: 255}) ->
       @r = 0 unless @r?
       @g = 0 unless @g?

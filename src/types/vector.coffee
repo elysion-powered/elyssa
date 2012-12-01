@@ -6,8 +6,9 @@
       @y = 0 unless @y?
       @z = 0 unless @z?
   
-    toString: ->
-      JSON.stringify {@x, @y ,@z}
+    toRect: -> new Elyssa.Rect {@x, @y, w: 0, h: 0}
+    
+    toString: -> JSON.stringify {@x, @y ,@z}
 
   
 )(@, @Elyssa or= {})
