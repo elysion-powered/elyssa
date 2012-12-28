@@ -2,7 +2,7 @@
   
   # Elyssa.Math Object
   # Equivilent to being a singleton class
-  Elyssa.Math =
+  #Elyssa.Loop =
     # Clamps a value between a minimum and maximum
     #
     # @param {Number} The value that needs to be clamped
@@ -10,11 +10,11 @@
     # @param {Number} Maximum (Optional, set to 1.0 by default)
     #
     # @return {Number} The clamped value
-    clamp: (value, min = 0.0, max = 1.0) ->
-      if min <= value <= max
-        value
-      else
-        if value > max then max else min
+    #clamp: (value, min = 0.0, max = 1.0) ->
+   #   if min <= value <= max
+   #     value
+   #   else
+   #     if value > max then max else min
       
   
 )(@, @Elyssa or= {})

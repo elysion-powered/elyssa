@@ -203,6 +203,8 @@
     return null;
   })(this, document, Function, String);
 
+  (function(window, Elyssa) {})(this, this.Elyssa || (this.Elyssa = {}));
+
   (function(window, Elyssa) {
     return Elyssa.Math = {
       clamp: function(value, min, max) {

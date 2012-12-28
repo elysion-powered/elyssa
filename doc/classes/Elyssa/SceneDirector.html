@@ -17,7 +17,7 @@
     &raquo;
     <span class='title'>Elyssa</span>
     &raquo;
-    <span class='title'>Size</span>
+    <span class='title'>SceneDirector</span>
     <nav>
       <ul>
         <li class='noframes'>
@@ -107,20 +107,26 @@
     <div id='content'>
       <h1>
         Class:
-        Elyssa.Size
+        Elyssa.SceneDirector
       </h1>
       <table class='box'>
         <tr>
           <td>Defined in:</td>
-          <td>src&#47;types&#47;size.coffee</td>
+          <td>src&#47;scene&#47;scenedirector.coffee</td>
         </tr>
       </table>
+      <h2>Overview</h2>
+      <div class='docstring'>
+  <p>The scene director class manages a list of scenes</p>
+</div>
+<div class='tags'>
+</div>
       <h2>Instance Method Summary</h2>
       <ul class='summary'>
   <li>
     <span class='signature'>
       <a href='#constructor-instance'>
-        - (void) <strong>constructor</strong>(undefined = { w: 0, h: 0 })
+        - (void) <strong>constructor</strong>()
       </a>
     </span>
     <span class='constructor note title'>Constructor</span>
@@ -130,32 +136,52 @@
   </li>
   <li>
     <span class='signature'>
-      <a href='#toRect-instance'>
-        - (void) <strong>toRect</strong>()
+      <a href='#add-instance'>
+        - (void) <strong>add</strong>(scene)
       </a>
     </span>
     <span class='desc'>
-      
+      Adds a scene to the scene director
     </span>
   </li>
   <li>
     <span class='signature'>
-      <a href='#center-instance'>
-        - (void) <strong>center</strong>()
+      <a href='#delete-instance'>
+        - (void) <strong>delete</strong>(sceneName)
       </a>
     </span>
     <span class='desc'>
-      
+      Deletes a scene by scene name
     </span>
   </li>
   <li>
     <span class='signature'>
-      <a href='#toString-instance'>
-        - (void) <strong>toString</strong>()
+      <a href='#switchTo-instance'>
+        - (void) <strong>switchTo</strong>(sceneName)
       </a>
     </span>
     <span class='desc'>
-      
+      Switches to a scene
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#render-instance'>
+        - (void) <strong>render</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Calls the render function of the current scene
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#update-instance'>
+        - (void) <strong>update</strong>(dt)
+      </a>
+    </span>
+    <span class='desc'>
+      Calls the update function of the current scene
     </span>
   </li>
 </ul>
@@ -163,7 +189,7 @@
       <div class='methods'>
   <div class='method_details'>
     <p class='signature' id='constructor-instance'>
-      - (void) <strong>constructor</strong>(undefined = { w: 0, h: 0 })
+      - (void) <strong>constructor</strong>()
     </p>
     <div class='tags'>
 </div>
@@ -172,24 +198,86 @@
       <h2>Instance Method Details</h2>
       <div class='methods'>
   <div class='method_details'>
-    <p class='signature' id='toRect-instance'>
-      - (void) <strong>toRect</strong>()
+    <p class='signature' id='add-instance'>
+      - (void) <strong>add</strong>(scene)
     </p>
-    <div class='tags'>
+    <div class='docstring'>
+  <p>Adds a scene to the scene director</p>
+</div>
+<div class='tags'>
+  <h3>Parameters:</h3>
+  <ul class='param'>
+    <li>
+      <span class='name'>The</span>
+      <span class='type'>
+        (<tt>Object</tt>)
+      </span>
+      &mdash;
+      <span class='desc'>scene that will be added to the director</span>
+    </li>
+  </ul>
 </div>
   </div>
   <div class='method_details'>
-    <p class='signature' id='center-instance'>
-      - (void) <strong>center</strong>()
+    <p class='signature' id='delete-instance'>
+      - (void) <strong>delete</strong>(sceneName)
     </p>
-    <div class='tags'>
+    <div class='docstring'>
+  <p>Deletes a scene by scene name</p>
+</div>
+<div class='tags'>
+  <h3>Parameters:</h3>
+  <ul class='param'>
+    <li>
+      <span class='name'>The</span>
+      <span class='type'>
+        (<tt>String</tt>)
+      </span>
+      &mdash;
+      <span class='desc'>scene name</span>
+    </li>
+  </ul>
 </div>
   </div>
   <div class='method_details'>
-    <p class='signature' id='toString-instance'>
-      - (void) <strong>toString</strong>()
+    <p class='signature' id='switchTo-instance'>
+      - (void) <strong>switchTo</strong>(sceneName)
     </p>
-    <div class='tags'>
+    <div class='docstring'>
+  <p>Switches to a scene</p>
+</div>
+<div class='tags'>
+  <h3>Parameters:</h3>
+  <ul class='param'>
+    <li>
+      <span class='name'>The</span>
+      <span class='type'>
+        (<tt>String</tt>)
+      </span>
+      &mdash;
+      <span class='desc'>scene name</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='render-instance'>
+      - (void) <strong>render</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Calls the render function of the current scene</p>
+</div>
+<div class='tags'>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='update-instance'>
+      - (void) <strong>update</strong>(dt)
+    </p>
+    <div class='docstring'>
+  <p>Calls the update function of the current scene</p>
+</div>
+<div class='tags'>
 </div>
   </div>
 </div>

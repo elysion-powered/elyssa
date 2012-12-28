@@ -1,9 +1,10 @@
 COFFEE = coffee
 DOCGEN = codo
+MINIFIER = uglifyjs
 
 SOURCE = src
 OUTPUT = js
-DOCOUTPUT = doc
+DOCOUTPUT = ./doc
 
 default: all
 
@@ -13,15 +14,20 @@ core:
 types:
 	$(COFFEE) -j $(OUTPUT)/Elyssa.Types.js -c $(SOURCE)/types/*.coffee
 
-doc:
-	$(DOCGEN) -o $(DOCOUTPUT) src/*/*.coffee  
+scene:
+	$(COFFEE) -j $(OUTPUT)/Elyssa.Scene.js -c $(SOURCE)/scene/*.coffee
+
+documentation:
+	$(DOCGEN) -o $(DOCOUTPUT) $(SOURCE)/*/*.coffee  
 
 clean:
 	rm -rf $(OUTPUT)/*.js
 
 all:
 	make clean
-	make doc
+	make documentation
 	make core
 	make types
+	make scene
 	cat $(OUTPUT)/Elyssa.*.js > $(OUTPUT)/Elyssa.js
+	$(MINIFIER) $(OUTPUT)/Elyssa.js > $(OUTPUT)/Elyssa.min.js
