@@ -1,6 +1,6 @@
 ((window, Elyssa) ->
   
-  class Elyssa.Layer
+  class Elyssa.Layer extends Elyssa.Node
     constructor: ->
       
             

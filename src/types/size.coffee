@@ -6,6 +6,10 @@
       @h = 0 unless @h?
   
     toRect: -> new Elyssa.Rect {x: 0, y: 0, @w, @h}
+    
+    center: ->
+      x: @w / 2
+      y: @h / 2
       
     toString: -> JSON.stringify {@x, @y, @z}
 

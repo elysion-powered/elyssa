@@ -7,8 +7,11 @@
       @w = 0 unless @w?
       @h = 0 unless @h?
   
-    contains: ({x, y}) ->
-      x >= @x and y >= @y and x <= @x + @w and y <= @y + @h
+    contains: ({x, y, w, h}) ->
+      if w? and h?
+        @x <= x + h <= @x + @w and @y <= y + w <= @y + @h
+      else
+        @x <= x <= @x + @w and @y <= y <= @y + @h
   
     center: ->
       x: @w / 2 + @x
