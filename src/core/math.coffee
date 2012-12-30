@@ -1,7 +1,8 @@
 ((window, Elyssa) ->
   
-  # Elyssa.Math Object
-  # Equivilent to being a singleton class
+  # Elyssa.Math
+  # Static class
+  # @mixin
   Elyssa.Math =
     # Clamps a value between a minimum and maximum
     #

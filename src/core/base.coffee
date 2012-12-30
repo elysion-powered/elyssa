@@ -1,5 +1,5 @@
 ((window, document, Function, String) -> 
-  "use strict";
+  'use strict';
   
   ###
     Console object fixes
@@ -59,9 +59,7 @@
     'check' is a better function name if you want to just 
     use the function without the 'window' prefix
   ###
-  window.is = window.check = (variable) ->
-    "use strict"
-  
+  window.is = window.check = (variable) ->  
     stringedVar = {}.toString.call variable
     typeName = stringedVar.slice(8, stringedVar.length - 1).toLowerCase() 
   
@@ -86,13 +84,13 @@
         else
           cb(variable) if variable?
         @
-      undefined: (cb) -> checkType "undefined", cb, inverse
-      null: (cb) -> checkType "null", cb, inverse
-      string: (cb) -> checkType "string", cb, inverse
-      number: (cb) -> checkType "number", cb, inverse
-      object: (cb) -> checkType "object", cb, inverse
-      array: (cb) -> checkType "array", cb, inverse
-      function: (cb) -> checkType "function", cb, inverse
+      undefined: (cb) -> checkType 'undefined', cb, inverse
+      null: (cb) -> checkType 'null', cb, inverse
+      string: (cb) -> checkType 'string', cb, inverse
+      number: (cb) -> checkType 'number', cb, inverse
+      object: (cb) -> checkType 'object', cb, inverse
+      array: (cb) -> checkType 'array', cb, inverse
+      function: (cb) -> checkType 'function', cb, inverse
   
     result = types(false)
     result.not = types(true)
@@ -120,16 +118,19 @@
   ###
   Function::property = (prop, desc) ->
     Object.defineProperty @prototype, prop, desc
+    
+  Function::staticProperty = (prop, desc) ->
+    Object.defineProperty @, prop, desc
 
   ###
    requestAnim shim layer by Paul Irish
   ###
   lastTime = 0
-  vendors = ["ms", "moz", "webkit", "o"]
+  vendors = ['ms', 'moz', 'webkit', 'o']
 
   for x in vendors
-    window.requestAnimationFrame = window[vendors[x] + "RequestAnimationFrame"]
-    window.cancelAnimationFrame = window[vendors[x] + "CancelAnimationFrame"] or window[vendors[x] + "CancelRequestAnimationFrame"]
+    window.requestAnimationFrame = window["#{x}RequestAnimationFrame"]
+    window.cancelAnimationFrame = window["#{x}CancelAnimationFrame"] or window["#{x}CancelRequestAnimationFrame"]
 
   unless window.requestAnimationFrame
     window.requestAnimationFrame = (callback, element) ->

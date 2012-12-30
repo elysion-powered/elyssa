@@ -1,0 +1,1 @@
+(function(){(function(n,r){return r.Behaviour=function(){function n(){}return n.prototype.update=function(){},n}()})(this,this.Elyssa||(this.Elyssa={}))}).call(this);
