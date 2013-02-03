@@ -1,4 +1,4 @@
-((window, Elyssa) ->
+do (window = @, Elyssa = @Elyssa or= {}) ->
   
   # Color class
   # This class allows to modifiy R, G, B and alpha value as well
@@ -556,5 +556,3 @@
     # Returns new object with color values: R: 73  G: 92  B: 108  
     # @return {Object} The color object
     @freezeDevBlue: -> new Elyssa.Color {r: 73, g: 92, b: 108}         
-  
-)(@, @Elyssa or= {})

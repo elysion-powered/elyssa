@@ -1,4 +1,4 @@
-((window, Elyssa) ->
+do (window = @, Elyssa = @Elyssa or= {}) ->
 
   class Elyssa.Rect
     constructor: ({@x, @y, @w, @h} = {x: 0, y: 0, w: 0, h: 0}) ->
@@ -29,5 +29,3 @@
       
     toString: -> JSON.stringify {@x, @y, @w, @h}
       
-
-)(@, @Elyssa or= {})

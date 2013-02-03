@@ -1,6 +1,3 @@
-((window, Elyssa) ->
+do (window = @, Elyssa = @Elyssa or= {}) ->
   
   class Elyssa.RenderTarget
-
-  
-)(@, @Elyssa or= {})

@@ -1,4 +1,4 @@
-((window, document, Function, String) -> 
+do (window = @, document) -> 
   'use strict';
   
   ###
@@ -97,30 +97,6 @@
     
     result
 
-  ###
-    Provides a hashcode for strings
-  ###
-  String::hashCode = ->
-    hash = 0
-  
-    if @length == 0
-      return hash
-  
-    for i in @
-      char = @charCodeAt(i)
-      hash = ((hash << 5) - hash) + char
-      hash = hash & hash # Convert to 32bit integer
-  
-    hash
-  
-  ###
-    Syntactic sugar for properties
-  ###
-  Function::property = (prop, desc) ->
-    Object.defineProperty @prototype, prop, desc
-    
-  Function::staticProperty = (prop, desc) ->
-    Object.defineProperty @, prop, desc
 
   ###
    requestAnim shim layer by Paul Irish
@@ -147,5 +123,30 @@
       clearTimeout id
 
   null # Return null
+
+do (String) ->
+  ###
+    Provides a hashcode for strings
+  ###
+  String::hashCode = ->
+    hash = 0
   
-)(@, document, Function, String) 
+    if @length == 0
+      return hash
+  
+    for i in @
+      char = @charCodeAt(i)
+      hash = ((hash << 5) - hash) + char
+      hash = hash & hash # Convert to 32bit integer
+  
+    hash
+
+do (Function, Object) ->  
+  ###
+    Syntactic sugar for properties
+  ###
+  Function::property = (prop, desc) ->
+    Object.defineProperty @prototype, prop, desc
+    
+  Function::staticProperty = (prop, desc) ->
+    Object.defineProperty @, prop, desc

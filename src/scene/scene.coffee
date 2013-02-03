@@ -1,4 +1,4 @@
-((window, Elyssa) ->
+do (window = @, Elyssa = @Elyssa or= {}) ->
 
   # Scene class
   class Elyssa.Scene
@@ -20,5 +20,3 @@
     
     # Updates all entities
     update: (dt) ->
-
-)(@, @Elyssa or= {})

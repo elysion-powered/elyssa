@@ -1,6 +1,3 @@
-((window, Elyssa) ->
+do (window = @, Elyssa = @Elyssa or= {}) ->
   
   Elyssa.GraphicsDevice = {}
-
-  
-)(@, @Elyssa or= {})

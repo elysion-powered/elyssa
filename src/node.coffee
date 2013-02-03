@@ -1,4 +1,4 @@
-((window, Elyssa) ->
+do (window = @, Elyssa = @Elyssa or= {}) ->
   
   class Elyssa.Node
     constructor: ->
@@ -11,5 +11,3 @@
     
     toString: ->
             
-  
-)(@, @Elyssa or= {})

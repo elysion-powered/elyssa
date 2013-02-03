@@ -1,6 +1,5 @@
-((window, Elyssa) ->
+do (window = @, Elyssa = @Elyssa or= {}) ->
   
   class Elyssa.Texture
-
-  
-)(@, @Elyssa or= {})
+    constructor: (source) ->
+      

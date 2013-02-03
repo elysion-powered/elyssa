@@ -1,4 +1,4 @@
-((window, Elyssa) ->
+do (window = @, Elyssa = @Elyssa or= {}) ->
 
   # The scene director class manages a list of scenes
   class Elyssa.SceneDirector
@@ -34,5 +34,3 @@
     # Calls the update function of the current scene
     update: (dt) ->
       currentScene?.update?(dt)
-
-)(@, @Elyssa or= {})
