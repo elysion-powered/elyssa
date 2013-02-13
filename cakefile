@@ -1,4 +1,4 @@
-require 'flour'
+flour = require 'flour'
 path = require 'path'
 {exec} = require 'child_process'
 
@@ -11,14 +11,14 @@ SOURCE = 'src'
 OUTPUT = 'js'
 DOCOUTPUT = './doc'
 
+DEBUG = true
+
+flour.minifiers['js'] = null if DEBUG
+
 buildTasks = ['core', 'assets', 'types', 'graphics', 'component', 'scene']
 
-capitalize = (name) -> name.charAt(0).toUpperCase() + name.slice(1)
-
 buildPart = (part, success) ->
-  fileName = capitalize part
-
-  bundle path.join(SOURCE, part, '*.coffee'), path.join(OUTPUT, "Elyssa.#{fileName}.js"), success
+  bundle path.join(SOURCE, part, '*.coffee'), path.join(OUTPUT, "elyssa/#{part}.js"), success
 
 ((index) -> task "build:#{index}", -> buildPart index)(t) for t in buildTasks
 
@@ -31,7 +31,7 @@ task 'build', ->
   sucFunc = (a) ->
     counter++
     if counter is buildTasks.length
-      bundle "#{OUTPUT}/*.js", "#{OUTPUT}/Elyssa.js", -> invoke 'lint'
+      bundle "#{OUTPUT}/elyssa/*.js", "#{OUTPUT}/elyssa.js", -> invoke 'lint'
 
   ((index) -> buildPart index, sucFunc)(t) for t in buildTasks
 
@@ -42,4 +42,4 @@ task 'clean', ->
   exec "rm -rf #{OUTPUT}/*.js"
 
 task 'lint', ->
-  lint "#{OUTPUT}/*.js"
+  lint "#{OUTPUT}/elyssa/*.js" if DEBUG
