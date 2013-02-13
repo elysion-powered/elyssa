@@ -1,4 +1,5 @@
 do (window = @, Elyssa = @Elyssa or= {}) ->
+  'use strict'
 
   # Scene class
   class Elyssa.Scene

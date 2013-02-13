@@ -1,4 +1,5 @@
-((window, Elyssa) ->
+do (window = @, Elyssa = @Elyssa or= {}) ->
+  'use strict'
   
   # Elyssa.Math
   # Static class
@@ -18,6 +19,3 @@
         value
       else
         if value > max then max else min
-      
-  
-)(@, @Elyssa or= {})

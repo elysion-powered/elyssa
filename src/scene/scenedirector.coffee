@@ -1,4 +1,5 @@
 do (window = @, Elyssa = @Elyssa or= {}) ->
+  'use strict'
 
   # The scene director class manages a list of scenes
   class Elyssa.SceneDirector
