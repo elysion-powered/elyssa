@@ -12,6 +12,8 @@
     #
     # @return {Number} The clamped value
     clamp: (value, min = 0.0, max = 1.0) ->
+      [min, max] = [max, min] if min > max
+      
       if min <= value <= max
         value
       else
