@@ -13,7 +13,8 @@ DOCOUTPUT = './doc'
 
 DEBUG = true
 
-flour.minifiers['js'] = null if DEBUG
+minifierInstance = flour.minifiers['js']
+flour.minifiers['js'] = null
 
 buildTasks = ['core', 'assets', 'types', 'graphics', 'component', 'scene']
 
@@ -31,7 +32,13 @@ task 'build', ->
   sucFunc = (a) ->
     counter++
     if counter is buildTasks.length
-      bundle "#{OUTPUT}/elyssa/*.js", "#{OUTPUT}/elyssa.js", -> invoke 'lint'
+      bundle "#{OUTPUT}/elyssa/*.js", "#{OUTPUT}/elyssa.js"
+      
+      #flour.minifiers['js'] = minifierInstance
+      
+      #((index) -> minify "#{OUTPUT}/elyssa/{i}.js" "#{OUTPUT}/elyssa/{i}.min.js")(i) for i in buildTasks
+      
+      #minify "#{OUTPUT}/elyssa.js" "#{OUTPUT}/elyssa.min.js"
 
   ((index) -> buildPart index, sucFunc)(t) for t in buildTasks
 
@@ -40,6 +47,3 @@ task 'doc', ->
 
 task 'clean', ->
   exec "rm -rf #{OUTPUT}/*.js"
-
-task 'lint', ->
-  lint "#{OUTPUT}/elyssa/*.js" if DEBUG

@@ -30,6 +30,8 @@
 
       function Texture(source) {}
 
+      Texture.prototype.loadFromFile = function(filename) {};
+
       return Texture;
 
     })();
