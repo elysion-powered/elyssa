@@ -1,6 +1,7 @@
 (function() {
 
   (function(window, Elyssa) {
+    'use strict';
     return Elyssa.Behaviour = (function() {
 
       function Behaviour() {}

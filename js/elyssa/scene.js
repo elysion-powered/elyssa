@@ -1,6 +1,33 @@
 (function() {
 
   (function(window, Elyssa) {
+    'use strict';
+    return Elyssa.Scene = (function() {
+      var entityList;
+
+      entityList = {};
+
+      function Scene(_arg) {
+        this.constructor.name = _arg.this;
+      }
+
+      Scene.prototype.add = function(entity) {};
+
+      Scene.prototype.render = function() {};
+
+      Scene.prototype.update = function(dt) {};
+
+      return Scene;
+
+    })();
+  })(this, this.Elyssa || (this.Elyssa = {}));
+
+}).call(this);
+
+(function() {
+
+  (function(window, Elyssa) {
+    'use strict';
     return Elyssa.SceneDirector = (function() {
       var currentScene, sceneList;
 

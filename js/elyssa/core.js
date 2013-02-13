@@ -1,97 +1,71 @@
 (function() {
+  var __slice = [].slice;
 
-  (function(window, Elyssa) {
-    return Elyssa.Math = {
-      clamp: function(value, min, max) {
-        var _ref;
-        if (min == null) {
-          min = 0.0;
-        }
-        if (max == null) {
-          max = 1.0;
-        }
-        if (min > max) {
-          _ref = [max, min], min = _ref[0], max = _ref[1];
-        }
-        if ((min <= value && value <= max)) {
-          return value;
-        } else {
-          if (value > max) {
-            return max;
-          } else {
-            return min;
-          }
+  (function(window, document) {
+    'use strict';
+
+    /*
+        Console object fixes
+    */
+
+    var console, i, lastTime, method, methods, noop, vendors, x, _i, _j, _len, _len1;
+    noop = function() {};
+    methods = ['assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error', 'exception', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log', 'markTimeline', 'profile', 'profileEnd', 'table', 'time', 'timeEnd', 'timeStamp', 'trace', 'warn'];
+    console = (window.console || (window.console = {}));
+    for (_i = 0, _len = methods.length; _i < _len; _i++) {
+      i = methods[_i];
+      method = methods[i];
+      console[method] || (console[method] = noop);
+    }
+    /*
+       Extending objects
+    */
+
+    window.extend = function() {
+      var key, obj, objects, target, value, _j, _len1;
+      target = arguments[0], objects = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
+      for (_j = 0, _len1 = objects.length; _j < _len1; _j++) {
+        obj = objects[_j];
+        for (key in obj) {
+          value = obj[key];
+          target[key] = value;
         }
       }
+      return target;
     };
-  })(this, this.Elyssa || (this.Elyssa = {}));
+    /*
+        Cloning objects
+    */
 
-}).call(this);
-        return;
-          }
-          for (key in taskList) {
-            value = taskList[key];
-            if (!value.paused) {
-              if (typeof value.value === "function") {
-                value.value(dt);
-              }
-            }
-          }
-          return null;
-        };
-        return animLoop();
-      };
-
-      Loop.pause = function() {
-        isRunning = false;
-        return this;
-      };
-
-      Loop.resume = function() {
-        isRunning = true;
-        return this;
-      };
-
-      Loop.clear = function() {
-        taskList = {};
-        return this;
-      };
-
-      Loop.addTask = function(taskName, taskFunction) {
-        if (taskList[taskName]) {
-          return;
+    window.clone = function(obj) {
+      var flags, key, newInstance;
+      if (!(obj != null) || typeof obj !== 'object') {
+        return obj;
+      }
+      if (obj instanceof Date) {
+        return new Date(obj.getTime());
+      }
+      if (obj instanceof RegExp) {
+        flags = '';
+        if (obj.global != null) {
+          flags += 'g';
         }
-        taskList[taskName] = {
-          paused: false,
-          value: taskFunction
-        };
-        return this;
-      };
-
-      Loop.pauseTask = function(taskName) {
-        taskList[taskName].paused = true;
-        return this;
-      };
-
-      Loop.resumeTask = function(taskName) {
-        taskList[taskName].paused = false;
-        return this;
-      };
-
-      Loop.removeTask = function(taskName) {
-        if (taskList[taskName]) {
-          delete taskList[taskName];
+        if (obj.ignoreCase != null) {
+          flags += 'i';
         }
-        return this;
-      };
-
-      return Loop;
-
-    })();
-  })(this, this.Elyssa || (this.Elyssa = {}));
-
-}).call(this);
-   return newInstance;
+        if (obj.multiline != null) {
+          flags += 'm';
+        }
+        if (obj.sticky != null) {
+          flags += 'y';
+        }
+        return new RegExp(obj.source, flags);
+      }
+      newInstance = new obj.constructor();
+      for (key in obj) {
+        newInstance[key] = window.clone(obj[key]);
+      }
+      return newInstance;
     };
     /*
         'is' is a pretty good function name in my opinion, 
@@ -232,5 +206,129 @@
       return Object.defineProperty(this, prop, desc);
     };
   })(Function, Object);
+
+}).call(this);
+
+(function() {
+
+  (function(window, Elyssa) {
+    return Elyssa.Loop = (function() {
+      var isRunning, taskList;
+
+      function Loop() {}
+
+      taskList = {};
+
+      isRunning = true;
+
+      Loop.staticProperty('tasks', {
+        get: function() {
+          return Object.keys(taskList);
+        }
+      });
+
+      Loop.run = function() {
+        var animLoop, time;
+        time = 0;
+        animLoop = function() {
+          var dt, key, now, value;
+          window.requestAnimationFrame(animLoop);
+          now = Date.now();
+          dt = now - (time || now);
+          time = now;
+          if (!isRunning) {
+            return;
+          }
+          for (key in taskList) {
+            value = taskList[key];
+            if (!value.paused) {
+              if (typeof value.value === "function") {
+                value.value(dt);
+              }
+            }
+          }
+          return null;
+        };
+        return animLoop();
+      };
+
+      Loop.pause = function() {
+        isRunning = false;
+        return this;
+      };
+
+      Loop.resume = function() {
+        isRunning = true;
+        return this;
+      };
+
+      Loop.clear = function() {
+        taskList = {};
+        return this;
+      };
+
+      Loop.addTask = function(taskName, taskFunction) {
+        if (taskList[taskName]) {
+          return;
+        }
+        taskList[taskName] = {
+          paused: false,
+          value: taskFunction
+        };
+        return this;
+      };
+
+      Loop.pauseTask = function(taskName) {
+        taskList[taskName].paused = true;
+        return this;
+      };
+
+      Loop.resumeTask = function(taskName) {
+        taskList[taskName].paused = false;
+        return this;
+      };
+
+      Loop.removeTask = function(taskName) {
+        if (taskList[taskName]) {
+          delete taskList[taskName];
+        }
+        return this;
+      };
+
+      return Loop;
+
+    })();
+  })(this, this.Elyssa || (this.Elyssa = {}));
+
+}).call(this);
+
+(function() {
+
+  (function(window, Elyssa) {
+    'use strict';
+    return Elyssa.Math = {
+      clamp: function(value, min, max) {
+        var _ref;
+        if (min == null) {
+          min = 0.0;
+        }
+        if (max == null) {
+          max = 1.0;
+        }
+        if (min > max) {
+          _ref = [max, min], min = _ref[0], max = _ref[1];
+        }
+        if ((min <= value && value <= max)) {
+          return value;
+        } else {
+          if (value > max) {
+            return max;
+          } else {
+            return min;
+          }
+        }
+      }
+    };
+  })(this, this.Elyssa || (this.Elyssa = {}));
 
 }).call(this);

@@ -1,4 +1,5 @@
 do (window = @, Elyssa = @Elyssa or= {}) ->
+  'use strict'
   
   # Color class
   # This class allows to modifiy R, G, B and alpha value as well
@@ -10,16 +11,24 @@ do (window = @, Elyssa = @Elyssa or= {}) ->
     # Creates the color class
     #
     # Allows to define R, G, B and A components
-    constructor: ({@r, @g, @b, @a} = {r: 255, g: 255, b: 255, a: 255}) ->
-      @r = 0 unless @r?
-      @g = 0 unless @g?
-      @b = 0 unless @b?
-      @a = 0 unless @a?
+    constructor: (param) ->
+      param = {r: 0, g: 0, b: 0, a: 255} unless param?
       
-      Elyssa.Math.clamp(@r, 0, colorMax)
-      Elyssa.Math.clamp(@g, 0, colorMax)
-      Elyssa.Math.clamp(@b, 0, colorMax)
-      Elyssa.Math.clamp(@a, 0, colorMax)
+      if typeof param is 'string'
+        return if Elyssa.Color[param] then Elyssa.Color[param]() else new Elyssa.Color()
+      else
+        {@r, @g, @b, @a} = param
+        
+        # Default values
+        @r = 0 unless @r?
+        @g = 0 unless @g?
+        @b = 0 unless @b?
+        @a = 255 unless @a?
+        
+        @r = Elyssa.Math.clamp(@r, 0, colorMax)
+        @g = Elyssa.Math.clamp(@g, 0, colorMax)
+        @b = Elyssa.Math.clamp(@b, 0, colorMax)
+        @a = Elyssa.Math.clamp(@a, 0, colorMax)
     
     # Converts the color class into a valid CSS string color
     #
@@ -167,7 +176,7 @@ do (window = @, Elyssa = @Elyssa or= {}) ->
     @azure: -> new Elyssa.Color {r: 240, g: 255, b: 255}               
     # Returns new object with color values: R: 245 G: 245 B: 220
     # @return {Object} The color object
-    @beige: -> new Elyssa.Color {r: 245, g: 245, g: 220}               
+    @beige: -> new Elyssa.Color {r: 245, g: 245, b: 220}               
     # Returns new object with color values: R: 255 G: 228 B: 196
     # @return {Object} The color object
     @bisque: -> new Elyssa.Color {r: 255, g: 228, b: 196}              
@@ -494,7 +503,7 @@ do (window = @, Elyssa = @Elyssa or= {}) ->
     @salmon: -> new Elyssa.Color {r: 250, g: 128, b: 114}                  
     # Returns new object with color values: R: 244 G: 164 B: 96
     # @return {Object} The color object
-    @sandyBrown: -> new Elyssa.Color {r: 244, g: 164, g: 96}               
+    @sandyBrown: -> new Elyssa.Color {r: 244, g: 164, b: 96}               
     # Returns new object with color values: R: 46  G: 139 B: 87
     # @return {Object} The color object
     @seaGreen: -> new Elyssa.Color {r: 46, g: 139, b: 87}                  
@@ -556,3 +565,6 @@ do (window = @, Elyssa = @Elyssa or= {}) ->
     # Returns new object with color values: R: 73  G: 92  B: 108  
     # @return {Object} The color object
     @freezeDevBlue: -> new Elyssa.Color {r: 73, g: 92, b: 108}         
+
+  # Color shorthand function
+  window.color = Elyssa.color = (param) -> new Elyssa.Color param
