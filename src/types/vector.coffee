@@ -8,4 +8,4 @@ do (window = @, Elyssa = @Elyssa or= {}) ->
   
     toRect: -> new Elyssa.Rect {@x, @y, w: 0, h: 0}
     
-    toString: -> JSON.stringify {@x, @y ,@z}
+    toString: -> JSON.stringify {@x, @y, @z}
