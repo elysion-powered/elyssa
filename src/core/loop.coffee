@@ -1,4 +1,4 @@
-((window, Elyssa) ->
+do (window = @, Elyssa = @Elyssa or= {}) ->
   
   # Elyssa.Loop
   # Static class
@@ -101,6 +101,4 @@
       delete taskList[taskName] if taskList[taskName]
       
       @
-      
-  
-)(@, @Elyssa or= {})
+    
