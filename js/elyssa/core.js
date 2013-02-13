@@ -39,7 +39,7 @@
 
     window.clone = function(obj) {
       var flags, key, newInstance;
-      if (!(obj != null) || typeof obj !== 'object') {
+      if (!((obj != null) || typeof obj !== 'object')) {
         return obj;
       }
       if (obj instanceof Date) {
@@ -169,7 +169,7 @@
     }
     if (!window.cancelAnimationFrame) {
       window.cancelAnimationFrame = function(id) {
-        return clearTimeout(id);
+        return window.clearTimeout(id);
       };
     }
     return null;

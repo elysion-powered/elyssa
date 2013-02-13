@@ -32,7 +32,7 @@ do (window = @, document) ->
     Cloning objects
   ###
   window.clone = (obj) ->
-    if not obj? or typeof obj isnt 'object'
+    unless obj? or typeof obj isnt 'object'
       return obj
   
     if obj instanceof Date
@@ -120,7 +120,7 @@ do (window = @, document) ->
       
   unless window.cancelAnimationFrame
     window.cancelAnimationFrame = (id) ->
-      clearTimeout id
+      window.clearTimeout id
 
   null # Return null
 
