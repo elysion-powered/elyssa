@@ -210,6 +210,36 @@
 }).call(this);
 
 (function() {
+  var __slice = [].slice;
+
+  (function(window, Elyssa) {
+    'use strict';
+    return Elyssa.Events = (function() {
+      var eventFunctions, eventMap;
+      eventMap = {};
+      eventFunctions = {};
+      eventFunctions.on = function(eventName, eventFunction) {
+        return eventMap[eventName] = eventFunction;
+      };
+      eventFunctions.off = function(eventName) {
+        if (eventMap[eventName]) {
+          return delete eventMap[eventName];
+        }
+      };
+      eventFunctions.trigger = function() {
+        var args, eventName;
+        eventName = arguments[0], args = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
+        if (eventMap[eventName]) {
+          return eventMap[eventName].apply(this, args);
+        }
+      };
+      return eventFunctions;
+    })();
+  })(this, this.Elyssa || (this.Elyssa = {}));
+
+}).call(this);
+
+(function() {
 
   (function(window, Elyssa) {
     return Elyssa.Loop = (function() {

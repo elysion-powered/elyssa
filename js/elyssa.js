@@ -1,21 +1,4 @@
 (function() {
-
-  (function(window, Elyssa) {
-    'use strict';
-    return Elyssa.Behaviour = (function() {
-
-      function Behaviour() {}
-
-      Behaviour.prototype.update = function(dt) {};
-
-      return Behaviour;
-
-    })();
-  })(this, this.Elyssa || (this.Elyssa = {}));
-
-}).call(this);
-
-(function() {
   var __slice = [].slice;
 
   (function(window, document) {
@@ -227,6 +210,36 @@
 }).call(this);
 
 (function() {
+  var __slice = [].slice;
+
+  (function(window, Elyssa) {
+    'use strict';
+    return Elyssa.Events = (function() {
+      var eventFunctions, eventMap;
+      eventMap = {};
+      eventFunctions = {};
+      eventFunctions.on = function(eventName, eventFunction) {
+        return eventMap[eventName] = eventFunction;
+      };
+      eventFunctions.off = function(eventName) {
+        if (eventMap[eventName]) {
+          return delete eventMap[eventName];
+        }
+      };
+      eventFunctions.trigger = function() {
+        var args, eventName;
+        eventName = arguments[0], args = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
+        if (eventMap[eventName]) {
+          return eventMap[eventName].apply(this, args);
+        }
+      };
+      return eventFunctions;
+    })();
+  })(this, this.Elyssa || (this.Elyssa = {}));
+
+}).call(this);
+
+(function() {
 
   (function(window, Elyssa) {
     return Elyssa.Loop = (function() {
@@ -346,200 +359,6 @@
         }
       }
     };
-  })(this, this.Elyssa || (this.Elyssa = {}));
-
-}).call(this);
-
-(function() {
-
-  (function(window, Elyssa) {
-    'use strict';
-    return Elyssa.GraphicsDevice = {};
-  })(this, this.Elyssa || (this.Elyssa = {}));
-
-}).call(this);
-
-(function() {
-  var __hasProp = {}.hasOwnProperty,
-    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
-
-  (function(window, Elyssa) {
-    return Elyssa.Layer = (function(_super) {
-
-      __extends(Layer, _super);
-
-      function Layer() {}
-
-      return Layer;
-
-    })(Elyssa.Node);
-  })(this, this.Elyssa || (this.Elyssa = {}));
-
-}).call(this);
-
-(function() {
-
-  (function(window, Elyssa) {
-    return Elyssa.Node = (function() {
-
-      function Node() {}
-
-      Node.prototype.position = new Elyssa.Vector();
-
-      Node.prototype.color = new Elyssa.Color();
-
-      Node.prototype.draw = function() {};
-
-      Node.prototype.toString = function() {};
-
-      return Node;
-
-    })();
-  })(this, this.Elyssa || (this.Elyssa = {}));
-
-}).call(this);
-
-(function() {
-
-  (function(window, Elyssa) {
-    'use strict';
-    return Elyssa.RenderTarget = (function() {
-
-      function RenderTarget() {}
-
-      return RenderTarget;
-
-    })();
-  })(this, this.Elyssa || (this.Elyssa = {}));
-
-}).call(this);
-
-(function() {
-  var __hasProp = {}.hasOwnProperty,
-    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
-
-  (function(window, Elyssa) {
-    return Elyssa.Sprite = (function(_super) {
-
-      __extends(Sprite, _super);
-
-      function Sprite() {}
-
-      return Sprite;
-
-    })(Elyssa.Node);
-  })(this, this.Elyssa || (this.Elyssa = {}));
-
-}).call(this);
-
-(function() {
-
-  (function(window, Elyssa) {
-    'use strict';
-    return Elyssa.Texture = (function() {
-
-      function Texture(source) {}
-
-      Texture.prototype.loadFromFile = function(filename) {};
-
-      return Texture;
-
-    })();
-  })(this, this.Elyssa || (this.Elyssa = {}));
-
-}).call(this);
-
-(function() {
-
-  (function(window, Elyssa) {})(this, this.Elyssa || (this.Elyssa = {}));
-
-}).call(this);
-
-(function() {
-
-  (function(window, Elyssa) {
-    'use strict';
-    return Elyssa.Assets = {};
-  })(this, this.Elyssa || (this.Elyssa = {}));
-
-}).call(this);
-
-(function() {
-
-  (function(window, Elyssa) {
-    'use strict';
-    return Elyssa.Preloader = {};
-  })(this, this.Elyssa || (this.Elyssa = {}));
-
-}).call(this);
-
-(function() {
-
-  (function(window, Elyssa) {
-    'use strict';
-    return Elyssa.Scene = (function() {
-      var entityList;
-
-      entityList = {};
-
-      function Scene(_arg) {
-        this.constructor.name = _arg.this;
-      }
-
-      Scene.prototype.add = function(entity) {};
-
-      Scene.prototype.render = function() {};
-
-      Scene.prototype.update = function(dt) {};
-
-      return Scene;
-
-    })();
-  })(this, this.Elyssa || (this.Elyssa = {}));
-
-}).call(this);
-
-(function() {
-
-  (function(window, Elyssa) {
-    'use strict';
-    return Elyssa.SceneDirector = (function() {
-      var currentScene, sceneList;
-
-      sceneList = {};
-
-      currentScene = null;
-
-      function SceneDirector() {}
-
-      SceneDirector.prototype.add = function(scene) {
-        if (scene == null) {
-          return;
-        }
-        return sceneList[scene.name] = scene;
-      };
-
-      SceneDirector.prototype["delete"] = function(sceneName) {
-        return delete sceneList[sceneName];
-      };
-
-      SceneDirector.prototype.switchTo = function(sceneName) {
-        if (sceneList[sceneName]) {
-          return currentScene = sceneList[sceneName];
-        }
-      };
-
-      SceneDirector.prototype.render = function() {
-        return currentScene != null ? typeof currentScene.render === "function" ? currentScene.render() : void 0 : void 0;
-      };
-
-      SceneDirector.prototype.update = function(dt) {
-        return currentScene != null ? typeof currentScene.update === "function" ? currentScene.update(dt) : void 0 : void 0;
-      };
-
-      return SceneDirector;
-
-    })();
   })(this, this.Elyssa || (this.Elyssa = {}));
 
 }).call(this);
@@ -1982,6 +1801,273 @@
       };
 
       return Vector;
+
+    })();
+  })(this, this.Elyssa || (this.Elyssa = {}));
+
+}).call(this);
+
+(function() {
+
+  (function(window, Elyssa) {
+    'use strict';
+    return Elyssa.Behaviour = (function() {
+
+      function Behaviour() {}
+
+      Behaviour.prototype.update = function(dt) {};
+
+      return Behaviour;
+
+    })();
+  })(this, this.Elyssa || (this.Elyssa = {}));
+
+}).call(this);
+
+(function() {
+
+  (function(window, Elyssa) {
+    'use strict';
+    return Elyssa.Entity = (function() {
+
+      function Entity() {}
+
+      return Entity;
+
+    })();
+  })(this, this.Elyssa || (this.Elyssa = {}));
+
+}).call(this);
+
+(function() {
+
+  (function(window, Elyssa) {
+    'use strict';
+    return Elyssa.GraphicsDevice = {};
+  })(this, this.Elyssa || (this.Elyssa = {}));
+
+}).call(this);
+
+(function() {
+
+  (function(window, Elyssa) {
+    'use strict';
+    return Elyssa.RenderTarget = (function() {
+
+      function RenderTarget() {}
+
+      return RenderTarget;
+
+    })();
+  })(this, this.Elyssa || (this.Elyssa = {}));
+
+}).call(this);
+
+(function() {
+
+  (function(window, Elyssa) {
+    'use strict';
+    return Elyssa.Texture = (function() {
+
+      function Texture(source) {}
+
+      Texture.prototype.loadFromFile = function(filename) {};
+
+      Texture.prototype.toString = function() {
+        return {
+          filename: ''
+        };
+      };
+
+      return Texture;
+
+    })();
+  })(this, this.Elyssa || (this.Elyssa = {}));
+
+}).call(this);
+
+(function() {
+  var __hasProp = {}.hasOwnProperty,
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+
+  (function(window, Elyssa) {
+    'use strict';
+    return Elyssa.Node = (function(_super) {
+
+      __extends(Node, _super);
+
+      function Node() {}
+
+      Node.prototype.position = new Elyssa.Vector();
+
+      Node.prototype.color = new Elyssa.Color();
+
+      Node.prototype.scale = new Elyssa.Vector();
+
+      Node.prototype.texture = new Elyssa.Texture();
+
+      Node.prototype.draw = function() {};
+
+      Node.prototype.toString = function() {
+        return {
+          position: position.toString(),
+          color: color.toString(),
+          scale: scale.toString(),
+          texture: texture.toString()
+        };
+      };
+
+      return Node;
+
+    })(Elyssa.Entity);
+  })(this, this.Elyssa || (this.Elyssa = {}));
+
+}).call(this);
+
+(function() {
+  var __hasProp = {}.hasOwnProperty,
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+
+  (function(window, Elyssa) {
+    return Elyssa.Sprite = (function(_super) {
+
+      __extends(Sprite, _super);
+
+      function Sprite() {}
+
+      return Sprite;
+
+    })(Elyssa.Node);
+  })(this, this.Elyssa || (this.Elyssa = {}));
+
+}).call(this);
+
+(function() {
+
+  (function(window, Elyssa) {})(this, this.Elyssa || (this.Elyssa = {}));
+
+}).call(this);
+
+(function() {
+  var __hasProp = {}.hasOwnProperty,
+    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
+
+  (function(window, Elyssa) {
+    return Elyssa.Layer = (function(_super) {
+
+      __extends(Layer, _super);
+
+      function Layer() {}
+
+      return Layer;
+
+    })(Elyssa.Node);
+  })(this, this.Elyssa || (this.Elyssa = {}));
+
+}).call(this);
+
+(function() {
+
+  (function(window, Elyssa) {
+    'use strict';
+    return Elyssa.Assets = {};
+  })(this, this.Elyssa || (this.Elyssa = {}));
+
+}).call(this);
+
+(function() {
+
+  (function(window, Elyssa) {
+    'use strict';
+    return Elyssa.Preloader = {};
+  })(this, this.Elyssa || (this.Elyssa = {}));
+
+}).call(this);
+
+(function() {
+
+  (function(window, Elyssa) {
+    'use strict';
+    return Elyssa.Scene = (function() {
+      var entityList;
+
+      entityList = [];
+
+      function Scene(_arg) {
+        this.constructor.name = _arg.this;
+        entityList = [];
+      }
+
+      Scene.prototype.add = function(entity) {
+        return entityList.push(entity);
+      };
+
+      Scene.prototype.render = function() {
+        var e, _i, _len, _results;
+        _results = [];
+        for (_i = 0, _len = entityList.length; _i < _len; _i++) {
+          e = entityList[_i];
+          _results.push(typeof e.render === "function" ? e.render() : void 0);
+        }
+        return _results;
+      };
+
+      Scene.prototype.update = function(dt) {
+        var e, _i, _len, _results;
+        _results = [];
+        for (_i = 0, _len = entityList.length; _i < _len; _i++) {
+          e = entityList[_i];
+          _results.push(typeof e.update === "function" ? e.update(dt) : void 0);
+        }
+        return _results;
+      };
+
+      return Scene;
+
+    })();
+  })(this, this.Elyssa || (this.Elyssa = {}));
+
+}).call(this);
+
+(function() {
+
+  (function(window, Elyssa) {
+    'use strict';
+    return Elyssa.SceneDirector = (function() {
+      var currentScene, sceneList;
+
+      sceneList = {};
+
+      currentScene = null;
+
+      function SceneDirector() {}
+
+      SceneDirector.prototype.add = function(scene) {
+        if (scene == null) {
+          return;
+        }
+        return sceneList[scene.name] = scene;
+      };
+
+      SceneDirector.prototype["delete"] = function(sceneName) {
+        return delete sceneList[sceneName];
+      };
+
+      SceneDirector.prototype.switchTo = function(sceneName) {
+        if (sceneList[sceneName]) {
+          return currentScene = sceneList[sceneName];
+        }
+      };
+
+      SceneDirector.prototype.render = function() {
+        return currentScene != null ? typeof currentScene.render === "function" ? currentScene.render() : void 0 : void 0;
+      };
+
+      SceneDirector.prototype.update = function(dt) {
+        return currentScene != null ? typeof currentScene.update === "function" ? currentScene.update(dt) : void 0 : void 0;
+      };
+
+      return SceneDirector;
 
     })();
   })(this, this.Elyssa || (this.Elyssa = {}));

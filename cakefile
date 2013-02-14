@@ -16,7 +16,7 @@ DEBUG = true
 minifierInstance = flour.minifiers['js']
 flour.minifiers['js'] = null
 
-buildTasks = ['core', 'types', 'graphics', 'gui', 'pipeline', 'component', 'scene']
+buildTasks = ['core', 'types', 'component', 'graphics', 'foundation', 'gui', 'pipeline', 'scene']
 
 buildPart = (part, success) ->
   bundle path.join(SOURCE, part, '*.coffee'), path.join(OUTPUT, "elyssa/#{part}.js"), success
@@ -32,7 +32,10 @@ task 'build', ->
   sucFunc = (a) ->
     counter++
     if counter is buildTasks.length
-      bundle "#{OUTPUT}/elyssa/*.js", "#{OUTPUT}/elyssa.js"
+      buildArray = []
+      buildArray.push "#{OUTPUT}/elyssa/#{task}.js" for task in buildTasks
+      
+      bundle buildArray, "#{OUTPUT}/elyssa.js"
       
       #flour.minifiers['js'] = minifierInstance
       
