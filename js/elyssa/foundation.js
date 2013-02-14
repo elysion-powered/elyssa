@@ -21,12 +21,12 @@
       Node.prototype.draw = function() {};
 
       Node.prototype.toString = function() {
-        return {
-          position: position.toString(),
-          color: color.toString(),
-          scale: scale.toString(),
-          texture: texture.toString()
-        };
+        return JSON.stringify({
+          position: this.position,
+          color: this.color,
+          scale: this.scale,
+          texture: this.texture
+        });
       };
 
       return Node;
