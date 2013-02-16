@@ -6,6 +6,10 @@ do (window = @, Elyssa = @Elyssa or= {}) ->
     
     loadFromFile: (filename) ->
       
+    loadFromData: (data) ->
+      
+    textureRect: new Elyssa.Rect()
+      
     toString: ->
       filename: ''
       
