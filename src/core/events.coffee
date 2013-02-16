@@ -9,7 +9,12 @@ do (window = @, Elyssa = @Elyssa or= {}) ->
       eventMap = {}
       eventFunctions = {}
     
-    on: (eventName, eventFunction) -> eventMap[eventName] = eventFunction      
+    validEvents: []
+    on: (eventName, eventFunction) -> 
+      if @validEvents.length > 0
+        return if validEvents.indexOf(eventName) is -1
+        
+      eventMap[eventName] = eventFunction      
     off: (eventName) -> delete eventMap[eventName] if eventMap[eventName]
     
     trigger: (eventName, args...) -> eventMap[eventName].apply(@, args) if eventMap[eventName]
