@@ -16,7 +16,7 @@ DEBUG = true
 minifierInstance = flour.minifiers['js']
 flour.minifiers['js'] = null
 
-buildTasks = ['core', 'types', 'component', 'graphics', 'foundation', 'gui', 'pipeline', 'scene']
+buildTasks = ['core', 'types', 'component', 'graphics', 'renderers', 'foundation', 'gui', 'pipeline', 'scene']
 
 buildPart = (part, success) ->
   bundle path.join(SOURCE, part, '*.coffee'), path.join(OUTPUT, "elyssa/#{part}.js"), success
