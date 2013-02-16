@@ -1,4 +1,12 @@
 do (window = @, Elyssa = @Elyssa or= {}) ->
   'use strict'
   
-  Elyssa.Preloader = {}
+  class Elyssa.Preloader
+    constructor: ->
+      
+    on: (name, eventFunction) ->
+      
+      
+    off: (name) ->
+      
+    
