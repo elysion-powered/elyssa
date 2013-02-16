@@ -32,6 +32,10 @@
 
       Texture.prototype.loadFromFile = function(filename) {};
 
+      Texture.prototype.loadFromData = function(data) {};
+
+      Texture.prototype.textureRect = new Elyssa.Rect();
+
       Texture.prototype.toString = function() {
         return {
           filename: ''
@@ -39,6 +43,21 @@
       };
 
       return Texture;
+
+    })();
+  })(this, this.Elyssa || (this.Elyssa = {}));
+
+}).call(this);
+
+(function() {
+
+  (function(window, Elyssa) {
+    'use strict';
+    return Elyssa.TextureManager = (function() {
+
+      function TextureManager() {}
+
+      return TextureManager;
 
     })();
   })(this, this.Elyssa || (this.Elyssa = {}));

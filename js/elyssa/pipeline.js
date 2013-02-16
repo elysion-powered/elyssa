@@ -11,7 +11,17 @@
 
   (function(window, Elyssa) {
     'use strict';
-    return Elyssa.Preloader = {};
+    return Elyssa.Preloader = (function() {
+
+      function Preloader() {}
+
+      Preloader.prototype.on = function(name, eventFunction) {};
+
+      Preloader.prototype.off = function(name) {};
+
+      return Preloader;
+
+    })();
   })(this, this.Elyssa || (this.Elyssa = {}));
 
 }).call(this);

@@ -226,7 +226,14 @@
         eventFunctions = {};
       }
 
+      EventMap.prototype.validEvents = [];
+
       EventMap.prototype.on = function(eventName, eventFunction) {
+        if (this.validEvents.length > 0) {
+          if (validEvents.indexOf(eventName) === -1) {
+            return;
+          }
+        }
         return eventMap[eventName] = eventFunction;
       };
 
@@ -248,6 +255,15 @@
 
     })();
     return Elyssa.Events = new Elyssa.EventMap();
+  })(this, this.Elyssa || (this.Elyssa = {}));
+
+}).call(this);
+
+(function() {
+
+  (function(window, Elyssa) {
+    'use strict';
+    return Elyssa.Log = {};
   })(this, this.Elyssa || (this.Elyssa = {}));
 
 }).call(this);
