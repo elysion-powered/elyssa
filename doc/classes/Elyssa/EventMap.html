@@ -17,7 +17,7 @@
     &raquo;
     <span class='title'>Elyssa</span>
     &raquo;
-    <span class='title'>Behaviour</span>
+    <span class='title'>EventMap</span>
     <nav>
       <ul>
         <li class='noframes'>
@@ -108,35 +108,51 @@
     <div id='content'>
       <h1>
         Class:
-        Elyssa.Behaviour
-        <span class='note title'>Abstract</span>
+        Elyssa.EventMap
       </h1>
       <table class='box'>
         <tr>
           <td>Defined in:</td>
-          <td>src&#47;component&#47;behaviour.coffee</td>
+          <td>src&#47;core&#47;events.coffee</td>
         </tr>
       </table>
-      <h2>Overview</h2>
-      <div class='docstring'>
-  <div class='abstract note'>
-    <strong>
-      This
-      class
-      is abstract.
-    </strong>
-    
-  </div>
-  <p>Elyssa.Behaviour</p>
-</div>
-<div class='tags'>
-</div>
       <h2>Instance Method Summary</h2>
       <ul class='summary'>
   <li>
     <span class='signature'>
-      <a href='#update-instance'>
-        - (void) <strong>update</strong>(dt)
+      <a href='#constructor-instance'>
+        - (void) <strong>constructor</strong>()
+      </a>
+    </span>
+    <span class='constructor note title'>Constructor</span>
+    <span class='desc'>
+      
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#on-instance'>
+        - (void) <strong>on</strong>(eventName, eventFunction)
+      </a>
+    </span>
+    <span class='desc'>
+      
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#off-instance'>
+        - (void) <strong>off</strong>(eventName)
+      </a>
+    </span>
+    <span class='desc'>
+      
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#trigger-instance'>
+        - (void) <strong>trigger</strong>(eventName, args...)
       </a>
     </span>
     <span class='desc'>
@@ -144,11 +160,35 @@
     </span>
   </li>
 </ul>
+      <h2>Constructor Details</h2>
+      <div class='methods'>
+  <div class='method_details'>
+    <p class='signature' id='constructor-instance'>
+      - (void) <strong>constructor</strong>()
+    </p>
+    <div class='tags'>
+</div>
+  </div>
+</div>
       <h2>Instance Method Details</h2>
       <div class='methods'>
   <div class='method_details'>
-    <p class='signature' id='update-instance'>
-      - (void) <strong>update</strong>(dt)
+    <p class='signature' id='on-instance'>
+      - (void) <strong>on</strong>(eventName, eventFunction)
+    </p>
+    <div class='tags'>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='off-instance'>
+      - (void) <strong>off</strong>(eventName)
+    </p>
+    <div class='tags'>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='trigger-instance'>
+      - (void) <strong>trigger</strong>(eventName, args...)
     </p>
     <div class='tags'>
 </div>
