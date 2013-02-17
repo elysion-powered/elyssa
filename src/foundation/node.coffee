@@ -5,9 +5,9 @@ do (window = @, Elyssa = @Elyssa or= {}) ->
     
     constructor: ->
       
-    position: new Elyssa.Vector()
+    position: new Elyssa.Vector3()
     color: new Elyssa.Color()
-    scale: new Elyssa.Vector()
+    scale: new Elyssa.Vector2()
     texture: new Elyssa.Texture()
     
     draw: ->
