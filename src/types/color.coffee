@@ -65,10 +65,14 @@ do (window = @, Elyssa = @Elyssa or= {}) ->
     lighten: (factor) ->
       factor = Elyssa.Math.clamp(factor)
       
-      delta = ~~(colorMax * factor)
+      delta = Math.round(colorMax * factor)
       @r += delta
       @g += delta
       @b += delta
+      
+      @r = Elyssa.Math.clamp(@r, 0, colorMax)
+      @g = Elyssa.Math.clamp(@g, 0, colorMax)
+      @b = Elyssa.Math.clamp(@b, 0, colorMax)
       
       @
       
@@ -79,10 +83,14 @@ do (window = @, Elyssa = @Elyssa or= {}) ->
     darken: (factor) ->
       factor = Elyssa.Math.clamp(factor)
       
-      delta = ~~(colorMax * factor)
+      delta = Math.round(colorMax * factor)
       @r -= delta
       @g -= delta
       @b -= delta
+      
+      @r = Elyssa.Math.clamp(@r, 0, colorMax)
+      @g = Elyssa.Math.clamp(@g, 0, colorMax)
+      @b = Elyssa.Math.clamp(@b, 0, colorMax)
       
       @
     

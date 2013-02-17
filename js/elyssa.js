@@ -521,20 +521,26 @@
       Color.prototype.lighten = function(factor) {
         var delta;
         factor = Elyssa.Math.clamp(factor);
-        delta = ~~(colorMax * factor);
+        delta = Math.round(colorMax * factor);
         this.r += delta;
         this.g += delta;
         this.b += delta;
+        this.r = Elyssa.Math.clamp(this.r, 0, colorMax);
+        this.g = Elyssa.Math.clamp(this.g, 0, colorMax);
+        this.b = Elyssa.Math.clamp(this.b, 0, colorMax);
         return this;
       };
 
       Color.prototype.darken = function(factor) {
         var delta;
         factor = Elyssa.Math.clamp(factor);
-        delta = ~~(colorMax * factor);
+        delta = Math.round(colorMax * factor);
         this.r -= delta;
         this.g -= delta;
         this.b -= delta;
+        this.r = Elyssa.Math.clamp(this.r, 0, colorMax);
+        this.g = Elyssa.Math.clamp(this.g, 0, colorMax);
+        this.b = Elyssa.Math.clamp(this.b, 0, colorMax);
         return this;
       };
 
