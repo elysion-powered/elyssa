@@ -11,4 +11,6 @@ do (window = @, Elyssa = @Elyssa or= {}) ->
       x: @w / 2
       y: @h / 2
       
-    toString: -> JSON.stringify {@x, @y, @z}
+    toString: -> Elyssa.serialize {@x, @y, @w, @h}, defaultValue
+
+    @fromString: (rectString) -> Elyssa.deserialize rectString, @name
