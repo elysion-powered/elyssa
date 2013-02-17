@@ -17,7 +17,7 @@
     &raquo;
     <span class='title'>Elyssa</span>
     &raquo;
-    <span class='title'>Size</span>
+    <span class='title'>Vector3</span>
     <nav>
       <ul>
         <li class='noframes'>
@@ -108,24 +108,100 @@
     <div id='content'>
       <h1>
         Class:
-        Elyssa.Size
+        Elyssa.Vector3
       </h1>
       <table class='box'>
         <tr>
           <td>Defined in:</td>
-          <td>src&#47;types&#47;size.coffee</td>
+          <td>src&#47;types&#47;vector3.coffee</td>
         </tr>
       </table>
+      <h2>Overview</h2>
+      <div class='docstring'>
+  <p>Vector class</p>
+</div>
+<div class='tags'>
+</div>
       <h2>Class Method Summary</h2>
       <ul class='summary'>
   <li>
     <span class='signature'>
-      <a href='#fromString-class'>
-        + (void) <strong>fromString</strong>(rectString)
+      <a href='#crossProduct-class'>
+        + (void) <strong>crossProduct</strong>(a, b)
+      </a>
+    </span>
+    <span class='desc'>
+      Calculates the cross product of two vectors and returns it as a new vector
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#dotProduct-class'>
+        + (void) <strong>dotProduct</strong>(a, b)
+      </a>
+    </span>
+    <span class='desc'>
+      Calculates the dot product between two vectors and returns the value
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#normalize-class'>
+        + (void) <strong>normalize</strong>(vec)
+      </a>
+    </span>
+    <span class='desc'>
+      Static function to normalize a vector
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#up-class'>
+        + (void) <strong>up</strong>()
       </a>
     </span>
     <span class='desc'>
       
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#zero-class'>
+        + (void) <strong>zero</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#one-class'>
+        + (void) <strong>one</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#right-class'>
+        + (void) <strong>right</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#fromString-class'>
+        + (void) <strong>fromString</strong>(string)
+      </a>
+    </span>
+    <span class='desc'>
+      Deserializes the vector
     </span>
   </li>
 </ul>
@@ -134,12 +210,12 @@
   <li>
     <span class='signature'>
       <a href='#constructor-instance'>
-        - (void) <strong>constructor</strong>(undefined = { w: 0, h: 0 })
+        - (void) <strong>constructor</strong>(undefined = defaultValue)
       </a>
     </span>
     <span class='constructor note title'>Constructor</span>
     <span class='desc'>
-      
+      Creates the vector class Allows to define X, Y and Z components as part of an object
     </span>
   </li>
   <li>
@@ -149,13 +225,23 @@
       </a>
     </span>
     <span class='desc'>
+      Converts a vector into a rect
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#normalize-instance'>
+        - (void) <strong>normalize</strong>()
+      </a>
+    </span>
+    <span class='desc'>
       
     </span>
   </li>
   <li>
     <span class='signature'>
-      <a href='#center-instance'>
-        - (void) <strong>center</strong>()
+      <a href='#toVector2-instance'>
+        - (void) <strong>toVector2</strong>()
       </a>
     </span>
     <span class='desc'>
@@ -169,17 +255,78 @@
       </a>
     </span>
     <span class='desc'>
-      
+      Serializes the vector
     </span>
   </li>
 </ul>
       <h2>Class Method Details</h2>
       <div class='methods'>
   <div class='method_details'>
-    <p class='signature' id='fromString-class'>
-      + (void) <strong>fromString</strong>(rectString)
+    <p class='signature' id='crossProduct-class'>
+      + (void) <strong>crossProduct</strong>(a, b)
+    </p>
+    <div class='docstring'>
+  <p>Calculates the cross product of two vectors and returns it as a new vector</p>
+</div>
+<div class='tags'>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='dotProduct-class'>
+      + (void) <strong>dotProduct</strong>(a, b)
+    </p>
+    <div class='docstring'>
+  <p>Calculates the dot product between two vectors and returns the value</p>
+</div>
+<div class='tags'>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='normalize-class'>
+      + (void) <strong>normalize</strong>(vec)
+    </p>
+    <div class='docstring'>
+  <p>Static function to normalize a vector</p>
+</div>
+<div class='tags'>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='up-class'>
+      + (void) <strong>up</strong>()
     </p>
     <div class='tags'>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='zero-class'>
+      + (void) <strong>zero</strong>()
+    </p>
+    <div class='tags'>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='one-class'>
+      + (void) <strong>one</strong>()
+    </p>
+    <div class='tags'>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='right-class'>
+      + (void) <strong>right</strong>()
+    </p>
+    <div class='tags'>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='fromString-class'>
+      + (void) <strong>fromString</strong>(string)
+    </p>
+    <div class='docstring'>
+  <p>Deserializes the vector</p>
+</div>
+<div class='tags'>
 </div>
   </div>
 </div>
@@ -187,9 +334,12 @@
       <div class='methods'>
   <div class='method_details'>
     <p class='signature' id='constructor-instance'>
-      - (void) <strong>constructor</strong>(undefined = { w: 0, h: 0 })
+      - (void) <strong>constructor</strong>(undefined = defaultValue)
     </p>
-    <div class='tags'>
+    <div class='docstring'>
+  <p>Creates the vector class</p><p>Allows to define X, Y and Z components as part of an object</p>
+</div>
+<div class='tags'>
 </div>
   </div>
 </div>
@@ -199,12 +349,22 @@
     <p class='signature' id='toRect-instance'>
       - (void) <strong>toRect</strong>()
     </p>
+    <div class='docstring'>
+  <p>Converts a vector into a rect</p>
+</div>
+<div class='tags'>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='normalize-instance'>
+      - (void) <strong>normalize</strong>()
+    </p>
     <div class='tags'>
 </div>
   </div>
   <div class='method_details'>
-    <p class='signature' id='center-instance'>
-      - (void) <strong>center</strong>()
+    <p class='signature' id='toVector2-instance'>
+      - (void) <strong>toVector2</strong>()
     </p>
     <div class='tags'>
 </div>
@@ -213,7 +373,10 @@
     <p class='signature' id='toString-instance'>
       - (void) <strong>toString</strong>()
     </p>
-    <div class='tags'>
+    <div class='docstring'>
+  <p>Serializes the vector</p>
+</div>
+<div class='tags'>
 </div>
   </div>
 </div>
