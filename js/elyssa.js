@@ -511,7 +511,11 @@
         if (tmpB.length === 1) {
           tmpB = "0" + tmpB;
         }
-        return "#" + tmpR + tmpG + tmpB;
+        if (tmpR[0] === tmpR[1] && tmpG[0] === tmpG[1] && tmpB[0] === tmpB[1]) {
+          return "#" + tmpR[0] + tmpG[0] + tmpB[0];
+        } else {
+          return "#" + tmpR + tmpG + tmpB;
+        }
       };
 
       Color.prototype.lighten = function(factor) {
@@ -537,16 +541,18 @@
       Color.prototype.fadeIn = function(factor) {
         var delta;
         factor = Elyssa.Math.clamp(factor);
-        delta = ~~(colorMax * factor);
+        delta = Math.round(colorMax * factor);
         this.a += delta;
+        this.a = Elyssa.Math.clamp(this.a, 0, colorMax);
         return this;
       };
 
       Color.prototype.fadeOut = function(factor) {
         var delta;
         factor = Elyssa.Math.clamp(factor);
-        delta = ~~(colorMax * factor);
+        delta = Math.round(colorMax * factor);
         this.a -= delta;
+        this.a = Elyssa.Math.clamp(this.a, 0, colorMax);
         return this;
       };
 
