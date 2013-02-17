@@ -1,5 +1,6 @@
 flour = require 'flour'
 path = require 'path'
+fs = require 'fs'
 {exec} = require 'child_process'
 
 # Constants
@@ -19,6 +20,9 @@ flour.minifiers['js'] = null
 buildTasks = ['core', 'types', 'utils', 'component', 'graphics', 'renderers', 'foundation', 'gui', 'pipeline', 'scene']
 
 buildPart = (part, success) ->
+  testPath = path.join 'test', 'src', 'tests', part
+  fs.exists(testPath, (exists) -> compile path.join(testPath, '*.coffee'), path.join('test', 'js', 'tests', part, '*') if exists)
+  
   bundle path.join(SOURCE, part, '*.coffee'), path.join(OUTPUT, "elyssa/#{part}.js"), success
 
 ((index) -> task "build:#{index}", -> buildPart index)(t) for t in buildTasks
