@@ -1274,12 +1274,7 @@
 
       function Rect(_arg) {
         var _ref;
-        _ref = _arg != null ? _arg : {
-          x: defaultValue.x,
-          y: defaultValue.y,
-          w: defaultValue.w,
-          h: defaultValue.h
-        }, this.x = _ref.x, this.y = _ref.y, this.w = _ref.w, this.h = _ref.h;
+        _ref = _arg != null ? _arg : defaultValue, this.x = _ref.x, this.y = _ref.y, this.w = _ref.w, this.h = _ref.h;
         if (this.x == null) {
           this.x = defaultValue.x;
         }
@@ -1411,22 +1406,25 @@
 
   (function(window, Elyssa) {
     return Elyssa.Vector = (function() {
+      var defaultValue;
+
+      defaultValue = {
+        x: 0,
+        y: 0,
+        z: 0
+      };
 
       function Vector(_arg) {
         var _ref;
-        _ref = _arg != null ? _arg : {
-          x: 0,
-          y: 0,
-          z: 0
-        }, this.x = _ref.x, this.y = _ref.y, this.z = _ref.z;
+        _ref = _arg != null ? _arg : defaultValue, this.x = _ref.x, this.y = _ref.y, this.z = _ref.z;
         if (this.x == null) {
-          this.x = 0;
+          this.x = defaultValue.x;
         }
         if (this.y == null) {
-          this.y = 0;
+          this.y = defaultValue.y;
         }
         if (this.z == null) {
-          this.z = 0;
+          this.z = defaultValue.z;
         }
       }
 
@@ -1447,21 +1445,85 @@
         });
       };
 
+      Vector.prototype.normalize = function() {
+        return new Elyssa.Vector({
+          x: this.x / this.length,
+          y: this.y / this.length,
+          z: this.z / this.length
+        });
+      };
+
+      Vector.property('length', {
+        get: function() {
+          return window.Math.sqrt(this.x * this.x + this.y * this.y + this.z * this.z);
+        }
+      });
+
+      Vector.crossProduct = function(a, b) {
+        return new Elyssa.Vector({
+          x: a.y * b.z - b.y * a.z,
+          y: a.z * b.x - b.z * a.x,
+          z: a.x * b.y - b.x * a.y
+        });
+      };
+
+      Vector.dotProduct = function(a, b) {
+        return a.x * b.x + a.y * b.y + a.z * b.z;
+      };
+
+      Vector.normalize = function(vec) {
+        return new Elyssa.Vector({
+          x: vec.x / vec.length,
+          y: vec.y / vec.length,
+          z: vec.z / vec.length
+        });
+      };
+
+      Vector.up = function() {
+        return new Elyssa.Vector({
+          x: 0,
+          y: 1,
+          z: 0
+        });
+      };
+
+      Vector.zero = function() {
+        return new Elyssa.Vector({
+          x: 0,
+          y: 0,
+          Z: 0
+        });
+      };
+
+      Vector.one = function() {
+        return new Elyssa.Vector({
+          x: 1,
+          y: 1,
+          z: 1
+        });
+      };
+
+      Vector.right = function() {
+        return new Elyssa.Vector({
+          x: 1,
+          y: 0,
+          z: 0
+        });
+      };
+
+      Vector.prototype.toString = function() {
+        return Elyssa.serialize({
+          x: this.x,
+          y: this.y,
+          z: this.z
+        }, defaultValue);
+      };
+
+      Vector.fromString = function(string) {
+        return Elyssa.deserialize(string, 'Vector');
+      };
+
       return Vector;
-
-    })();
-  })(this, this.Elyssa || (this.Elyssa = {}));
-
-}).call(this);
-
-(function() {
-
-  (function(window, Elyssa) {
-    return Elyssa.Vector2 = (function() {
-
-      function Vector2() {}
-
-      return Vector2;
 
     })();
   })(this, this.Elyssa || (this.Elyssa = {}));

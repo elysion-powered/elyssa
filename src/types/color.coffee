@@ -99,6 +99,8 @@ do (window = @, Elyssa = @Elyssa or= {}) ->
       
       @
     
+    
+    
     # Static methods
     # Predefined colors
     

@@ -22,10 +22,10 @@
 
       Node.prototype.toString = function() {
         return JSON.stringify({
-          position: this.position,
-          color: this.color,
-          scale: this.scale,
-          texture: this.texture
+          position: this.position.toString(),
+          color: this.color.toString(),
+          scale: this.scale.toString(),
+          texture: this.texture.toString()
         });
       };
 
