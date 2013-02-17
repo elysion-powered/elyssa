@@ -1263,26 +1263,34 @@
 
   (function(window, Elyssa) {
     return Elyssa.Rect = (function() {
+      var defaultValue;
+
+      defaultValue = {
+        x: 0,
+        y: 0,
+        w: 0,
+        h: 0
+      };
 
       function Rect(_arg) {
         var _ref;
         _ref = _arg != null ? _arg : {
-          x: 0,
-          y: 0,
-          w: 0,
-          h: 0
+          x: defaultValue.x,
+          y: defaultValue.y,
+          w: defaultValue.w,
+          h: defaultValue.h
         }, this.x = _ref.x, this.y = _ref.y, this.w = _ref.w, this.h = _ref.h;
         if (this.x == null) {
-          this.x = 0;
+          this.x = defaultValue.x;
         }
         if (this.y == null) {
-          this.y = 0;
+          this.y = defaultValue.y;
         }
         if (this.w == null) {
-          this.w = 0;
+          this.w = defaultValue.w;
         }
         if (this.h == null) {
-          this.h = 0;
+          this.h = defaultValue.h;
         }
       }
 
@@ -1330,12 +1338,16 @@
       };
 
       Rect.prototype.toString = function() {
-        return JSON.stringify({
+        return Elyssa.serialize({
           x: this.x,
           y: this.y,
           w: this.w,
           h: this.h
-        });
+        }, defaultValue);
+      };
+
+      Rect.fromString = function(rectString) {
+        return Elyssa.deserialize(rectString, 'Rect');
       };
 
       return Rect;
@@ -1436,6 +1448,20 @@
       };
 
       return Vector;
+
+    })();
+  })(this, this.Elyssa || (this.Elyssa = {}));
+
+}).call(this);
+
+(function() {
+
+  (function(window, Elyssa) {
+    return Elyssa.Vector2 = (function() {
+
+      function Vector2() {}
+
+      return Vector2;
 
     })();
   })(this, this.Elyssa || (this.Elyssa = {}));

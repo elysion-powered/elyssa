@@ -229,26 +229,78 @@
       EventMap.prototype.validEvents = [];
 
       EventMap.prototype.on = function(eventName, eventFunction) {
+        if (!eventFunction) {
+          return;
+        }
         if (this.validEvents.length > 0) {
           if (validEvents.indexOf(eventName) === -1) {
             return;
           }
         }
-        return eventMap[eventName] = eventFunction;
+        eventMap[eventName] = {
+          event: eventFunction,
+          id: -1,
+          type: ''
+        };
+        return this;
       };
 
       EventMap.prototype.off = function(eventName) {
-        if (eventMap[eventName]) {
-          return delete eventMap[eventName];
+        if (!eventName) {
+          return;
         }
+        if (eventMap[eventName].type === 'once' || eventMap[eventName].type === 'repeat') {
+          if (eventMap[eventName].type === 'repeat') {
+            window.clearInterval(eventMap[eventName].id);
+          }
+          if (eventMap[eventName].type === 'once') {
+            window.clearTimeout(eventMap[eventName].id);
+          }
+        }
+        if (eventMap[eventName]) {
+          delete eventMap[eventName];
+        }
+        return this;
       };
 
       EventMap.prototype.trigger = function() {
-        var args, eventName;
+        var args, context, eventName, interval, name, repeat, triggerFunction;
         eventName = arguments[0], args = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
-        if (eventMap[eventName]) {
-          return eventMap[eventName].apply(this, args);
+        if (eventName == null) {
+          return;
         }
+        if (typeof eventName === 'object') {
+          name = eventName.name, interval = eventName.interval, repeat = eventName.repeat, context = eventName.context;
+        } else {
+          name = eventName;
+        }
+        if (interval == null) {
+          interval = 0;
+        }
+        if (repeat == null) {
+          repeat = false;
+        }
+        if (context == null) {
+          context = this;
+        }
+        triggerFunction = function() {
+          if (eventMap[name]) {
+            return eventMap[name].event.apply(context, args);
+          }
+        };
+        if (interval) {
+          if (repeat) {
+            eventMap[name].type = 'repeat';
+            eventMap[name].id = window.setInterval(triggerFunction, interval);
+          } else {
+            eventMap[name].type = 'once';
+            eventMap[name].id = window.setTimeout(triggerFunction, interval);
+          }
+        } else {
+          eventMap[name].type = 'direct';
+          triggerFunction.call(this);
+        }
+        return this;
       };
 
       return EventMap;
@@ -1657,26 +1709,34 @@
 
   (function(window, Elyssa) {
     return Elyssa.Rect = (function() {
+      var defaultValue;
+
+      defaultValue = {
+        x: 0,
+        y: 0,
+        w: 0,
+        h: 0
+      };
 
       function Rect(_arg) {
         var _ref;
         _ref = _arg != null ? _arg : {
-          x: 0,
-          y: 0,
-          w: 0,
-          h: 0
+          x: defaultValue.x,
+          y: defaultValue.y,
+          w: defaultValue.w,
+          h: defaultValue.h
         }, this.x = _ref.x, this.y = _ref.y, this.w = _ref.w, this.h = _ref.h;
         if (this.x == null) {
-          this.x = 0;
+          this.x = defaultValue.x;
         }
         if (this.y == null) {
-          this.y = 0;
+          this.y = defaultValue.y;
         }
         if (this.w == null) {
-          this.w = 0;
+          this.w = defaultValue.w;
         }
         if (this.h == null) {
-          this.h = 0;
+          this.h = defaultValue.h;
         }
       }
 
@@ -1724,12 +1784,16 @@
       };
 
       Rect.prototype.toString = function() {
-        return JSON.stringify({
+        return Elyssa.serialize({
           x: this.x,
           y: this.y,
           w: this.w,
           h: this.h
-        });
+        }, defaultValue);
+      };
+
+      Rect.fromString = function(rectString) {
+        return Elyssa.deserialize(rectString, 'Rect');
       };
 
       return Rect;
@@ -1832,6 +1896,59 @@
       return Vector;
 
     })();
+  })(this, this.Elyssa || (this.Elyssa = {}));
+
+}).call(this);
+
+(function() {
+
+  (function(window, Elyssa) {
+    return Elyssa.Vector2 = (function() {
+
+      function Vector2() {}
+
+      return Vector2;
+
+    })();
+  })(this, this.Elyssa || (this.Elyssa = {}));
+
+}).call(this);
+
+(function() {
+
+  (function(window, Elyssa) {
+    return Elyssa.deserialize = function(stringedObject, convert) {
+      var parsedObject;
+      if (!stringedObject) {
+        return new Elyssa[convert]();
+      }
+      try {
+        parsedObject = JSON.parse(stringedObject);
+        return new Elyssa[convert](parsedObject);
+      } catch (error) {
+        console.log("Error while converting " + stringedObject + " to a " + convert + ": " + error);
+        return new Elyssa[convert]();
+      }
+    };
+  })(this, this.Elyssa || (this.Elyssa = {}));
+
+}).call(this);
+
+(function() {
+
+  (function(window, Elyssa) {
+    return Elyssa.serialize = function(object, defaultValue) {
+      var key, value;
+      if (defaultValue) {
+        for (key in defaultValue) {
+          value = defaultValue[key];
+          if (value === object[key]) {
+            delete object[key];
+          }
+        }
+      }
+      return JSON.stringify(object);
+    };
   })(this, this.Elyssa || (this.Elyssa = {}));
 
 }).call(this);
@@ -2238,6 +2355,34 @@
       return Preloader;
 
     })();
+  })(this, this.Elyssa || (this.Elyssa = {}));
+
+}).call(this);
+
+(function() {
+
+  (function(window, Elyssa) {
+    'use strict';
+    return Elyssa.Storage = (function(localStorage) {
+      var clear, item, load, save, storageMap, toString;
+      storageMap = {};
+      toString = function() {
+        return JSON.stringify(storageMap);
+      };
+      clear = function() {
+        return storageMap = {};
+      };
+      load = function() {};
+      save = function() {};
+      item = function(key, value) {};
+      return {
+        toString: toString,
+        item: item,
+        load: load,
+        save: save,
+        clear: clear
+      };
+    })(window.localStorage);
   })(this, this.Elyssa || (this.Elyssa = {}));
 
 }).call(this);
