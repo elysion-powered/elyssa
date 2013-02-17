@@ -1324,11 +1324,17 @@
         });
       };
 
-      Rect.prototype.toVector = function() {
-        return new Elyssa.Vector({
+      Rect.prototype.toVector2 = function() {
+        return new Elyssa.Vector2({
           x: this.x,
-          y: this.y,
-          z: 0
+          y: this.y
+        });
+      };
+
+      Rect.prototype.toVector3 = function() {
+        return new Elyssa.Vector3({
+          x: this.x,
+          y: this.y
         });
       };
 
@@ -1342,7 +1348,7 @@
       };
 
       Rect.fromString = function(rectString) {
-        return Elyssa.deserialize(rectString, 'Rect');
+        return Elyssa.deserialize(rectString, this.name);
       };
 
       return Rect;
@@ -1388,11 +1394,16 @@
       };
 
       Size.prototype.toString = function() {
-        return JSON.stringify({
+        return Elyssa.serialize({
           x: this.x,
           y: this.y,
-          z: this.z
-        });
+          w: this.w,
+          h: this.h
+        }, defaultValue);
+      };
+
+      Size.fromString = function(rectString) {
+        return Elyssa.deserialize(rectString, this.name);
       };
 
       return Size;
@@ -1405,7 +1416,89 @@
 (function() {
 
   (function(window, Elyssa) {
-    return Elyssa.Vector = (function() {
+    return Elyssa.Vector2 = (function() {
+      var defaultValue;
+
+      defaultValue = {
+        x: 0,
+        y: 0
+      };
+
+      function Vector2(_arg) {
+        var _ref;
+        _ref = _arg != null ? _arg : defaultValue, this.x = _ref.x, this.y = _ref.y;
+        if (this.x == null) {
+          this.x = defaultValue.x;
+        }
+        if (this.y == null) {
+          this.y = defaultValue.y;
+        }
+      }
+
+      Vector2.prototype.toRect = function() {
+        return new Elyssa.Rect({
+          x: this.x,
+          y: this.y
+        });
+      };
+
+      Vector2.prototype.normalize = function() {
+        return new Elyssa.Vector({
+          x: this.x / this.length,
+          y: this.y / this.length
+        });
+      };
+
+      Vector2.property('length', {
+        get: function() {
+          return window.Math.sqrt(this.x * this.x + this.y * this.y);
+        }
+      });
+
+      Vector2.dotProduct = function(a, b) {
+        if (!(a && b)) {
+          return;
+        }
+        return a.x * b.x + a.y * b.y;
+      };
+
+      Vector2.normalize = function(vec) {
+        return new Elyssa.Vector2({
+          x: vec.x / vec.length,
+          y: vec.y / vec.length
+        });
+      };
+
+      Vector2.prototype.toVector3 = function() {
+        return Elyssa.Vector3({
+          x: this.x,
+          y: this.y
+        });
+      };
+
+      Vector2.prototype.toString = function() {
+        return Elyssa.serialize({
+          x: this.x,
+          y: this.y,
+          z: this.z
+        }, defaultValue);
+      };
+
+      Vector2.fromString = function(string) {
+        return Elyssa.deserialize(string, this.name);
+      };
+
+      return Vector2;
+
+    })();
+  })(this, this.Elyssa || (this.Elyssa = {}));
+
+}).call(this);
+
+(function() {
+
+  (function(window, Elyssa) {
+    return Elyssa.Vector3 = (function() {
       var defaultValue;
 
       defaultValue = {
@@ -1414,7 +1507,7 @@
         z: 0
       };
 
-      function Vector(_arg) {
+      function Vector3(_arg) {
         var _ref;
         _ref = _arg != null ? _arg : defaultValue, this.x = _ref.x, this.y = _ref.y, this.z = _ref.z;
         if (this.x == null) {
@@ -1428,24 +1521,14 @@
         }
       }
 
-      Vector.prototype.toRect = function() {
+      Vector3.prototype.toRect = function() {
         return new Elyssa.Rect({
           x: this.x,
-          y: this.y,
-          w: 0,
-          h: 0
+          y: this.y
         });
       };
 
-      Vector.prototype.toString = function() {
-        return JSON.stringify({
-          x: this.x,
-          y: this.y,
-          z: this.z
-        });
-      };
-
-      Vector.prototype.normalize = function() {
+      Vector3.prototype.normalize = function() {
         return new Elyssa.Vector({
           x: this.x / this.length,
           y: this.y / this.length,
@@ -1453,65 +1536,78 @@
         });
       };
 
-      Vector.property('length', {
+      Vector3.property('length', {
         get: function() {
           return window.Math.sqrt(this.x * this.x + this.y * this.y + this.z * this.z);
         }
       });
 
-      Vector.crossProduct = function(a, b) {
-        return new Elyssa.Vector({
+      Vector3.crossProduct = function(a, b) {
+        if (!(a && b)) {
+          return;
+        }
+        return new Elyssa.Vector3({
           x: a.y * b.z - b.y * a.z,
           y: a.z * b.x - b.z * a.x,
           z: a.x * b.y - b.x * a.y
         });
       };
 
-      Vector.dotProduct = function(a, b) {
+      Vector3.dotProduct = function(a, b) {
+        if (!(a && b)) {
+          return;
+        }
         return a.x * b.x + a.y * b.y + a.z * b.z;
       };
 
-      Vector.normalize = function(vec) {
-        return new Elyssa.Vector({
+      Vector3.normalize = function(vec) {
+        return new Elyssa.Vector3({
           x: vec.x / vec.length,
           y: vec.y / vec.length,
           z: vec.z / vec.length
         });
       };
 
-      Vector.up = function() {
-        return new Elyssa.Vector({
+      Vector3.up = function() {
+        return new Elyssa.Vector3({
           x: 0,
           y: 1,
           z: 0
         });
       };
 
-      Vector.zero = function() {
-        return new Elyssa.Vector({
+      Vector3.zero = function() {
+        return new Elyssa.Vector3({
           x: 0,
           y: 0,
           Z: 0
         });
       };
 
-      Vector.one = function() {
-        return new Elyssa.Vector({
+      Vector3.one = function() {
+        return new Elyssa.Vector3({
           x: 1,
           y: 1,
           z: 1
         });
       };
 
-      Vector.right = function() {
-        return new Elyssa.Vector({
+      Vector3.right = function() {
+        return new Elyssa.Vector3({
           x: 1,
           y: 0,
           z: 0
         });
       };
 
-      Vector.prototype.toString = function() {
+      Vector3.prototype.toVector2 = function() {
+        return Elyssa.Vector2({
+          x: this.x,
+          y: this.y
+        });
+      };
+
+      Vector3.prototype.toString = function() {
         return Elyssa.serialize({
           x: this.x,
           y: this.y,
@@ -1519,11 +1615,11 @@
         }, defaultValue);
       };
 
-      Vector.fromString = function(string) {
-        return Elyssa.deserialize(string, 'Vector');
+      Vector3.fromString = function(string) {
+        return Elyssa.deserialize(string, this.name);
       };
 
-      return Vector;
+      return Vector3;
 
     })();
   })(this, this.Elyssa || (this.Elyssa = {}));

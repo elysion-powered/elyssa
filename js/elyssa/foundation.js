@@ -10,11 +10,11 @@
 
       function Node() {}
 
-      Node.prototype.position = new Elyssa.Vector();
+      Node.prototype.position = new Elyssa.Vector3();
 
       Node.prototype.color = new Elyssa.Color();
 
-      Node.prototype.scale = new Elyssa.Vector();
+      Node.prototype.scale = new Elyssa.Vector2();
 
       Node.prototype.texture = new Elyssa.Texture();
 
