@@ -7,7 +7,7 @@ do (window = @, Elyssa = @Elyssa or= {}) ->
       w: 0
       h: 0
       
-    constructor: ({@x, @y, @w, @h} = {x: defaultValue.x, y: defaultValue.y, w: defaultValue.w, h: defaultValue.h}) ->
+    constructor: ({@x, @y, @w, @h} = defaultValue) ->
       @x = defaultValue.x unless @x?
       @y = defaultValue.y unless @y?
       @w = defaultValue.w unless @w?
