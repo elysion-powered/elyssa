@@ -13,4 +13,9 @@ do (window = @, Elyssa = @Elyssa or= {}) ->
     draw: ->
     
     
-    toString: -> JSON.stringify {@position, @color, @scale, @texture}
+    toString: -> JSON.stringify 
+      position: @position.toString()
+      color: @color.toString()
+      scale: @scale.toString()
+      texture: @texture.toString()
+      
