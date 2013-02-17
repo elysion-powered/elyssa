@@ -53,7 +53,10 @@ do (window = @, Elyssa = @Elyssa or= {}) ->
       tmpG = "0" + tmpG if tmpG.length is 1
       tmpB = "0" + tmpB if tmpB.length is 1
       
-      "##{tmpR}#{tmpG}#{tmpB}"
+      if tmpR[0] is tmpR[1] and tmpG[0] is tmpG[1] and tmpB[0] is tmpB[1]
+        "##{tmpR[0]}#{tmpG[0]}#{tmpB[0]}"
+      else
+        "##{tmpR}#{tmpG}#{tmpB}"
     
     # Lighten the color
     #
@@ -86,16 +89,20 @@ do (window = @, Elyssa = @Elyssa or= {}) ->
     fadeIn: (factor) -> 
       factor = Elyssa.Math.clamp(factor)
       
-      delta = ~~(colorMax * factor)
+      delta = Math.round(colorMax * factor)
       @a += delta
+      
+      @a = Elyssa.Math.clamp(@a, 0, colorMax)
       
       @
       
     fadeOut: (factor) -> 
       factor = Elyssa.Math.clamp(factor)
       
-      delta = ~~(colorMax * factor)
+      delta = Math.round(colorMax * factor)
       @a -= delta
+      
+      @a = Elyssa.Math.clamp(@a, 0, colorMax)
       
       @
     
