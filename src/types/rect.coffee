@@ -1,11 +1,17 @@
 do (window = @, Elyssa = @Elyssa or= {}) ->
 
   class Elyssa.Rect
-    constructor: ({@x, @y, @w, @h} = {x: 0, y: 0, w: 0, h: 0}) ->
-      @x = 0 unless @x?
-      @y = 0 unless @y?
-      @w = 0 unless @w?
-      @h = 0 unless @h?
+    defaultValue =
+      x: 0
+      y: 0
+      w: 0
+      h: 0
+      
+    constructor: ({@x, @y, @w, @h} = {x: defaultValue.x, y: defaultValue.y, w: defaultValue.w, h: defaultValue.h}) ->
+      @x = defaultValue.x unless @x?
+      @y = defaultValue.y unless @y?
+      @w = defaultValue.w unless @w?
+      @h = defaultValue.h unless @h?
   
     contains: ({x, y, w, h}) ->
       if w? and h?
@@ -27,5 +33,6 @@ do (window = @, Elyssa = @Elyssa or= {}) ->
     
     toVector: -> new Elyssa.Vector {@x, @y, z: 0}
       
-    toString: -> JSON.stringify {@x, @y, @w, @h}
-      
+    toString: -> Elyssa.serialize {@x, @y, @w, @h}, defaultValue
+
+    @fromString: (rectString) -> Elyssa.deserialize rectString, 'Rect'
