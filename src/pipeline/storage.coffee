@@ -11,6 +11,8 @@ do (window = @, Elyssa = @Elyssa or= {}) ->
     load = ->
       
     save = ->
+      
+    item = (key, value) ->
     
     {toString, item, load, save, clear}
     
