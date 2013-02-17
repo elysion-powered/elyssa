@@ -31,8 +31,9 @@ do (window = @, Elyssa = @Elyssa or= {}) ->
   
     toSize: -> new Elyssa.Size {@w, @h}
     
-    toVector: -> new Elyssa.Vector {@x, @y, z: 0}
+    toVector2: -> new Elyssa.Vector2 {@x, @y}
+    toVector3: -> new Elyssa.Vector3 {@x, @y}
       
     toString: -> Elyssa.serialize {@x, @y, @w, @h}, defaultValue
 
-    @fromString: (rectString) -> Elyssa.deserialize rectString, 'Rect'
+    @fromString: (rectString) -> Elyssa.deserialize rectString, @name
