@@ -5,7 +5,7 @@ do (window = @, Elyssa = @Elyssa or= {}) ->
     eventMap = {}
     eventFunctions = {}
    
-    constructor: ->
+    constructor: (@sender) ->
       eventMap = {}
       eventFunctions = {}
     
@@ -16,13 +16,20 @@ do (window = @, Elyssa = @Elyssa or= {}) ->
 
       if @validEvents.length > 0
         return if validEvents.indexOf(eventName) is -1
-        
-      eventMap[eventName] = 
+      
+      eventDesc = 
         event: eventFunction
         id: -1
         type: ''
+        sender: @sender
+      
+      unless eventMap[eventName]
+        eventMap[eventName] = [eventDesc]
+      else
+        eventMap[eventName].push eventDesc
       
       @
+      
     off: (eventName) -> 
       return unless eventName    
 
@@ -46,22 +53,23 @@ do (window = @, Elyssa = @Elyssa or= {}) ->
       interval = 0 unless interval?
       repeat = false unless repeat?
       context = @ unless context?
-
-      triggerFunction = ->
-        eventMap[name].event.apply(context, args) if eventMap[name]
-
-      if interval      
-        if repeat
-          eventMap[name].type = 'repeat'
-          eventMap[name].id = window.setInterval triggerFunction, interval
+      
+      for i in eventMap[name]
+        triggerFunction = (evObject) -> 
+          i.event.apply(context, [[i.sender], args].reduce((a, b) -> a.concat(b)))
+        
+        if interval      
+          if repeat
+            i.type = 'repeat'
+            i.id = window.setInterval triggerFunction, interval
+          else
+            i.type = 'once'
+            i.id = window.setTimeout triggerFunction, interval
         else
-          eventMap[name].type = 'once'
-          eventMap[name].id = window.setTimeout triggerFunction, interval
-      else
-        eventMap[name].type = 'direct'
-        triggerFunction.call @
+          i.type = 'direct'
+          triggerFunction.call @
 
       @
     
 
-  Elyssa.Events = new Elyssa.EventMap()
+  Elyssa.Events = new Elyssa.EventMap('Elyssa.Events')
