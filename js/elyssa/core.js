@@ -221,7 +221,8 @@
 
       eventFunctions = {};
 
-      function EventMap() {
+      function EventMap(sender) {
+        this.sender = sender;
         eventMap = {};
         eventFunctions = {};
       }
@@ -229,6 +230,7 @@
       EventMap.prototype.validEvents = [];
 
       EventMap.prototype.on = function(eventName, eventFunction) {
+        var eventDesc;
         if (!eventFunction) {
           return;
         }
@@ -237,11 +239,17 @@
             return;
           }
         }
-        eventMap[eventName] = {
+        eventDesc = {
           event: eventFunction,
           id: -1,
-          type: ''
+          type: '',
+          sender: this.sender
         };
+        if (!eventMap[eventName]) {
+          eventMap[eventName] = [eventDesc];
+        } else {
+          eventMap[eventName].push(eventDesc);
+        }
         return this;
       };
 
@@ -264,7 +272,7 @@
       };
 
       EventMap.prototype.trigger = function() {
-        var args, context, eventName, interval, name, repeat, triggerFunction;
+        var args, context, eventName, i, interval, name, repeat, triggerFunction, _i, _len, _ref;
         eventName = arguments[0], args = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
         if (eventName == null) {
           return;
@@ -283,22 +291,26 @@
         if (context == null) {
           context = this;
         }
-        triggerFunction = function() {
-          if (eventMap[name]) {
-            return eventMap[name].event.apply(context, args);
-          }
-        };
-        if (interval) {
-          if (repeat) {
-            eventMap[name].type = 'repeat';
-            eventMap[name].id = window.setInterval(triggerFunction, interval);
+        _ref = eventMap[name];
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+          i = _ref[_i];
+          triggerFunction = function(evObject) {
+            return i.event.apply(context, [[i.sender], args].reduce(function(a, b) {
+              return a.concat(b);
+            }));
+          };
+          if (interval) {
+            if (repeat) {
+              i.type = 'repeat';
+              i.id = window.setInterval(triggerFunction, interval);
+            } else {
+              i.type = 'once';
+              i.id = window.setTimeout(triggerFunction, interval);
+            }
           } else {
-            eventMap[name].type = 'once';
-            eventMap[name].id = window.setTimeout(triggerFunction, interval);
+            i.type = 'direct';
+            triggerFunction.call(this);
           }
-        } else {
-          eventMap[name].type = 'direct';
-          triggerFunction.call(this);
         }
         return this;
       };
@@ -306,7 +318,7 @@
       return EventMap;
 
     })();
-    return Elyssa.Events = new Elyssa.EventMap();
+    return Elyssa.Events = new Elyssa.EventMap('Elyssa.Events');
   })(this, this.Elyssa || (this.Elyssa = {}));
 
 }).call(this);
