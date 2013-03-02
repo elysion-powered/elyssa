@@ -2,10 +2,12 @@
   "name": "Elyssa",
   "version": "0.0.1",
   "private": true,
-  "dependencies": {
+  "devDependencies": {
     "flour": "*",
     "uglify-js": "*",
     "coffee-script": "*",
-    "jshint": "*"
+    "jshint": "*",
+    "mocha": "*",
+    "chai": "*"
   }
 }
