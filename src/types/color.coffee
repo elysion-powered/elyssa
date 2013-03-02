@@ -15,7 +15,7 @@ do (window = @, Elyssa = @Elyssa or= {}) ->
       param = {r: 0, g: 0, b: 0, a: 255} unless param?
       
       if typeof param is 'string'
-        return if Elyssa.Color[param] then Elyssa.Color[param]() else new Elyssa.Color()
+        {@r, @g, @b, @a} = if Elyssa.Color[param] then Elyssa.Color[param]() else new Elyssa.Color()
       else
         {@r, @g, @b, @a} = param
         
