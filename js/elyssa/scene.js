@@ -1,8 +1,7 @@
 (function() {
 
   (function(window, Elyssa) {
-    'use strict';
-    return Elyssa.Scene = (function() {
+    'use strict';    return Elyssa.Scene = (function() {
       var entityList;
 
       entityList = [];
@@ -46,8 +45,7 @@
 (function() {
 
   (function(window, Elyssa) {
-    'use strict';
-    return Elyssa.SceneDirector = (function() {
+    'use strict';    return Elyssa.SceneDirector = (function() {
       var currentScene, sceneList;
 
       sceneList = {};

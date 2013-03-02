@@ -1,8 +1,7 @@
 (function() {
 
   (function(window, Elyssa) {
-    'use strict';
-    return Elyssa.GraphicsDevice = {};
+    'use strict';    return Elyssa.GraphicsDevice = {};
   })(this, this.Elyssa || (this.Elyssa = {}));
 
 }).call(this);
@@ -10,8 +9,7 @@
 (function() {
 
   (function(window, Elyssa) {
-    'use strict';
-    return Elyssa.RenderTarget = (function() {
+    'use strict';    return Elyssa.RenderTarget = (function() {
 
       function RenderTarget() {}
 
@@ -25,8 +23,7 @@
 (function() {
 
   (function(window, Elyssa) {
-    'use strict';
-    return Elyssa.Texture = (function() {
+    'use strict';    return Elyssa.Texture = (function() {
 
       function Texture(source) {}
 
@@ -52,8 +49,7 @@
 (function() {
 
   (function(window, Elyssa) {
-    'use strict';
-    return Elyssa.TextureManager = (function() {
+    'use strict';    return Elyssa.TextureManager = (function() {
 
       function TextureManager() {}
 

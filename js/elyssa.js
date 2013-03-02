@@ -3,9 +3,8 @@
 
   (function(window, document) {
     'use strict';
-
     /*
-        Console object fixes
+      Console object fixes
     */
 
     var console, i, lastTime, method, methods, noop, vendors, x, _i, _j, _len, _len1;
@@ -18,7 +17,7 @@
       console[method] || (console[method] = noop);
     }
     /*
-       Extending objects
+     Extending objects
     */
 
     window.extend = function() {
@@ -34,7 +33,7 @@
       return target;
     };
     /*
-        Cloning objects
+      Cloning objects
     */
 
     window.clone = function(obj) {
@@ -68,10 +67,10 @@
       return newInstance;
     };
     /*
-        'is' is a pretty good function name in my opinion, 
-        but already a pre-defined keyword in CoffeeScript, 
-        'check' is a better function name if you want to just 
-        use the function without the 'window' prefix
+      'is' is a pretty good function name in my opinion, 
+      but already a pre-defined keyword in CoffeeScript, 
+      'check' is a better function name if you want to just 
+      use the function without the 'window' prefix
     */
 
     window.is = window.check = function(variable) {
@@ -93,9 +92,9 @@
           }
         }
         /*
-                Else is a reserved keyword, while CoffeeScript interpolates it correctly,
-                it can only be written as check(...).['else']...
-                check(...).otherwise(...) is a better choice, if using plain JavaScript
+          Else is a reserved keyword, while CoffeeScript interpolates it correctly,
+          it can only be written as check(...).['else']...
+          check(...).otherwise(...) is a better choice, if using plain JavaScript
         */
 
         result["else"] = result.otherwise = function(cb) {
@@ -145,7 +144,7 @@
       return result;
     };
     /*
-       requestAnim shim layer by Paul Irish
+     requestAnim shim layer by Paul Irish
     */
 
     lastTime = 0;
@@ -177,7 +176,7 @@
 
   (function(String) {
     /*
-        Provides a hashcode for strings
+      Provides a hashcode for strings
     */
     return String.prototype.hashCode = function() {
       var char, hash, i, _i, _len;
@@ -197,7 +196,7 @@
 
   (function(Function, Object) {
     /*
-        Syntactic sugar for properties
+      Syntactic sugar for properties
     */
     Function.prototype.property = function(prop, desc) {
       return Object.defineProperty(this.prototype, prop, desc);
@@ -213,8 +212,7 @@
   var __slice = [].slice;
 
   (function(window, Elyssa) {
-    'use strict';
-    Elyssa.EventMap = (function() {
+    'use strict';    Elyssa.EventMap = (function() {
       var eventFunctions, eventMap;
 
       eventMap = {};
@@ -253,6 +251,10 @@
         return this;
       };
 
+      EventMap.prototype.addListener = EventMap.on;
+
+      EventMap.prototype.once = function(eventName, eventFunction) {};
+
       EventMap.prototype.off = function(eventName) {
         if (!eventName) {
           return;
@@ -271,11 +273,13 @@
         return this;
       };
 
+      EventMap.prototype.removeListener = EventMap.off;
+
       EventMap.prototype.trigger = function() {
         var args, context, eventName, i, interval, name, repeat, triggerFunction, _i, _len, _ref;
         eventName = arguments[0], args = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
         if (eventName == null) {
-          return;
+          return false;
         }
         if (typeof eventName === 'object') {
           name = eventName.name, interval = eventName.interval, repeat = eventName.repeat, context = eventName.context;
@@ -312,7 +316,7 @@
             triggerFunction.call(this);
           }
         }
-        return this;
+        return true;
       };
 
       return EventMap;
@@ -326,8 +330,7 @@
 (function() {
 
   (function(window, Elyssa) {
-    'use strict';
-    return Elyssa.Log = {};
+    'use strict';    return Elyssa.Log = {};
   })(this, this.Elyssa || (this.Elyssa = {}));
 
 }).call(this);
@@ -428,8 +431,7 @@
 (function() {
 
   (function(window, Elyssa) {
-    'use strict';
-    return Elyssa.Math = {
+    'use strict';    return Elyssa.Math = {
       clamp: function(value, min, max) {
         var _ref;
         if (min == null) {
@@ -459,13 +461,13 @@
 (function() {
 
   (function(window, Elyssa) {
-    'use strict';
-    Elyssa.Color = (function() {
+    'use strict';    Elyssa.Color = (function() {
       var colorMax;
 
       colorMax = 255;
 
       function Color(param) {
+        var _ref;
         if (param == null) {
           param = {
             r: 0,
@@ -475,11 +477,7 @@
           };
         }
         if (typeof param === 'string') {
-          if (Elyssa.Color[param]) {
-            return Elyssa.Color[param]();
-          } else {
-            return new Elyssa.Color();
-          }
+          _ref = Elyssa.Color[param] ? Elyssa.Color[param]() : new Elyssa.Color(), this.r = _ref.r, this.g = _ref.g, this.b = _ref.b, this.a = _ref.a;
         } else {
           this.r = param.r, this.g = param.g, this.b = param.b, this.a = param.a;
           if (this.r == null) {
@@ -2138,8 +2136,7 @@
 (function() {
 
   (function(window, Elyssa) {
-    'use strict';
-    return Elyssa.Behaviour = (function() {
+    'use strict';    return Elyssa.Behaviour = (function() {
 
       function Behaviour() {}
 
@@ -2155,8 +2152,7 @@
 (function() {
 
   (function(window, Elyssa) {
-    'use strict';
-    return Elyssa.Entity = (function() {
+    'use strict';    return Elyssa.Entity = (function() {
       var functionList;
 
       functionList = {};
@@ -2253,8 +2249,7 @@
 (function() {
 
   (function(window, Elyssa) {
-    'use strict';
-    return Elyssa.GraphicsDevice = {};
+    'use strict';    return Elyssa.GraphicsDevice = {};
   })(this, this.Elyssa || (this.Elyssa = {}));
 
 }).call(this);
@@ -2262,8 +2257,7 @@
 (function() {
 
   (function(window, Elyssa) {
-    'use strict';
-    return Elyssa.RenderTarget = (function() {
+    'use strict';    return Elyssa.RenderTarget = (function() {
 
       function RenderTarget() {}
 
@@ -2277,8 +2271,7 @@
 (function() {
 
   (function(window, Elyssa) {
-    'use strict';
-    return Elyssa.Texture = (function() {
+    'use strict';    return Elyssa.Texture = (function() {
 
       function Texture(source) {}
 
@@ -2304,8 +2297,7 @@
 (function() {
 
   (function(window, Elyssa) {
-    'use strict';
-    return Elyssa.TextureManager = (function() {
+    'use strict';    return Elyssa.TextureManager = (function() {
 
       function TextureManager() {}
 
@@ -2319,8 +2311,7 @@
 (function() {
 
   (function(window, document, Elyssa) {
-    'use strict';
-    return Elyssa.Renderer = (function() {
+    'use strict';    return Elyssa.Renderer = (function() {
       var bind, functionNames, setMethods, source;
 
       functionNames = ['drawLine', 'drawPoint', 'drawTexture', 'clear'];
@@ -2368,8 +2359,7 @@
 (function() {
 
   (function(window, document, Elyssa) {
-    'use strict';
-    return Elyssa.Renderer.Canvas = (function() {
+    'use strict';    return Elyssa.Renderer.Canvas = (function() {
       var context;
 
       context = null;
@@ -2398,8 +2388,7 @@
 (function() {
 
   (function(window, document, Elyssa) {
-    'use strict';
-    return Elyssa.Renderer.DOM = (function() {
+    'use strict';    return Elyssa.Renderer.DOM = (function() {
 
       function DOM() {
         this.name = 'DOM';
@@ -2417,8 +2406,7 @@
 (function() {
 
   (function(window, document, Elyssa) {
-    'use strict';
-    return Elyssa.Renderer.SVG = (function() {
+    'use strict';    return Elyssa.Renderer.SVG = (function() {
 
       function SVG() {
         this.name = 'SVG';
@@ -2438,8 +2426,7 @@
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
   (function(window, Elyssa) {
-    'use strict';
-    return Elyssa.Node = (function(_super) {
+    'use strict';    return Elyssa.Node = (function(_super) {
 
       __extends(Node, _super);
 
@@ -2516,8 +2503,7 @@
 (function() {
 
   (function(window, Elyssa) {
-    'use strict';
-    return Elyssa.Assets = {};
+    'use strict';    return Elyssa.Assets = {};
   })(this, this.Elyssa || (this.Elyssa = {}));
 
 }).call(this);
@@ -2525,8 +2511,7 @@
 (function() {
 
   (function(window, Elyssa) {
-    'use strict';
-    return Elyssa.Preloader = (function() {
+    'use strict';    return Elyssa.Preloader = (function() {
 
       function Preloader() {}
 
@@ -2544,8 +2529,7 @@
 (function() {
 
   (function(window, Elyssa) {
-    'use strict';
-    return Elyssa.Storage = (function(localStorage) {
+    'use strict';    return Elyssa.Storage = (function(localStorage) {
       var clear, item, load, save, storageMap, toString;
       storageMap = {};
       toString = function() {
@@ -2572,8 +2556,7 @@
 (function() {
 
   (function(window, Elyssa) {
-    'use strict';
-    return Elyssa.Scene = (function() {
+    'use strict';    return Elyssa.Scene = (function() {
       var entityList;
 
       entityList = [];
@@ -2617,8 +2600,7 @@
 (function() {
 
   (function(window, Elyssa) {
-    'use strict';
-    return Elyssa.SceneDirector = (function() {
+    'use strict';    return Elyssa.SceneDirector = (function() {
       var currentScene, sceneList;
 
       sceneList = {};

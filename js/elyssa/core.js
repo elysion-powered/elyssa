@@ -3,9 +3,8 @@
 
   (function(window, document) {
     'use strict';
-
     /*
-        Console object fixes
+      Console object fixes
     */
 
     var console, i, lastTime, method, methods, noop, vendors, x, _i, _j, _len, _len1;
@@ -18,7 +17,7 @@
       console[method] || (console[method] = noop);
     }
     /*
-       Extending objects
+     Extending objects
     */
 
     window.extend = function() {
@@ -34,7 +33,7 @@
       return target;
     };
     /*
-        Cloning objects
+      Cloning objects
     */
 
     window.clone = function(obj) {
@@ -68,10 +67,10 @@
       return newInstance;
     };
     /*
-        'is' is a pretty good function name in my opinion, 
-        but already a pre-defined keyword in CoffeeScript, 
-        'check' is a better function name if you want to just 
-        use the function without the 'window' prefix
+      'is' is a pretty good function name in my opinion, 
+      but already a pre-defined keyword in CoffeeScript, 
+      'check' is a better function name if you want to just 
+      use the function without the 'window' prefix
     */
 
     window.is = window.check = function(variable) {
@@ -93,9 +92,9 @@
           }
         }
         /*
-                Else is a reserved keyword, while CoffeeScript interpolates it correctly,
-                it can only be written as check(...).['else']...
-                check(...).otherwise(...) is a better choice, if using plain JavaScript
+          Else is a reserved keyword, while CoffeeScript interpolates it correctly,
+          it can only be written as check(...).['else']...
+          check(...).otherwise(...) is a better choice, if using plain JavaScript
         */
 
         result["else"] = result.otherwise = function(cb) {
@@ -145,7 +144,7 @@
       return result;
     };
     /*
-       requestAnim shim layer by Paul Irish
+     requestAnim shim layer by Paul Irish
     */
 
     lastTime = 0;
@@ -177,7 +176,7 @@
 
   (function(String) {
     /*
-        Provides a hashcode for strings
+      Provides a hashcode for strings
     */
     return String.prototype.hashCode = function() {
       var char, hash, i, _i, _len;
@@ -197,7 +196,7 @@
 
   (function(Function, Object) {
     /*
-        Syntactic sugar for properties
+      Syntactic sugar for properties
     */
     Function.prototype.property = function(prop, desc) {
       return Object.defineProperty(this.prototype, prop, desc);
@@ -213,8 +212,7 @@
   var __slice = [].slice;
 
   (function(window, Elyssa) {
-    'use strict';
-    Elyssa.EventMap = (function() {
+    'use strict';    Elyssa.EventMap = (function() {
       var eventFunctions, eventMap;
 
       eventMap = {};
@@ -253,6 +251,10 @@
         return this;
       };
 
+      EventMap.prototype.addListener = EventMap.on;
+
+      EventMap.prototype.once = function(eventName, eventFunction) {};
+
       EventMap.prototype.off = function(eventName) {
         if (!eventName) {
           return;
@@ -271,11 +273,13 @@
         return this;
       };
 
+      EventMap.prototype.removeListener = EventMap.off;
+
       EventMap.prototype.trigger = function() {
         var args, context, eventName, i, interval, name, repeat, triggerFunction, _i, _len, _ref;
         eventName = arguments[0], args = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
         if (eventName == null) {
-          return;
+          return false;
         }
         if (typeof eventName === 'object') {
           name = eventName.name, interval = eventName.interval, repeat = eventName.repeat, context = eventName.context;
@@ -312,7 +316,7 @@
             triggerFunction.call(this);
           }
         }
-        return this;
+        return true;
       };
 
       return EventMap;
@@ -326,8 +330,7 @@
 (function() {
 
   (function(window, Elyssa) {
-    'use strict';
-    return Elyssa.Log = {};
+    'use strict';    return Elyssa.Log = {};
   })(this, this.Elyssa || (this.Elyssa = {}));
 
 }).call(this);
@@ -428,8 +431,7 @@
 (function() {
 
   (function(window, Elyssa) {
-    'use strict';
-    return Elyssa.Math = {
+    'use strict';    return Elyssa.Math = {
       clamp: function(value, min, max) {
         var _ref;
         if (min == null) {

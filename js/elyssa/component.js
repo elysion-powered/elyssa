@@ -1,8 +1,7 @@
 (function() {
 
   (function(window, Elyssa) {
-    'use strict';
-    return Elyssa.Behaviour = (function() {
+    'use strict';    return Elyssa.Behaviour = (function() {
 
       function Behaviour() {}
 
@@ -18,8 +17,7 @@
 (function() {
 
   (function(window, Elyssa) {
-    'use strict';
-    return Elyssa.Entity = (function() {
+    'use strict';    return Elyssa.Entity = (function() {
       var functionList;
 
       functionList = {};

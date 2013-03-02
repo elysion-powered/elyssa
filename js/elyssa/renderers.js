@@ -1,8 +1,7 @@
 (function() {
 
   (function(window, document, Elyssa) {
-    'use strict';
-    return Elyssa.Renderer = (function() {
+    'use strict';    return Elyssa.Renderer = (function() {
       var bind, functionNames, setMethods, source;
 
       functionNames = ['drawLine', 'drawPoint', 'drawTexture', 'clear'];
@@ -50,8 +49,7 @@
 (function() {
 
   (function(window, document, Elyssa) {
-    'use strict';
-    return Elyssa.Renderer.Canvas = (function() {
+    'use strict';    return Elyssa.Renderer.Canvas = (function() {
       var context;
 
       context = null;
@@ -80,8 +78,7 @@
 (function() {
 
   (function(window, document, Elyssa) {
-    'use strict';
-    return Elyssa.Renderer.DOM = (function() {
+    'use strict';    return Elyssa.Renderer.DOM = (function() {
 
       function DOM() {
         this.name = 'DOM';
@@ -99,8 +96,7 @@
 (function() {
 
   (function(window, document, Elyssa) {
-    'use strict';
-    return Elyssa.Renderer.SVG = (function() {
+    'use strict';    return Elyssa.Renderer.SVG = (function() {
 
       function SVG() {
         this.name = 'SVG';

@@ -1,13 +1,13 @@
 (function() {
 
   (function(window, Elyssa) {
-    'use strict';
-    Elyssa.Color = (function() {
+    'use strict';    Elyssa.Color = (function() {
       var colorMax;
 
       colorMax = 255;
 
       function Color(param) {
+        var _ref;
         if (param == null) {
           param = {
             r: 0,
@@ -17,11 +17,7 @@
           };
         }
         if (typeof param === 'string') {
-          if (Elyssa.Color[param]) {
-            return Elyssa.Color[param]();
-          } else {
-            return new Elyssa.Color();
-          }
+          _ref = Elyssa.Color[param] ? Elyssa.Color[param]() : new Elyssa.Color(), this.r = _ref.r, this.g = _ref.g, this.b = _ref.b, this.a = _ref.a;
         } else {
           this.r = param.r, this.g = param.g, this.b = param.b, this.a = param.a;
           if (this.r == null) {
