@@ -6,8 +6,10 @@ do (window = @, Elyssa = @Elyssa or= {}) ->
     taskList = {}
     isRunning = true
     
+    {staticProperty} = window.ClassHelper(@)
+    
     # @property {String<Array>} All names of tasks as an array
-    @staticProperty 'tasks',
+    staticProperty tasks:
       get: -> Object.keys(taskList)
     
     # Runs the tasks
