@@ -54,51 +54,6 @@ do (window = @, document) ->
     newInstance
 
   ###
-    'is' is a pretty good function name in my opinion, 
-    but already a pre-defined keyword in CoffeeScript, 
-    'check' is a better function name if you want to just 
-    use the function without the 'window' prefix
-  ###
-  window.is = window.check = (variable) ->  
-    stringedVar = {}.toString.call variable
-    typeName = stringedVar.slice(8, stringedVar.length - 1).toLowerCase() 
-  
-    checkType = (typeString, cb, inverse) ->
-      if inverse
-        cb?(variable) unless typeName is typeString
-      else  
-        cb?(variable) if typeName is typeString
-  
-      ###
-        Else is a reserved keyword, while CoffeeScript interpolates it correctly,
-        it can only be written as check(...).['else']...
-        check(...).otherwise(...) is a better choice, if using plain JavaScript
-      ###
-      result.else = result.otherwise = (cb) -> checkType typeString, cb, !inverse
-      result
-  
-    types = (inverse) ->
-      valid: (cb) ->
-        if inverse
-          cb(variable) unless variable?
-        else
-          cb(variable) if variable?
-        @
-      undefined: (cb) -> checkType 'undefined', cb, inverse
-      null: (cb) -> checkType 'null', cb, inverse
-      string: (cb) -> checkType 'string', cb, inverse
-      number: (cb) -> checkType 'number', cb, inverse
-      object: (cb) -> checkType 'object', cb, inverse
-      array: (cb) -> checkType 'array', cb, inverse
-      function: (cb) -> checkType 'function', cb, inverse
-  
-    result = types(false)
-    result.not = types(true)
-    
-    result
-
-
-  ###
    requestAnim shim layer by Paul Irish
   ###
   lastTime = 0
@@ -140,13 +95,3 @@ do (String) ->
       hash = hash & hash # Convert to 32bit integer
   
     hash
-
-do (Function, Object) ->  
-  ###
-    Syntactic sugar for properties
-  ###
-  Function::property = (prop, desc) ->
-    Object.defineProperty @prototype, prop, desc
-    
-  Function::staticProperty = (prop, desc) ->
-    Object.defineProperty @, prop, desc
