@@ -1425,7 +1425,9 @@
 
   (function(window, Elyssa) {
     return Elyssa.Vector2 = (function() {
-      var defaultValue;
+      var defaultValue, get;
+
+      get = window.ClassHelper(Vector2).get;
 
       defaultValue = {
         x: 0,
@@ -1457,8 +1459,8 @@
         });
       };
 
-      Vector2.property('length', {
-        get: function() {
+      get({
+        length: function() {
           return window.Math.sqrt(this.x * this.x + this.y * this.y);
         }
       });
@@ -1507,7 +1509,9 @@
 
   (function(window, Elyssa) {
     return Elyssa.Vector3 = (function() {
-      var defaultValue;
+      var defaultValue, get;
+
+      get = window.ClassHelper(Vector3).get;
 
       defaultValue = {
         x: 0,
@@ -1544,8 +1548,8 @@
         });
       };
 
-      Vector3.property('length', {
-        get: function() {
+      get({
+        length: function() {
           return window.Math.sqrt(this.x * this.x + this.y * this.y + this.z * this.z);
         }
       });
