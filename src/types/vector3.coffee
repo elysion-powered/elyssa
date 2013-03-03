@@ -2,6 +2,9 @@ do (window = @, Elyssa = @Elyssa or= {}) ->
   
   # Vector class
   class Elyssa.Vector3
+    
+    {get} = window.ClassHelper(@)
+    
     defaultValue =
       x: 0
       y: 0
@@ -25,8 +28,7 @@ do (window = @, Elyssa = @Elyssa or= {}) ->
         z: @z / @length
     
     # Read-only property: length
-    @property 'length',
-      get: -> window.Math.sqrt(@x * @x + @y * @y + @z * @z)
+    get length: -> window.Math.sqrt(@x * @x + @y * @y + @z * @z)
     
     # Calculates the cross product of two vectors and returns it as a new vector
     @crossProduct: (a, b) ->

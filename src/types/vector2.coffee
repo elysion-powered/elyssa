@@ -2,6 +2,9 @@ do (window = @, Elyssa = @Elyssa or= {}) ->
   
   # Vector2 class
   class Elyssa.Vector2
+    
+    {get} = window.ClassHelper(@)
+    
     defaultValue =
       x: 0
       y: 0
@@ -22,8 +25,7 @@ do (window = @, Elyssa = @Elyssa or= {}) ->
         y: @y / @length
     
     # Read-only property: length
-    @property 'length',
-      get: -> window.Math.sqrt(@x * @x + @y * @y)
+    get length: -> window.Math.sqrt(@x * @x + @y * @y)
     
     # Calculates the dot product between two vectors and returns the value
     @dotProduct: (a, b) -> 
