@@ -20,7 +20,7 @@
       Node.prototype.draw = function() {};
 
       Node.prototype.toString = function() {
-        return JSON.stringify({
+        return Elyssa.serialize({
           position: this.position.toString(),
           color: this.color.toString(),
           scale: this.scale.toString(),

@@ -49,13 +49,13 @@
 (function() {
 
   (function(window, Elyssa) {
-    'use strict';    return Elyssa.TextureManager = (function() {
-
-      function TextureManager() {}
-
-      return TextureManager;
-
-    })();
+    'use strict';
+    var textureCache;
+    textureCache = {};
+    return Elyssa.TextureManager = {
+      add: function(texture) {},
+      remove: function(index) {}
+    };
   })(this, this.Elyssa || (this.Elyssa = {}));
 
 }).call(this);
