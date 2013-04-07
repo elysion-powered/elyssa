@@ -1,7 +1,7 @@
 do (root = exports ? this) ->
   'use strict'
 
-  root.check = (variable, checkObject) ->
+  root.checkt = root.check = (variable, checkObject) ->
 
     stringedVar = {}.toString.call variable
     typeName = stringedVar.slice(8, stringedVar.length - 1).toLowerCase() 
@@ -28,13 +28,14 @@ do (root = exports ? this) ->
         else
           cb(variable) if variable?
         @
-      undefined: (cb) -> checkType "undefined", cb, inverse
-      null: (cb) -> checkType "null", cb, inverse
-      string: (cb) -> checkType "string", cb, inverse
-      number: (cb) -> checkType "number", cb, inverse
-      object: (cb) -> checkType "object", cb, inverse
-      array: (cb) -> checkType "array", cb, inverse
-      function: (cb) -> checkType "function", cb, inverse
+      undefined: (cb) -> checkType 'undefined', cb, inverse
+      null: (cb) -> checkType 'null', cb, inverse
+      string: (cb) -> checkType 'string', cb, inverse
+      number: (cb) -> checkType 'number', cb, inverse
+      boolean: (cb) -> checkType 'boolean', cb, inverse
+      object: (cb) -> checkType 'object', cb, inverse
+      array: (cb) -> checkType 'array', cb, inverse
+      function: (cb) -> checkType 'function', cb, inverse
 
     if checkObject
       typeFuncs = types(false)
@@ -53,4 +54,6 @@ do (root = exports ? this) ->
     result
 
   # AMDs are awesome :)
-  root.define?('check', [], -> root.check) unless exports?
+  if root.define and not exports?
+    root.define 'check', [], -> root.check
+    root.define 'checkt', [], -> root.checkt
