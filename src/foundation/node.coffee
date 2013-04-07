@@ -13,7 +13,7 @@ do (window = @, Elyssa = @Elyssa or= {}) ->
     draw: ->
     
     
-    toString: -> JSON.stringify 
+    toString: -> Elyssa.serialize
       position: @position.toString()
       color: @color.toString()
       scale: @scale.toString()
