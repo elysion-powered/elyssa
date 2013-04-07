@@ -2627,7 +2627,7 @@
       var clear, item, load, save, storageMap, toString;
       storageMap = {};
       toString = function() {
-        return JSON.stringify(storageMap);
+        return Elyssa.serialize(storageMap);
       };
       clear = function() {
         return storageMap = {};
