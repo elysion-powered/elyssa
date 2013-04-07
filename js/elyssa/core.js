@@ -122,7 +122,7 @@
 (function() {
 
   (function(root) {
-    'use strict';    root.check = function(variable, checkObject) {
+    'use strict';    root.checkt = root.check = function(variable, checkObject) {
       var checkType, k, key, keyArray, result, stringedVar, typeFuncs, typeName, types, value, _i, _len;
       stringedVar = {}.toString.call(variable);
       typeName = stringedVar.slice(8, stringedVar.length - 1).toLowerCase();
@@ -168,25 +168,28 @@
             return this;
           },
           undefined: function(cb) {
-            return checkType("undefined", cb, inverse);
+            return checkType('undefined', cb, inverse);
           },
           "null": function(cb) {
-            return checkType("null", cb, inverse);
+            return checkType('null', cb, inverse);
           },
           string: function(cb) {
-            return checkType("string", cb, inverse);
+            return checkType('string', cb, inverse);
           },
           number: function(cb) {
-            return checkType("number", cb, inverse);
+            return checkType('number', cb, inverse);
+          },
+          boolean: function(cb) {
+            return checkType('boolean', cb, inverse);
           },
           object: function(cb) {
-            return checkType("object", cb, inverse);
+            return checkType('object', cb, inverse);
           },
           array: function(cb) {
-            return checkType("array", cb, inverse);
+            return checkType('array', cb, inverse);
           },
           "function": function(cb) {
-            return checkType("function", cb, inverse);
+            return checkType('function', cb, inverse);
           }
         };
       };
@@ -211,10 +214,13 @@
       }
       return result;
     };
-    if (typeof exports === "undefined" || exports === null) {
-      return typeof root.define === "function" ? root.define('check', [], function() {
+    if (root.define && (typeof exports === "undefined" || exports === null)) {
+      root.define('check', [], function() {
         return root.check;
-      }) : void 0;
+      });
+      return root.define('checkt', [], function() {
+        return root.checkt;
+      });
     }
   })(typeof exports !== "undefined" && exports !== null ? exports : this);
 
