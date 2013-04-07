@@ -1,6 +1,8 @@
 do (window = @, Elyssa = @Elyssa or= {}) ->
   'use strict'
   
-  class Elyssa.TextureManager
-    constructor: ->
-      
+  textureCache = {}
+  
+  Elyssa.TextureManager =
+    add: (texture) ->
+    remove: (index) ->   
