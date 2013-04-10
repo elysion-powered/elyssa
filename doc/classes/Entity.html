@@ -3,21 +3,19 @@
   <head>
   <meta charset='UTF-8'>
   <title>CoffeeScript API Documentation</title>
-  <link rel='stylesheet' href='../../assets/codo.css' type='text/css'>
-  <script src='../../assets/codo.js'></script>
-  <script src='../../assets/search_data.js'></script>
+  <link rel='stylesheet' href='../assets/codo.css' type='text/css'>
+  <script src='../assets/codo.js'></script>
+  <script src='../assets/search_data.js'></script>
 </head>
   <body>
-    <div id='base' data-path='../../'></div>
+    <div id='base' data-path='../'></div>
 <div id='header'>
   <div id='menu'>
-    <a href='../../README.md.html' title='Elyssa'>Elyssa</a>
+    <a href='../README.md.html' title='Elyssa'>Elyssa</a>
     &raquo;
-    <a href='../../class_index.html' title='Index'>Index</a>
+    <a href='../class_index.html' title='Index'>Index</a>
     &raquo;
-    <span class='title'>Elyssa</span>
-    &raquo;
-    <span class='title'>Size</span>
+    <span class='title'>Entity</span>
     <nav>
       <ul>
         <li class='noframes'>
@@ -26,10 +24,10 @@
       </ul>
     </nav>
     <div id='search'>
-      <a id='class_list_link' href='../../class_list.html'>Classes</a>
-      <a id='mixin_list_link' href='../../mixin_list.html'>Mixins</a>
-      <a id='method_list_link' href='../../method_list.html'>Methods</a>
-      <a id='extra_list_link' href='../../extra_list.html'>Extras</a>
+      <a id='class_list_link' href='../class_list.html'>Classes</a>
+      <a id='mixin_list_link' href='../mixin_list.html'>Mixins</a>
+      <a id='method_list_link' href='../method_list.html'>Methods</a>
+      <a id='extra_list_link' href='../extra_list.html'>Extras</a>
     </div>
   </div>
   <iframe id='search_frame'></iframe>
@@ -108,33 +106,24 @@
     <div id='content'>
       <h1>
         Class:
-        Elyssa.Size
+        Entity
       </h1>
       <table class='box'>
         <tr>
           <td>Defined in:</td>
-          <td>src&#47;types&#47;size.coffee</td>
+          <td>src&#47;component&#47;entity.coffee</td>
         </tr>
       </table>
-      <h2>Class Method Summary</h2>
-      <ul class='summary'>
-  <li>
-    <span class='signature'>
-      <a href='#fromString-class'>
-        + (void) <strong>fromString</strong>(rectString)
-      </a>
-    </span>
-    <span class='desc'>
-      
-    </span>
-  </li>
-</ul>
+      <h2>Direct Known Subclasses</h2>
+      <p class='children'>
+        <a href='../classes/Node.html'>Node</a>
+      </p>
       <h2>Instance Method Summary</h2>
       <ul class='summary'>
   <li>
     <span class='signature'>
       <a href='#constructor-instance'>
-        - (void) <strong>constructor</strong>(undefined = { w: 0, h: 0 })
+        - (void) <strong>constructor</strong>(name = @constructor)
       </a>
     </span>
     <span class='constructor note title'>Constructor</span>
@@ -144,8 +133,8 @@
   </li>
   <li>
     <span class='signature'>
-      <a href='#toRect-instance'>
-        - (void) <strong>toRect</strong>()
+      <a href='#add-instance'>
+        - (void) <strong>add</strong>(component)
       </a>
     </span>
     <span class='desc'>
@@ -154,8 +143,8 @@
   </li>
   <li>
     <span class='signature'>
-      <a href='#center-instance'>
-        - (void) <strong>center</strong>()
+      <a href='#remove-instance'>
+        - (void) <strong>remove</strong>(componentName)
       </a>
     </span>
     <span class='desc'>
@@ -164,8 +153,18 @@
   </li>
   <li>
     <span class='signature'>
-      <a href='#toString-instance'>
-        - (void) <strong>toString</strong>()
+      <a href='#render-instance'>
+        - (void) <strong>render</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#update-instance'>
+        - (void) <strong>update</strong>(dt)
       </a>
     </span>
     <span class='desc'>
@@ -173,21 +172,11 @@
     </span>
   </li>
 </ul>
-      <h2>Class Method Details</h2>
-      <div class='methods'>
-  <div class='method_details'>
-    <p class='signature' id='fromString-class'>
-      + (void) <strong>fromString</strong>(rectString)
-    </p>
-    <div class='tags'>
-</div>
-  </div>
-</div>
       <h2>Constructor Details</h2>
       <div class='methods'>
   <div class='method_details'>
     <p class='signature' id='constructor-instance'>
-      - (void) <strong>constructor</strong>(undefined = { w: 0, h: 0 })
+      - (void) <strong>constructor</strong>(name = @constructor)
     </p>
     <div class='tags'>
 </div>
@@ -196,22 +185,29 @@
       <h2>Instance Method Details</h2>
       <div class='methods'>
   <div class='method_details'>
-    <p class='signature' id='toRect-instance'>
-      - (void) <strong>toRect</strong>()
+    <p class='signature' id='add-instance'>
+      - (void) <strong>add</strong>(component)
     </p>
     <div class='tags'>
 </div>
   </div>
   <div class='method_details'>
-    <p class='signature' id='center-instance'>
-      - (void) <strong>center</strong>()
+    <p class='signature' id='remove-instance'>
+      - (void) <strong>remove</strong>(componentName)
     </p>
     <div class='tags'>
 </div>
   </div>
   <div class='method_details'>
-    <p class='signature' id='toString-instance'>
-      - (void) <strong>toString</strong>()
+    <p class='signature' id='render-instance'>
+      - (void) <strong>render</strong>()
+    </p>
+    <div class='tags'>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='update-instance'>
+      - (void) <strong>update</strong>(dt)
     </p>
     <div class='tags'>
 </div>
