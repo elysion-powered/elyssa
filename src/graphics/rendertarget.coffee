@@ -1,4 +1,4 @@
-do (window = @, Elyssa = @Elyssa or= {}) ->
+define 'elyssa/graphics/rendertarget', ->
   'use strict'
   
-  class Elyssa.RenderTarget
+  class RenderTarget

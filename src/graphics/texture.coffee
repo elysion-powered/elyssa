@@ -1,14 +1,14 @@
-do (window = @, Elyssa = @Elyssa or= {}) ->
+define 'elyssa/texture', ['elyssa/types/rect'], (Rect) ->
   'use strict'
     
-  class Elyssa.Texture
+  class Texture
     constructor: (source) ->
     
     loadFromFile: (filename) ->
       
     loadFromData: (data) ->
       
-    textureRect: new Elyssa.Rect()
+    textureRect: new Rect()
       
     toString: ->
       filename: ''

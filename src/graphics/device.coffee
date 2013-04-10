@@ -1,4 +1,4 @@
-do (window = @, Elyssa = @Elyssa or= {}) ->
+define 'elyssa/graphics/device', ->
   'use strict'
   
-  Elyssa.GraphicsDevice = {}
+  GraphicsDevice = {}
