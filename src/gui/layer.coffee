@@ -1,5 +1,5 @@
 define 'elyssa/layer', ['elyssa/node'], (Node) ->
   
-  class Elyssa.Layer extends Node
+  class Layer extends Node
     constructor: ->
       
