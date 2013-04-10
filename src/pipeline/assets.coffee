@@ -1,4 +1,4 @@
-do (window = @, Elyssa = @Elyssa or= {}) ->
+define 'elyssa/assets', ->
   'use strict'
   
   # Elyssa.Math Object

@@ -1,7 +1,7 @@
-do (window = @, Elyssa = @Elyssa or= {}) ->
+define 'elyssa/preloader', ->
   'use strict'
   
-  class Elyssa.Preloader
+  class Preloader
     constructor: ->
       
     on: (name, eventFunction) ->

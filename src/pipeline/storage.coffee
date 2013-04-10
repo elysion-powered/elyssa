@@ -1,7 +1,7 @@
-do (window = @, Elyssa = @Elyssa or= {}) ->
+define 'elyssa/storage', ['root'], (root) ->
   'use strict'
   
-  Elyssa.Storage = do (localStorage = window.localStorage) ->
+  Storage = do (localStorage = root.localStorage) ->
     storageMap = {}
     
     toString = -> Elyssa.serialize storageMap
