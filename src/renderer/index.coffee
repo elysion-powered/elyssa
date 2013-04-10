@@ -1,7 +1,7 @@
-do (window = @, document = @document, Elyssa = @Elyssa or= {}) ->
+define 'elyssa/renderer', ->
   'use strict'
   
-  class Elyssa.Renderer
+  class Renderer
     functionNames = ['drawLine', 'drawPoint', 'drawTexture', 'clear']
     
     source = null

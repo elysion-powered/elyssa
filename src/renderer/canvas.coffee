@@ -1,7 +1,7 @@
-do (window = @, document = @document, Elyssa = @Elyssa or= {}) ->
+define 'elyssa/renderer/canvas', ->
   'use strict'
   
-  class Elyssa.Renderer.Canvas
+  class Canvas
     context = null
     
     constructor: ->
