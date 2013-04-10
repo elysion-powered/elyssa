@@ -17,7 +17,7 @@ DEBUG = true
 minifierInstance = flour.minifiers['js']
 flour.minifiers['js'] = null
 
-buildTasks = ['core', 'types', 'utils', 'component', 'graphics', 'renderer', 'foundation', 'gui', 'pipeline', 'scene']
+buildTasks = ['core', 'types', 'utils', 'component', 'texture', 'graphics', 'renderer', 'foundation', 'gui', 'pipeline', 'scene']
 
 buildPart = (part, success) ->
   testPath = path.join 'test', 'src', 'tests', part
