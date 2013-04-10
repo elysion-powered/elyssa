@@ -1,8 +1,8 @@
-do (window = @, Elyssa = @Elyssa or= {}) ->
+define 'elyssa/behaviour', ->
   'use strict'
   
   # Elyssa.Behaviour
   # @abstract
-  class Elyssa.Behaviour
+  class Behaviour
     
     update: (dt) ->

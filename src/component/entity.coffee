@@ -1,7 +1,7 @@
-do (window = @, Elyssa = @Elyssa or= {}) ->
+define 'elyssa/entity', ->
   'use strict'
   
-  class Elyssa.Entity
+  class Entity
     functionList = {}
   
     constructor: (@name = @constructor.name) ->
