@@ -1,6 +1,7 @@
-do (window = @, Elyssa = @Elyssa or= {}) ->
+define 'elyssa/app', ->
+  'use strict'
   
-  class Elyssa.App
+  class App
     constructor: ->
       
             
