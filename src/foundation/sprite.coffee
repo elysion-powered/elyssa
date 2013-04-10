@@ -1,5 +1,5 @@
-do (window = @, Elyssa = @Elyssa or= {}) ->
+define 'elyssa/sprite', ['elyssa/node'], (Node) ->
   
-  class Elyssa.Sprite extends Elyssa.Node
+  class Sprite extends Node
     constructor: ->
     

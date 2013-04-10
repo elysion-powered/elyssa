@@ -1,7 +1,7 @@
-do (window = @, Elyssa = @Elyssa or= {}) ->
+define 'elyssa/node', ['elyssa/entity'], (Entity) ->
   'use strict'
   
-  class Elyssa.Node extends Elyssa.Entity
+  class Node extends Entity
     
     constructor: ->
       
