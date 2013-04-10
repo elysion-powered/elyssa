@@ -1,8 +1,8 @@
-do (window = @, Elyssa = @Elyssa or= {}) ->
+define 'elyssa/scene', ->
   'use strict'
 
   # Scene class
-  class Elyssa.Scene
+  class Scene
     
     entityList = []
     

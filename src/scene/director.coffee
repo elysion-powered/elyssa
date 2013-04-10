@@ -1,8 +1,8 @@
-do (window = @, Elyssa = @Elyssa or= {}) ->
+define 'elyssa/scene/director', ->
   'use strict'
 
   # The scene director class manages a list of scenes
-  class Elyssa.SceneDirector
+  class SceneDirector
     sceneList = {}
     currentScene = null
     
