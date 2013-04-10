@@ -1,8 +1,8 @@
-define 'elyssa/texturemanager', ->
+define 'elyssa/texture/manager', ->
   'use strict'
   
   textureCache = {}
   
-  Elyssa.TextureManager =
+  TextureManager =
     add: (texture) ->
     remove: (index) ->   
