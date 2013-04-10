@@ -2,8 +2,10 @@
   var __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  (function(window, Elyssa) {
-    'use strict';    return Elyssa.Node = (function(_super) {
+  define('elyssa/node', ['elyssa/entity'], function(Entity) {
+    'use strict';
+    var Node;
+    return Node = (function(_super) {
 
       __extends(Node, _super);
 
@@ -30,8 +32,8 @@
 
       return Node;
 
-    })(Elyssa.Entity);
-  })(this, this.Elyssa || (this.Elyssa = {}));
+    })(Entity);
+  });
 
 }).call(this);
 
@@ -39,8 +41,9 @@
   var __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  (function(window, Elyssa) {
-    return Elyssa.Sprite = (function(_super) {
+  define('elyssa/sprite', ['elyssa/node'], function(Node) {
+    var Sprite;
+    return Sprite = (function(_super) {
 
       __extends(Sprite, _super);
 
@@ -48,7 +51,7 @@
 
       return Sprite;
 
-    })(Elyssa.Node);
-  })(this, this.Elyssa || (this.Elyssa = {}));
+    })(Node);
+  });
 
 }).call(this);

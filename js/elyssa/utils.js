@@ -20,8 +20,9 @@
 
 (function() {
 
-  (function(window, Elyssa) {
-    return Elyssa.serialize = function(object, defaultValue) {
+  define('elyssa/serialize', function() {
+    var serialize;
+    return serialize = function(object, defaultValue) {
       var key, value;
       if (defaultValue) {
         for (key in defaultValue) {
@@ -33,6 +34,6 @@
       }
       return JSON.stringify(object);
     };
-  })(this, this.Elyssa || (this.Elyssa = {}));
+  });
 
 }).call(this);

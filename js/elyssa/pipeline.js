@@ -1,15 +1,17 @@
 (function() {
 
-  (function(window, Elyssa) {
+  define('elyssa/assets', function() {
     'use strict';    return Elyssa.Assets = {};
-  })(this, this.Elyssa || (this.Elyssa = {}));
+  });
 
 }).call(this);
 
 (function() {
 
-  (function(window, Elyssa) {
-    'use strict';    return Elyssa.Preloader = (function() {
+  define('elyssa/preloader', function() {
+    'use strict';
+    var Preloader;
+    return Preloader = (function() {
 
       function Preloader() {}
 
@@ -20,14 +22,16 @@
       return Preloader;
 
     })();
-  })(this, this.Elyssa || (this.Elyssa = {}));
+  });
 
 }).call(this);
 
 (function() {
 
-  (function(window, Elyssa) {
-    'use strict';    return Elyssa.Storage = (function(localStorage) {
+  define('elyssa/storage', ['root'], function(root) {
+    'use strict';
+    var Storage;
+    return Storage = (function(localStorage) {
       var clear, item, load, save, storageMap, toString;
       storageMap = {};
       toString = function() {
@@ -46,7 +50,7 @@
         save: save,
         clear: clear
       };
-    })(window.localStorage);
-  })(this, this.Elyssa || (this.Elyssa = {}));
+    })(root.localStorage);
+  });
 
 }).call(this);

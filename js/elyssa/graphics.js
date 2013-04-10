@@ -1,29 +1,35 @@
 (function() {
 
-  (function(window, Elyssa) {
-    'use strict';    return Elyssa.GraphicsDevice = {};
-  })(this, this.Elyssa || (this.Elyssa = {}));
+  define('elyssa/graphics/device', function() {
+    'use strict';
+    var GraphicsDevice;
+    return GraphicsDevice = {};
+  });
 
 }).call(this);
 
 (function() {
 
-  (function(window, Elyssa) {
-    'use strict';    return Elyssa.RenderTarget = (function() {
+  define('elyssa/graphics/rendertarget', function() {
+    'use strict';
+    var RenderTarget;
+    return RenderTarget = (function() {
 
       function RenderTarget() {}
 
       return RenderTarget;
 
     })();
-  })(this, this.Elyssa || (this.Elyssa = {}));
+  });
 
 }).call(this);
 
 (function() {
 
-  (function(window, Elyssa) {
-    'use strict';    return Elyssa.Texture = (function() {
+  define('elyssa/texture', ['elyssa/types/rect'], function(Rect) {
+    'use strict';
+    var Texture;
+    return Texture = (function() {
 
       function Texture(source) {}
 
@@ -31,7 +37,7 @@
 
       Texture.prototype.loadFromData = function(data) {};
 
-      Texture.prototype.textureRect = new Elyssa.Rect();
+      Texture.prototype.textureRect = new Rect();
 
       Texture.prototype.toString = function() {
         return {
@@ -42,13 +48,13 @@
       return Texture;
 
     })();
-  })(this, this.Elyssa || (this.Elyssa = {}));
+  });
 
 }).call(this);
 
 (function() {
 
-  (function(window, Elyssa) {
+  define('elyssa/texturemanager', function() {
     'use strict';
     var textureCache;
     textureCache = {};
@@ -56,6 +62,6 @@
       add: function(texture) {},
       remove: function(index) {}
     };
-  })(this, this.Elyssa || (this.Elyssa = {}));
+  });
 
 }).call(this);

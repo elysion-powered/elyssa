@@ -293,8 +293,10 @@
 (function() {
   var __slice = [].slice;
 
-  (function(window, Elyssa) {
-    'use strict';    Elyssa.EventMap = (function() {
+  define('elyssa/events', function() {
+    'use strict';
+    var EventMap, Events;
+    EventMap = (function() {
       var eventFunctions, eventMap;
 
       eventMap = {};
@@ -398,8 +400,12 @@
       return EventMap;
 
     })();
-    return Elyssa.Events = new Elyssa.EventMap('Elyssa.Events');
-  })(this, this.Elyssa || (this.Elyssa = {}));
+    Events = new Elyssa.EventMap('Elyssa.Events');
+    return {
+      EventMap: EventMap,
+      Events: Events
+    };
+  });
 
 }).call(this);
 
@@ -415,16 +421,20 @@
 
 (function() {
 
-  (function(window, Elyssa) {
-    'use strict';    return Elyssa.Log = {};
-  })(this, this.Elyssa || (this.Elyssa = {}));
+  define('elyssa/log', function() {
+    'use strict';
+    var Log;
+    return Log = {};
+  });
 
 }).call(this);
 
 (function() {
 
-  (function(window, Elyssa) {
-    return Elyssa.Loop = (function() {
+  define('elyssa/loop', function() {
+    'use strict';
+    var Loop;
+    return Loop = (function() {
       var isRunning, staticProperty, taskList;
 
       function Loop() {}
@@ -514,13 +524,13 @@
       return Loop;
 
     })();
-  })(this, this.Elyssa || (this.Elyssa = {}));
+  });
 
 }).call(this);
 
 (function() {
 
-  (function(window, Elyssa) {
+  define('elyssa/math', function() {
     'use strict';    return Elyssa.Math = {
       clamp: function(value, min, max) {
         var _ref;
@@ -544,6 +554,6 @@
         }
       }
     };
-  })(this, this.Elyssa || (this.Elyssa = {}));
+  });
 
 }).call(this);

@@ -293,8 +293,10 @@
 (function() {
   var __slice = [].slice;
 
-  (function(window, Elyssa) {
-    'use strict';    Elyssa.EventMap = (function() {
+  define('elyssa/events', function() {
+    'use strict';
+    var EventMap, Events;
+    EventMap = (function() {
       var eventFunctions, eventMap;
 
       eventMap = {};
@@ -398,8 +400,12 @@
       return EventMap;
 
     })();
-    return Elyssa.Events = new Elyssa.EventMap('Elyssa.Events');
-  })(this, this.Elyssa || (this.Elyssa = {}));
+    Events = new Elyssa.EventMap('Elyssa.Events');
+    return {
+      EventMap: EventMap,
+      Events: Events
+    };
+  });
 
 }).call(this);
 
@@ -415,16 +421,20 @@
 
 (function() {
 
-  (function(window, Elyssa) {
-    'use strict';    return Elyssa.Log = {};
-  })(this, this.Elyssa || (this.Elyssa = {}));
+  define('elyssa/log', function() {
+    'use strict';
+    var Log;
+    return Log = {};
+  });
 
 }).call(this);
 
 (function() {
 
-  (function(window, Elyssa) {
-    return Elyssa.Loop = (function() {
+  define('elyssa/loop', function() {
+    'use strict';
+    var Loop;
+    return Loop = (function() {
       var isRunning, staticProperty, taskList;
 
       function Loop() {}
@@ -514,13 +524,13 @@
       return Loop;
 
     })();
-  })(this, this.Elyssa || (this.Elyssa = {}));
+  });
 
 }).call(this);
 
 (function() {
 
-  (function(window, Elyssa) {
+  define('elyssa/math', function() {
     'use strict';    return Elyssa.Math = {
       clamp: function(value, min, max) {
         var _ref;
@@ -544,7 +554,7 @@
         }
       }
     };
-  })(this, this.Elyssa || (this.Elyssa = {}));
+  });
 
 }).call(this);
 
@@ -2210,8 +2220,9 @@
 
 (function() {
 
-  (function(window, Elyssa) {
-    return Elyssa.serialize = function(object, defaultValue) {
+  define('elyssa/serialize', function() {
+    var serialize;
+    return serialize = function(object, defaultValue) {
       var key, value;
       if (defaultValue) {
         for (key in defaultValue) {
@@ -2223,14 +2234,16 @@
       }
       return JSON.stringify(object);
     };
-  })(this, this.Elyssa || (this.Elyssa = {}));
+  });
 
 }).call(this);
 
 (function() {
 
-  (function(window, Elyssa) {
-    'use strict';    return Elyssa.Behaviour = (function() {
+  define('elyssa/behaviour', function() {
+    'use strict';
+    var Behaviour;
+    return Behaviour = (function() {
 
       function Behaviour() {}
 
@@ -2239,14 +2252,16 @@
       return Behaviour;
 
     })();
-  })(this, this.Elyssa || (this.Elyssa = {}));
+  });
 
 }).call(this);
 
 (function() {
 
-  (function(window, Elyssa) {
-    'use strict';    return Elyssa.Entity = (function() {
+  define('elyssa/entity', function() {
+    'use strict';
+    var Entity;
+    return Entity = (function() {
       var functionList;
 
       functionList = {};
@@ -2336,36 +2351,42 @@
       return Entity;
 
     })();
-  })(this, this.Elyssa || (this.Elyssa = {}));
+  });
 
 }).call(this);
 
 (function() {
 
-  (function(window, Elyssa) {
-    'use strict';    return Elyssa.GraphicsDevice = {};
-  })(this, this.Elyssa || (this.Elyssa = {}));
+  define('elyssa/graphics/device', function() {
+    'use strict';
+    var GraphicsDevice;
+    return GraphicsDevice = {};
+  });
 
 }).call(this);
 
 (function() {
 
-  (function(window, Elyssa) {
-    'use strict';    return Elyssa.RenderTarget = (function() {
+  define('elyssa/graphics/rendertarget', function() {
+    'use strict';
+    var RenderTarget;
+    return RenderTarget = (function() {
 
       function RenderTarget() {}
 
       return RenderTarget;
 
     })();
-  })(this, this.Elyssa || (this.Elyssa = {}));
+  });
 
 }).call(this);
 
 (function() {
 
-  (function(window, Elyssa) {
-    'use strict';    return Elyssa.Texture = (function() {
+  define('elyssa/texture', ['elyssa/types/rect'], function(Rect) {
+    'use strict';
+    var Texture;
+    return Texture = (function() {
 
       function Texture(source) {}
 
@@ -2373,7 +2394,7 @@
 
       Texture.prototype.loadFromData = function(data) {};
 
-      Texture.prototype.textureRect = new Elyssa.Rect();
+      Texture.prototype.textureRect = new Rect();
 
       Texture.prototype.toString = function() {
         return {
@@ -2384,13 +2405,13 @@
       return Texture;
 
     })();
-  })(this, this.Elyssa || (this.Elyssa = {}));
+  });
 
 }).call(this);
 
 (function() {
 
-  (function(window, Elyssa) {
+  define('elyssa/texturemanager', function() {
     'use strict';
     var textureCache;
     textureCache = {};
@@ -2398,14 +2419,67 @@
       add: function(texture) {},
       remove: function(index) {}
     };
-  })(this, this.Elyssa || (this.Elyssa = {}));
+  });
 
 }).call(this);
 
 (function() {
 
-  (function(window, document, Elyssa) {
-    'use strict';    return Elyssa.Renderer = (function() {
+  define('elyssa/renderer/canvas', function() {
+    'use strict';
+    var Canvas;
+    return Canvas = (function() {
+      var context;
+
+      context = null;
+
+      function Canvas() {
+        var canvasElement;
+        this.name = 'Canvas';
+        canvasElement = document.createElement('canvas');
+        document.body.appendChild(canvasElement);
+        context = canvasElement.getContext('2d');
+      }
+
+      Canvas.prototype.render = function(element) {};
+
+      Canvas.prototype.clear = function() {
+        return context.clearRect(0, 0, 0, 0);
+      };
+
+      return Canvas;
+
+    })();
+  });
+
+}).call(this);
+
+(function() {
+
+  define('elyssa/renderer/dom', function() {
+    'use strict';
+    var DOM;
+    return DOM = (function() {
+
+      function DOM() {
+        this.name = 'DOM';
+      }
+
+      DOM.prototype.clear = function() {};
+
+      return DOM;
+
+    })();
+  });
+
+}).call(this);
+
+(function() {
+
+  define('elyssa/renderer', function() {
+    'use strict';
+    var Renderer;
+    return Renderer = (function() {
       var bind, functionNames, setMethods, source;
 
       functionNames = ['drawLine', 'drawPoint', 'drawTexture', 'clear'];
@@ -2446,61 +2520,16 @@
       return Renderer;
 
     })();
-  })(this, this.document, this.Elyssa || (this.Elyssa = {}));
+  });
 
 }).call(this);
 
 (function() {
 
-  (function(window, document, Elyssa) {
-    'use strict';    return Elyssa.Renderer.Canvas = (function() {
-      var context;
-
-      context = null;
-
-      function Canvas() {
-        var canvasElement;
-        this.name = 'Canvas';
-        canvasElement = document.createElement('canvas');
-        document.body.appendChild(canvasElement);
-        context = canvasElement.getContext('2d');
-      }
-
-      Canvas.prototype.render = function(element) {};
-
-      Canvas.prototype.clear = function() {
-        return context.clearRect(0, 0, 0, 0);
-      };
-
-      return Canvas;
-
-    })();
-  })(this, this.document, this.Elyssa || (this.Elyssa = {}));
-
-}).call(this);
-
-(function() {
-
-  (function(window, document, Elyssa) {
-    'use strict';    return Elyssa.Renderer.DOM = (function() {
-
-      function DOM() {
-        this.name = 'DOM';
-      }
-
-      DOM.prototype.clear = function() {};
-
-      return DOM;
-
-    })();
-  })(this, this.document, this.Elyssa || (this.Elyssa = {}));
-
-}).call(this);
-
-(function() {
-
-  (function(window, document, Elyssa) {
-    'use strict';    return Elyssa.Renderer.SVG = (function() {
+  define('elyssa/renderer/svg', function() {
+    'use strict';
+    var SVG;
+    return SVG = (function() {
 
       function SVG() {
         this.name = 'SVG';
@@ -2511,7 +2540,7 @@
       return SVG;
 
     })();
-  })(this, this.document, this.Elyssa || (this.Elyssa = {}));
+  });
 
 }).call(this);
 
@@ -2519,8 +2548,10 @@
   var __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  (function(window, Elyssa) {
-    'use strict';    return Elyssa.Node = (function(_super) {
+  define('elyssa/node', ['elyssa/entity'], function(Entity) {
+    'use strict';
+    var Node;
+    return Node = (function(_super) {
 
       __extends(Node, _super);
 
@@ -2547,8 +2578,8 @@
 
       return Node;
 
-    })(Elyssa.Entity);
-  })(this, this.Elyssa || (this.Elyssa = {}));
+    })(Entity);
+  });
 
 }).call(this);
 
@@ -2556,8 +2587,9 @@
   var __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  (function(window, Elyssa) {
-    return Elyssa.Sprite = (function(_super) {
+  define('elyssa/sprite', ['elyssa/node'], function(Node) {
+    var Sprite;
+    return Sprite = (function(_super) {
 
       __extends(Sprite, _super);
 
@@ -2565,14 +2597,8 @@
 
       return Sprite;
 
-    })(Elyssa.Node);
-  })(this, this.Elyssa || (this.Elyssa = {}));
-
-}).call(this);
-
-(function() {
-
-  (function(window, Elyssa) {})(this, this.Elyssa || (this.Elyssa = {}));
+    })(Node);
+  });
 
 }).call(this);
 
@@ -2580,7 +2606,7 @@
   var __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
-  (function(window, Elyssa) {
+  define('elyssa/layer', ['elyssa/node'], function(Node) {
     return Elyssa.Layer = (function(_super) {
 
       __extends(Layer, _super);
@@ -2589,23 +2615,25 @@
 
       return Layer;
 
-    })(Elyssa.Node);
-  })(this, this.Elyssa || (this.Elyssa = {}));
+    })(Node);
+  });
 
 }).call(this);
 
 (function() {
 
-  (function(window, Elyssa) {
+  define('elyssa/assets', function() {
     'use strict';    return Elyssa.Assets = {};
-  })(this, this.Elyssa || (this.Elyssa = {}));
+  });
 
 }).call(this);
 
 (function() {
 
-  (function(window, Elyssa) {
-    'use strict';    return Elyssa.Preloader = (function() {
+  define('elyssa/preloader', function() {
+    'use strict';
+    var Preloader;
+    return Preloader = (function() {
 
       function Preloader() {}
 
@@ -2616,14 +2644,16 @@
       return Preloader;
 
     })();
-  })(this, this.Elyssa || (this.Elyssa = {}));
+  });
 
 }).call(this);
 
 (function() {
 
-  (function(window, Elyssa) {
-    'use strict';    return Elyssa.Storage = (function(localStorage) {
+  define('elyssa/storage', ['root'], function(root) {
+    'use strict';
+    var Storage;
+    return Storage = (function(localStorage) {
       var clear, item, load, save, storageMap, toString;
       storageMap = {};
       toString = function() {
@@ -2642,59 +2672,17 @@
         save: save,
         clear: clear
       };
-    })(window.localStorage);
-  })(this, this.Elyssa || (this.Elyssa = {}));
+    })(root.localStorage);
+  });
 
 }).call(this);
 
 (function() {
 
-  (function(window, Elyssa) {
-    'use strict';    return Elyssa.Scene = (function() {
-      var entityList;
-
-      entityList = [];
-
-      function Scene(_arg) {
-        this.constructor.name = _arg.this;
-        entityList = [];
-      }
-
-      Scene.prototype.add = function(entity) {
-        return entityList.push(entity);
-      };
-
-      Scene.prototype.render = function() {
-        var e, _i, _len, _results;
-        _results = [];
-        for (_i = 0, _len = entityList.length; _i < _len; _i++) {
-          e = entityList[_i];
-          _results.push(typeof e.render === "function" ? e.render() : void 0);
-        }
-        return _results;
-      };
-
-      Scene.prototype.update = function(dt) {
-        var e, _i, _len, _results;
-        _results = [];
-        for (_i = 0, _len = entityList.length; _i < _len; _i++) {
-          e = entityList[_i];
-          _results.push(typeof e.update === "function" ? e.update(dt) : void 0);
-        }
-        return _results;
-      };
-
-      return Scene;
-
-    })();
-  })(this, this.Elyssa || (this.Elyssa = {}));
-
-}).call(this);
-
-(function() {
-
-  (function(window, Elyssa) {
-    'use strict';    return Elyssa.SceneDirector = (function() {
+  define('elyssa/scene/director', function() {
+    'use strict';
+    var SceneDirector;
+    return SceneDirector = (function() {
       var currentScene, sceneList;
 
       sceneList = {};
@@ -2731,6 +2719,52 @@
       return SceneDirector;
 
     })();
-  })(this, this.Elyssa || (this.Elyssa = {}));
+  });
+
+}).call(this);
+
+(function() {
+
+  define('elyssa/scene', function() {
+    'use strict';
+    var Scene;
+    return Scene = (function() {
+      var entityList;
+
+      entityList = [];
+
+      function Scene(_arg) {
+        this.constructor.name = _arg.this;
+        entityList = [];
+      }
+
+      Scene.prototype.add = function(entity) {
+        return entityList.push(entity);
+      };
+
+      Scene.prototype.render = function() {
+        var e, _i, _len, _results;
+        _results = [];
+        for (_i = 0, _len = entityList.length; _i < _len; _i++) {
+          e = entityList[_i];
+          _results.push(typeof e.render === "function" ? e.render() : void 0);
+        }
+        return _results;
+      };
+
+      Scene.prototype.update = function(dt) {
+        var e, _i, _len, _results;
+        _results = [];
+        for (_i = 0, _len = entityList.length; _i < _len; _i++) {
+          e = entityList[_i];
+          _results.push(typeof e.update === "function" ? e.update(dt) : void 0);
+        }
+        return _results;
+      };
+
+      return Scene;
+
+    })();
+  });
 
 }).call(this);

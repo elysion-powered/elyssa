@@ -1,7 +1,9 @@
 (function() {
 
-  (function(window, Elyssa) {
-    'use strict';    return Elyssa.Behaviour = (function() {
+  define('elyssa/behaviour', function() {
+    'use strict';
+    var Behaviour;
+    return Behaviour = (function() {
 
       function Behaviour() {}
 
@@ -10,14 +12,16 @@
       return Behaviour;
 
     })();
-  })(this, this.Elyssa || (this.Elyssa = {}));
+  });
 
 }).call(this);
 
 (function() {
 
-  (function(window, Elyssa) {
-    'use strict';    return Elyssa.Entity = (function() {
+  define('elyssa/entity', function() {
+    'use strict';
+    var Entity;
+    return Entity = (function() {
       var functionList;
 
       functionList = {};
@@ -107,6 +111,6 @@
       return Entity;
 
     })();
-  })(this, this.Elyssa || (this.Elyssa = {}));
+  });
 
 }).call(this);
