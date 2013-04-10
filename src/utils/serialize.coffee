@@ -1,6 +1,6 @@
-do (window = @, Elyssa = @Elyssa or= {}) ->
+define 'elyssa/serialize', ->
   
-  Elyssa.serialize = (object, defaultValue) ->
+  serialize = (object, defaultValue) ->
     if defaultValue
       # Remove default values from object to be stringified (we're saving a lot of bytes here)
       for key, value of defaultValue
