@@ -1,7 +1,7 @@
-do (window = @, Elyssa = @Elyssa or= {}) ->
+define 'elyssa/events', ->
   'use strict'
   
-  class Elyssa.EventMap
+  class EventMap
     eventMap = {}
     eventFunctions = {}
    
@@ -72,4 +72,6 @@ do (window = @, Elyssa = @Elyssa or= {}) ->
       @
     
 
-  Elyssa.Events = new Elyssa.EventMap('Elyssa.Events')
+  Events = new Elyssa.EventMap('Elyssa.Events')
+  
+  return {EventMap, Events}

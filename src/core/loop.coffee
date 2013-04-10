@@ -1,8 +1,9 @@
-do (window = @, Elyssa = @Elyssa or= {}) ->
+define 'elyssa/loop', ->
+  'use strict'
   
   # Elyssa.Loop
   # Static class
-  class Elyssa.Loop
+  class Loop
     taskList = {}
     isRunning = true
     
