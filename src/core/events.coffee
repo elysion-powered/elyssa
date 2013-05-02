@@ -42,21 +42,27 @@ define 'elyssa/events', ->
       @
     
     trigger: (eventName, args...) ->
+      # Break if 
       return unless eventName?
 
+      # Differentiate between eventName being an object or a string
       if typeof eventName is 'object'
         {name, interval, repeat, context} = eventName
       else
         name = eventName
+
+      # Break if event doesn't exist
+      return unless eventMap[name]
 
       # Set default values
       interval = 0 unless interval?
       repeat = false unless repeat?
       context = @ unless context?
       
+      # Walk through all events and call them
       for i in eventMap[name]
         triggerFunction = (evObject) -> 
-          i.event.apply(context, [[i.sender], args].reduce((a, b) -> a.concat(b)))
+          i.event.apply context, [[i.sender], args].reduce((a, b) -> a.concat(b))
         
         if interval      
           if repeat
@@ -72,6 +78,6 @@ define 'elyssa/events', ->
       @
     
 
-  Events = new Elyssa.EventMap('Elyssa.Events')
+  Events = new Elyssa.EventMap 'Elyssa.Events'
   
   return {EventMap, Events}
