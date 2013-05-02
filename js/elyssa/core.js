@@ -364,6 +364,9 @@
         } else {
           name = eventName;
         }
+        if (!eventMap[name]) {
+          return;
+        }
         if (interval == null) {
           interval = 0;
         }
