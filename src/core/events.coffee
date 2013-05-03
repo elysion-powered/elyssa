@@ -1,21 +1,17 @@
-define 'elyssa/events', ->
+define 'elyssa/events', ['root'], ->
   'use strict'
   
   class EventMap
-    eventMap = {}
-    eventFunctions = {}
    
     constructor: (@sender) ->
-      eventMap = {}
-      eventFunctions = {}
-    
-    validEvents: []
+      @events = {}
+      @validEvents = []    
 
     on: (eventName, eventFunction) ->
       return unless eventFunction
 
       if @validEvents.length > 0
-        return if validEvents.indexOf(eventName) is -1
+        return if @validEvents.indexOf(eventName) is -1
       
       eventDesc = 
         event: eventFunction
@@ -23,21 +19,21 @@ define 'elyssa/events', ->
         type: ''
         sender: @sender
       
-      unless eventMap[eventName]
-        eventMap[eventName] = [eventDesc]
+      unless @events[eventName]
+        @events[eventName] = [eventDesc]
       else
-        eventMap[eventName].push eventDesc
+        @events[eventName].push eventDesc
       
       @
       
     off: (eventName) -> 
       return unless eventName    
 
-      if eventMap[eventName].type is 'once' or eventMap[eventName].type is 'repeat'
-        window.clearInterval eventMap[eventName].id if eventMap[eventName].type is 'repeat'
-        window.clearTimeout eventMap[eventName].id if eventMap[eventName].type is 'once'
+      if @events[eventName].type is 'once' or @events[eventName].type is 'repeat'
+        root.clearInterval @events[eventName].id if @events[eventName].type is 'repeat'
+        root.clearTimeout @events[eventName].id if @events[eventName].type is 'once'
 
-      delete eventMap[eventName] if eventMap[eventName]
+      delete @events[eventName] if @events[eventName]
 
       @
     
@@ -47,33 +43,46 @@ define 'elyssa/events', ->
 
       # Differentiate between eventName being an object or a string
       if typeof eventName is 'object'
-        {name, interval, repeat, context} = eventName
+        {name, interval, repeat, context, delay} = eventName
       else
         name = eventName
 
       # Break if event doesn't exist
-      return unless eventMap[name]
+      return unless @events[name]
 
       # Set default values
       interval = 0 unless interval?
       repeat = false unless repeat?
       context = @ unless context?
+      delay = 0 unless delay?
       
       # Walk through all events and call them
-      for i in eventMap[name]
-        triggerFunction = (evObject) -> 
-          i.event.apply context, [[i.sender], args].reduce((a, b) -> a.concat(b))
-        
-        if interval      
-          if repeat
-            i.type = 'repeat'
-            i.id = window.setInterval triggerFunction, interval
+      for i in @events[name]
+        triggerFunction = -> 
+          if i.sender
+            i.event.apply context, [].concat.apply [], [[i.sender], args]
           else
-            i.type = 'once'
-            i.id = window.setTimeout triggerFunction, interval
+            i.event.apply context, args
+        
+        triggerEvent = ->
+          if interval      
+            if repeat
+              i.type = 'repeat'
+              i.id = root.setInterval triggerFunction, interval
+            else
+              i.type = 'once'
+              i.id = root.setTimeout triggerFunction, interval
+          else
+            i.type = 'direct'
+            triggerFunction.call @
+          null
+        
+        if delay
+          timeoutId = root.setTimeout ->
+            triggerEvent.call @
+            root.clearTimeout timeoutId
         else
-          i.type = 'direct'
-          triggerFunction.call @
+          triggerEvent.call @
 
       @
     
