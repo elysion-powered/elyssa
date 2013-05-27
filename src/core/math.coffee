@@ -4,7 +4,7 @@ define 'elyssa/math', ->
   # Elyssa.Math
   # Static class
   # @mixin
-  Elyssa.Math =
+  Math =
     # Clamps a value between a minimum and maximum
     #
     # @param {Number} The value that needs to be clamped
@@ -12,10 +12,18 @@ define 'elyssa/math', ->
     # @param {Number} Maximum (Optional, set to 1.0 by default)
     #
     # @return {Number} The clamped value
-    clamp: (value, min = 0.0, max = 1.0) ->
+    clamp: (value, min, max) ->
+      if typeof value is 'object'
+        {min, max, value} = value
+    
+      min = 0.0 unless min?
+      max = 1.0 unless max?
+    
       [min, max] = [max, min] if min > max
-      
+          
       if min <= value <= max
         value
       else
         if value > max then max else min
+        
+  return Math
