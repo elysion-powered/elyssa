@@ -1,228 +1,55 @@
 (function() {
-  var __slice = [].slice;
 
-  (function(window, document) {
-    'use strict';
-    /*
-      Console object fixes
-    */
-
-    var console, i, lastTime, method, methods, noop, vendors, x, _i, _j, _len, _len1;
-    noop = function() {};
-    methods = ['assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error', 'exception', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log', 'markTimeline', 'profile', 'profileEnd', 'table', 'time', 'timeEnd', 'timeStamp', 'trace', 'warn'];
-    console = (window.console || (window.console = {}));
-    for (_i = 0, _len = methods.length; _i < _len; _i++) {
-      i = methods[_i];
-      method = methods[i];
-      console[method] || (console[method] = noop);
-    }
-    /*
-     Extending objects
-    */
-
-    window.extend = function() {
-      var key, obj, objects, target, value, _j, _len1;
-      target = arguments[0], objects = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
-      for (_j = 0, _len1 = objects.length; _j < _len1; _j++) {
-        obj = objects[_j];
-        for (key in obj) {
-          value = obj[key];
-          target[key] = value;
-        }
-      }
-      return target;
-    };
-    /*
-      Cloning objects
-    */
-
-    window.clone = function(obj) {
-      var flags, key, newInstance;
-      if (!((obj != null) || typeof obj !== 'object')) {
-        return obj;
-      }
-      if (obj instanceof Date) {
-        return new Date(obj.getTime());
-      }
-      if (obj instanceof RegExp) {
-        flags = '';
-        if (obj.global != null) {
-          flags += 'g';
-        }
-        if (obj.ignoreCase != null) {
-          flags += 'i';
-        }
-        if (obj.multiline != null) {
-          flags += 'm';
-        }
-        if (obj.sticky != null) {
-          flags += 'y';
-        }
-        return new RegExp(obj.source, flags);
-      }
-      newInstance = new obj.constructor();
-      for (key in obj) {
-        newInstance[key] = window.clone(obj[key]);
-      }
-      return newInstance;
-    };
-    /*
-     requestAnim shim layer by Paul Irish
-    */
-
-    lastTime = 0;
+  (function() {
+    var vendors;
     vendors = ['ms', 'moz', 'webkit', 'o'];
-    for (_j = 0, _len1 = vendors.length; _j < _len1; _j++) {
-      x = vendors[_j];
-      window.requestAnimationFrame = window["" + x + "RequestAnimationFrame"];
-      window.cancelAnimationFrame = window["" + x + "CancelAnimationFrame"] || window["" + x + "CancelRequestAnimationFrame"];
-    }
-    if (!window.requestAnimationFrame) {
-      window.requestAnimationFrame = function(callback, element) {
-        var currTime, id, timeToCall;
-        currTime = Date.now();
-        timeToCall = Math.max(0, 16 - (currTime - lastTime));
-        id = window.setTimeout(function() {
-          return callback(currTime + timeToCall);
-        }, timeToCall);
-        lastTime = currTime + timeToCall;
-        return id;
-      };
-    }
-    if (!window.cancelAnimationFrame) {
-      window.cancelAnimationFrame = function(id) {
-        return window.clearTimeout(id);
-      };
-    }
-    return null;
-  })(this, document);
-
-  (function(String) {
-    /*
-      Provides a hashcode for strings
-    */
-    return String.prototype.hashCode = function() {
-      var char, hash, i, _i, _len;
-      hash = 0;
-      if (this.length === 0) {
-        return hash;
-      }
-      for (_i = 0, _len = this.length; _i < _len; _i++) {
-        i = this[_i];
-        char = this.charCodeAt(i);
-        hash = ((hash << 5) - hash) + char;
-        hash = hash & hash;
-      }
-      return hash;
-    };
-  })(String);
-
-}).call(this);
-
-(function() {
-
-  (function(root) {
-    'use strict';    root.checkt = root.check = function(variable, checkObject) {
-      var checkType, k, key, keyArray, result, stringedVar, typeFuncs, typeName, types, value, _i, _len;
-      stringedVar = {}.toString.call(variable);
-      typeName = stringedVar.slice(8, stringedVar.length - 1).toLowerCase();
-      checkType = function(typeString, cb, inverse) {
-        if (inverse) {
-          if (typeName !== typeString) {
-            if (typeof cb === "function") {
-              cb(variable);
-            }
-          }
-        } else {
-          if (typeName === typeString) {
-            if (typeof cb === "function") {
-              cb(variable);
-            }
+    define('requestAnimationFrame', ['root'], function(root) {
+      var lastTime, requestAnimationFrame, x, _i, _len;
+      lastTime = 0;
+      requestAnimationFrame = root.requestAnimationFrame;
+      if (!requestAnimationFrame) {
+        for (_i = 0, _len = vendors.length; _i < _len; _i++) {
+          x = vendors[_i];
+          requestAnimationFrame = root["" + x + "RequestAnimationFrame"];
+          if (requestAnimationFrame) {
+            break;
           }
         }
-        /*
-          Else is a reserved keyword, while CoffeeScript interpolates it correctly,
-          it can only be written as check(...).['else']...
-          check(...).otherwise(...) is a better choice if using plain JavaScript
-        */
-
-        if (!checkObject) {
-          result["else"] = result.otherwise = function(cb) {
-            return checkType(typeString, cb, !inverse);
-          };
-          return result;
-        }
-      };
-      types = function(inverse) {
-        return {
-          valid: function(cb) {
-            if (inverse) {
-              if (variable == null) {
-                cb(variable);
-              }
-            } else {
-              if (variable != null) {
-                cb(variable);
-              }
-            }
-            return this;
-          },
-          undefined: function(cb) {
-            return checkType('undefined', cb, inverse);
-          },
-          "null": function(cb) {
-            return checkType('null', cb, inverse);
-          },
-          string: function(cb) {
-            return checkType('string', cb, inverse);
-          },
-          number: function(cb) {
-            return checkType('number', cb, inverse);
-          },
-          boolean: function(cb) {
-            return checkType('boolean', cb, inverse);
-          },
-          object: function(cb) {
-            return checkType('object', cb, inverse);
-          },
-          array: function(cb) {
-            return checkType('array', cb, inverse);
-          },
-          "function": function(cb) {
-            return checkType('function', cb, inverse);
-          }
+      }
+      if (!requestAnimationFrame) {
+        requestAnimationFrame = function(callback, element) {
+          var currTime, id, timeToCall;
+          currTime = Date.now();
+          timeToCall = Math.max(0, 16 - (currTime - lastTime));
+          id = root.setTimeout((function() {
+            return callback(currTime + timeToCall);
+          }), timeToCall);
+          lastTime = currTime + timeToCall;
+          return id;
         };
-      };
-      if (checkObject) {
-        typeFuncs = types(false);
-        for (key in checkObject) {
-          value = checkObject[key];
-          if (key.indexOf(',') > -1) {
-            keyArray = key.split(',');
-            for (_i = 0, _len = keyArray.length; _i < _len; _i++) {
-              k = keyArray[_i];
-              typeFuncs[k.trim()](value);
-            }
-          } else {
-            typeFuncs[key](value);
+      }
+      return requestAnimationFrame;
+    });
+    return define('cancelAnimationFrame', ['root'], function(root) {
+      var cancelAnimationFrame, x, _i, _len;
+      cancelAnimationFrame = root.cancelAnimationFrame;
+      if (!cancelAnimationFrame) {
+        for (_i = 0, _len = vendors.length; _i < _len; _i++) {
+          x = vendors[_i];
+          cancelAnimationFrame = root["" + x + "CancelAnimationFrame"] || root["" + x + "CancelRequestAnimationFrame"];
+          if (cancelAnimationFrame) {
+            break;
           }
         }
-        result = void 0;
-      } else {
-        result = types(false);
-        result.not = types(true);
       }
-      return result;
-    };
-    if (root.define && (typeof exports === "undefined" || exports === null)) {
-      root.define('check', [], function() {
-        return root.check;
-      });
-      return root.define('checkt', [], function() {
-        return root.checkt;
-      });
-    }
-  })(typeof exports !== "undefined" && exports !== null ? exports : this);
+      if (!cancelAnimationFrame) {
+        cancelAnimationFrame = function(id) {
+          return root.clearTimeout(id);
+        };
+      }
+      return requestAnimationFrame;
+    });
+  })();
 
 }).call(this);
 
@@ -291,135 +118,151 @@
 }).call(this);
 
 (function() {
-  var __slice = [].slice;
 
-  define('elyssa/events', ['root'], function() {
-    'use strict';
-    var EventMap, Events;
-    EventMap = (function() {
+  define('clone', function() {
+    /*
+      Cloning objects
+    */
 
-      function EventMap(sender) {
-        this.sender = sender;
-        this.events = {};
-        ({
-          this.validEvents: []
-        });
+    var clone;
+    return clone = function(obj) {
+      var flags, key, newInstance;
+      if (!((obj != null) || typeof obj !== 'object')) {
+        return obj;
       }
-
-      EventMap.prototype.on = function(eventName, eventFunction) {
-        var eventDesc;
-        if (!eventFunction) {
-          return;
+      if (obj instanceof Date) {
+        return new Date(obj.getTime());
+      }
+      if (obj instanceof RegExp) {
+        flags = '';
+        if (obj.global != null) {
+          flags += 'g';
         }
-        if (this.validEvents.length > 0) {
-          if (this.validEvents.indexOf(eventName) === -1) {
-            return;
-          }
+        if (obj.ignoreCase != null) {
+          flags += 'i';
         }
-        eventDesc = {
-          event: eventFunction,
-          id: -1,
-          type: '',
-          sender: this.sender
-        };
-        if (!this.events[eventName]) {
-          this.events[eventName] = [eventDesc];
-        } else {
-          this.events[eventName].push(eventDesc);
+        if (obj.multiline != null) {
+          flags += 'm';
         }
-        return this;
-      };
-
-      EventMap.prototype.off = function(eventName) {
-        if (!eventName) {
-          return;
+        if (obj.sticky != null) {
+          flags += 'y';
         }
-        if (this.events[eventName].type === 'once' || this.events[eventName].type === 'repeat') {
-          if (this.events[eventName].type === 'repeat') {
-            root.clearInterval(this.events[eventName].id);
-          }
-          if (this.events[eventName].type === 'once') {
-            root.clearTimeout(this.events[eventName].id);
-          }
-        }
-        if (this.events[eventName]) {
-          delete this.events[eventName];
-        }
-        return this;
-      };
-
-      EventMap.prototype.trigger = function() {
-        var args, context, delay, eventName, i, interval, name, repeat, timeoutId, triggerEvent, triggerFunction, _i, _len, _ref;
-        eventName = arguments[0], args = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
-        if (eventName == null) {
-          return;
-        }
-        if (typeof eventName === 'object') {
-          name = eventName.name, interval = eventName.interval, repeat = eventName.repeat, context = eventName.context, delay = eventName.delay;
-        } else {
-          name = eventName;
-        }
-        if (!this.events[name]) {
-          return;
-        }
-        if (interval == null) {
-          interval = 0;
-        }
-        if (repeat == null) {
-          repeat = false;
-        }
-        if (context == null) {
-          context = this;
-        }
-        if (delay == null) {
-          delay = 0;
-        }
-        _ref = this.events[name];
-        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-          i = _ref[_i];
-          triggerFunction = function() {
-            if (i.sender) {
-              return i.event.apply(context, [].concat.apply([], [[i.sender], args]));
-            } else {
-              return i.event.apply(context, args);
-            }
-          };
-          triggerEvent = function() {
-            if (interval) {
-              if (repeat) {
-                i.type = 'repeat';
-                i.id = root.setInterval(triggerFunction, interval);
-              } else {
-                i.type = 'once';
-                i.id = root.setTimeout(triggerFunction, interval);
-              }
-            } else {
-              i.type = 'direct';
-              triggerFunction.call(this);
-            }
-            return null;
-          };
-          if (delay) {
-            timeoutId = root.setTimeout(function() {
-              triggerEvent.call(this);
-              return root.clearTimeout(timeoutId);
-            });
-          } else {
-            triggerEvent.call(this);
-          }
-        }
-        return this;
-      };
-
-      return EventMap;
-
-    })();
-    Events = new Elyssa.EventMap('Elyssa.Events');
-    return {
-      EventMap: EventMap,
-      Events: Events
+        return new RegExp(obj.source, flags);
+      }
+      newInstance = new obj.constructor();
+      for (key in obj) {
+        newInstance[key] = window.clone(obj[key]);
+      }
+      return newInstance;
     };
   });
+
+}).call(this);
+
+(function() {
+
+  (function(window) {
+    'use strict';
+    /*
+      Console object fixes
+    */
+
+    var console, i, method, methods, noop, _i, _len, _results;
+    noop = function() {};
+    methods = ['assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error', 'exception', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log', 'markTimeline', 'profile', 'profileEnd', 'table', 'time', 'timeEnd', 'timeStamp', 'trace', 'warn'];
+    console = (window.console || (window.console = {}));
+    _results = [];
+    for (_i = 0, _len = methods.length; _i < _len; _i++) {
+      i = methods[_i];
+      method = methods[i];
+      _results.push(console[method] || (console[method] = noop));
+    }
+    return _results;
+  })(this);
+
+}).call(this);
+
+(function() {
+  var __slice = [].slice;
+
+  define('debounce', [root], function(root) {
+    var debounce;
+    return debounce = function(func, threshold, execAsap) {
+      var timeout;
+      if (threshold == null) {
+        threshold = 100;
+      }
+      timeout = null;
+      return function() {
+        var args, delayed, obj;
+        args = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
+        obj = this;
+        delayed = function() {
+          if (!execAsap) {
+            func.apply(this, args);
+          }
+          return timeout = null;
+        };
+        if (timeout) {
+          root.clearTimeout(timeout);
+        } else {
+          if (execAsap) {
+            func.apply(obj, args);
+          }
+        }
+        return timeout = root.setTimout(delayed, threshold);
+      };
+    };
+  });
+
+}).call(this);
+
+(function() {
+  var __slice = [].slice;
+
+  define('extend', function() {
+    /*
+     Extending objects
+    */
+
+    var extend;
+    return extend = function() {
+      var key, obj, objects, target, value, _i, _len;
+      target = arguments[0], objects = 2 <= arguments.length ? __slice.call(arguments, 1) : [];
+      for (_i = 0, _len = objects.length; _i < _len; _i++) {
+        obj = objects[_i];
+        for (key in obj) {
+          value = obj[key];
+          target[key] = value;
+        }
+      }
+      return target;
+    };
+  });
+
+}).call(this);
+
+(function() {
+
+  (function(String) {
+    /*
+      Provides a hashcode for strings
+    */
+    return String.prototype.hashCode = function() {
+      var char, hash, i, _i, _len;
+      hash = 0;
+      if (this.length === 0) {
+        return hash;
+      }
+      for (_i = 0, _len = this.length; _i < _len; _i++) {
+        i = this[_i];
+        char = this.charCodeAt(i);
+        hash = ((hash << 5) - hash) + char;
+        hash = hash & hash;
+      }
+      return hash;
+    };
+  })(String);
 
 }).call(this);
 
@@ -435,140 +278,11 @@
 
 (function() {
 
-  define('elyssa/log', function() {
-    'use strict';
-    var Log;
-    return Log = {};
-  });
-
-}).call(this);
-
-(function() {
-
-  define('elyssa/loop', function() {
-    'use strict';
-    var Loop;
-    return Loop = (function() {
-      var isRunning, staticProperty, taskList;
-
-      function Loop() {}
-
-      taskList = {};
-
-      isRunning = true;
-
-      staticProperty = window.ClassHelper(Loop).staticProperty;
-
-      staticProperty({
-        tasks: {
-          get: function() {
-            return Object.keys(taskList);
-          }
-        }
-      });
-
-      Loop.run = function() {
-        var animLoop, time;
-        time = 0;
-        animLoop = function() {
-          var dt, key, now, value;
-          window.requestAnimationFrame(animLoop);
-          now = Date.now();
-          dt = now - (time || now);
-          time = now;
-          if (!isRunning) {
-            return;
-          }
-          for (key in taskList) {
-            value = taskList[key];
-            if (!value.paused) {
-              if (typeof value.value === "function") {
-                value.value(dt);
-              }
-            }
-          }
-          return null;
-        };
-        return animLoop();
-      };
-
-      Loop.pause = function() {
-        isRunning = false;
-        return this;
-      };
-
-      Loop.resume = function() {
-        isRunning = true;
-        return this;
-      };
-
-      Loop.clear = function() {
-        taskList = {};
-        return this;
-      };
-
-      Loop.addTask = function(taskName, taskFunction) {
-        if (taskList[taskName]) {
-          return;
-        }
-        taskList[taskName] = {
-          paused: false,
-          value: taskFunction
-        };
-        return this;
-      };
-
-      Loop.pauseTask = function(taskName) {
-        taskList[taskName].paused = true;
-        return this;
-      };
-
-      Loop.resumeTask = function(taskName) {
-        taskList[taskName].paused = false;
-        return this;
-      };
-
-      Loop.removeTask = function(taskName) {
-        if (taskList[taskName]) {
-          delete taskList[taskName];
-        }
-        return this;
-      };
-
-      return Loop;
-
-    })();
-  });
-
-}).call(this);
-
-(function() {
-
-  define('elyssa/math', function() {
-    'use strict';    return Elyssa.Math = {
-      clamp: function(value, min, max) {
-        var _ref;
-        if (min == null) {
-          min = 0.0;
-        }
-        if (max == null) {
-          max = 1.0;
-        }
-        if (min > max) {
-          _ref = [max, min], min = _ref[0], max = _ref[1];
-        }
-        if ((min <= value && value <= max)) {
-          return value;
-        } else {
-          if (value > max) {
-            return max;
-          } else {
-            return min;
-          }
-        }
-      }
-    };
-  });
+  (function(root) {
+    return define('root', function() {
+      return root;
+    });
+  })(this);
 
 }).call(this);
 
@@ -2552,6 +2266,195 @@
       SVG.prototype.clear = function() {};
 
       return SVG;
+
+    })();
+  });
+
+}).call(this);
+
+(function() {
+  var __slice = [].slice;
+
+  define('elyssa/collection', function() {
+    var Collection;
+    return Collection = (function() {
+
+      function Collection() {}
+
+      Collection.prototype.contructor = function(content) {
+        this.data = {
+          collection: {},
+          state: {},
+          proxies: {
+            handler: {},
+            keyHandler: {}
+          }
+        };
+        if (content) {
+          if (typeof content === 'string') {
+            return this.fromString(content);
+          } else {
+            return this.set(content);
+          }
+        }
+      };
+
+      Collection.prototype.fromString = function(content) {
+        return this.data.collection = JSON.parse(content);
+      };
+
+      Collection.prototype.toString = function() {
+        return JSON.stringify(this.data.collection);
+      };
+
+      Collection.prototype.add = function(key, value, state) {
+        if (state == null) {
+          state = 'rw';
+        }
+        if (!this.exists(key)) {
+          this.proxy('add', key, value);
+          this.data.collection[key] = value;
+          if (state === 'readonly' || state === 'read-only' || state === 'readOnly') {
+            state = 'ro';
+          }
+          if (state === 'writeonly' || state === 'write-only' || state === 'writeOnly') {
+            state = 'wo';
+          }
+          return this.data.state[key] = state;
+        }
+      };
+
+      Collection.prototype.exists = function(key) {
+        this.proxy('exists', key);
+        return Object.hasOwnProperty.call(this.data.collection, key);
+      };
+
+      Collection.prototype.has = Collection.exists;
+
+      Collection.prototype.remove = function(key) {
+        this.proxy('remove', key);
+        return delete this.data.collection[key];
+      };
+
+      Collection.prototype.keys = function() {
+        return Object.keys(this.data.collection);
+      };
+
+      Collection.prototype.on = function(name, key, proxyFn) {
+        var _base, _base1;
+        if (key && typeof key === 'string') {
+          (_base = this.data.proxies.keyHandler)[name] || (_base[name] = {});
+          return this.data.proxies.keyHandler[name][key] = proxyFn;
+        } else {
+          proxyFn = key;
+          (_base1 = this.data.proxies.handler)[name] || (_base1[name] = []);
+          return this.data.proxies.handler[name].push(proxyFn);
+        }
+      };
+
+      Collection.prototype.off = function(name, key) {
+        var _ref;
+        if (key) {
+          if (typeof key === 'number') {
+            if (this.data.proxies.handler[name] != null) {
+              return this.data.proxies.handler[name].splice(key, 1);
+            }
+          } else {
+            if (((_ref = this.data.proxies.keyHandler[name]) != null ? _ref[key] : void 0) != null) {
+              return delete this.data.proxies.keyHandler[name][key];
+            }
+          }
+        } else {
+          return delete this.data.proxies.handler[name];
+        }
+      };
+
+      Collection.prototype.proxy = function() {
+        var args, i, key, name, _i, _len, _ref, _ref1, _ref2;
+        name = arguments[0], key = arguments[1], args = 3 <= arguments.length ? __slice.call(arguments, 2) : [];
+        if (this.data.proxies.handler[name]) {
+          _ref = this.data.proxies.handler[name];
+          for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+            i = _ref[_i];
+            i();
+          }
+        }
+        if (key) {
+          args.splice(0, 0, key);
+          if (((_ref1 = this.data.proxies.keyHandler[name]) != null ? _ref1[key] : void 0) != null) {
+            return (_ref2 = this.data.proxies.keyHandler[name])[key].apply(_ref2, args);
+          }
+        }
+      };
+
+      Collection.prototype.get = function(key) {
+        if (data.state[key] !== 'wo') {
+          this.proxy('get', key);
+          return this.data.collection[key];
+        } else {
+          return void 0;
+        }
+      };
+
+      Collection.prototype.set = function(key, value) {
+        var k, v;
+        if (value) {
+          if (this.exists(key)) {
+            if (this.data.state[key] !== 'ro') {
+              this.data.collection[key] = value;
+              this.proxy('set', key, value);
+            }
+          } else {
+            this.add(key, value);
+          }
+        } else {
+          for (k in key) {
+            v = key[k];
+            this.set.call(this, k, v);
+          }
+        }
+        return null;
+      };
+
+      Collection.prototype.each = function(callback) {
+        var key, value, _ref;
+        _ref = this.data.collection;
+        for (key in _ref) {
+          value = _ref[key];
+          callback(key, value);
+        }
+        return null;
+      };
+
+      Collection.prototype.map = function(callback) {
+        var key, result, value, _ref;
+        result = {};
+        _ref = this.data.collection;
+        for (key in _ref) {
+          value = _ref[key];
+          result[key] = callback(key, value);
+        }
+        return result;
+      };
+
+      Collection.prototype.filter = function(callback) {
+        var key, result, value, _i, _len, _ref;
+        result = {};
+        _ref = this.data.collection;
+        for (value = _i = 0, _len = _ref.length; _i < _len; value = ++_i) {
+          key = _ref[value];
+          if (!callback(this.data.collection[key])) {
+            result[key] = this.data.collection[key];
+          }
+        }
+        return result;
+      };
+
+      Collection.prototype.isEmpty = function() {
+        return this.keys().length === 0;
+      };
+
+      return Collection;
 
     })();
   });
