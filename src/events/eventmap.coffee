@@ -1,4 +1,4 @@
-define 'elyssa/events', ['root'], ->
+define 'elyssa/eventmap', ['root'], ->
   'use strict'
   
   class EventMap
@@ -86,7 +86,3 @@ define 'elyssa/events', ['root'], ->
 
       @
     
-
-  Events = new Elyssa.EventMap 'Elyssa.Events'
-  
-  return {EventMap, Events}
