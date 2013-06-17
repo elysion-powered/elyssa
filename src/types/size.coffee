@@ -1,16 +1,16 @@
-do (window = @, Elyssa = @Elyssa or= {}) ->
+define 'elyssa/types/size', ['elyssa/types/rect', 'serialize', 'deserialize'], (Rect, serialize, deserialize) ->
   
-  class Elyssa.Size
+  class Size
     constructor: ({@w, @h} = {w: 0, h: 0}) ->
       @w = 0 unless @w?
       @h = 0 unless @h?
   
-    toRect: -> new Elyssa.Rect {x: 0, y: 0, @w, @h}
+    toRect: -> new Rect {x: 0, y: 0, @w, @h}
     
     center: ->
       x: @w / 2
       y: @h / 2
       
-    toString: -> Elyssa.serialize {@x, @y, @w, @h}, defaultValue
+    toString: -> serialize {@x, @y, @w, @h}, defaultValue
 
-    @fromString: (rectString) -> Elyssa.deserialize rectString, @name
+    @fromString: (rectString) -> deserialize rectString, @name
