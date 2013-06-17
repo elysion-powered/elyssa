@@ -1,10 +1,10 @@
-define 'elyssa/storage', ['root'], (root) ->
+define 'elyssa/storage', ['root', 'serialize'], (root, serialize) ->
   'use strict'
   
   Storage = do (localStorage = root.localStorage) ->
     storageMap = {}
     
-    toString = -> Elyssa.serialize storageMap
+    toString = -> serialize storageMap
     
     clear = -> storageMap = {}
     
