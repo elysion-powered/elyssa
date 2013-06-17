@@ -31,4 +31,4 @@ do ->
     unless cancelAnimationFrame
       cancelAnimationFrame = (id) -> root.clearTimeout id
   
-    requestAnimationFrame
+    cancelAnimationFrame
