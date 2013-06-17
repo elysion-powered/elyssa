@@ -1,7 +1,9 @@
 (function() {
 
   define('elyssa/assets', function() {
-    'use strict';    return Elyssa.Assets = {};
+    'use strict';
+    var Assets;
+    return Assets = {};
   });
 
 }).call(this);
@@ -28,14 +30,14 @@
 
 (function() {
 
-  define('elyssa/storage', ['root'], function(root) {
+  define('elyssa/storage', ['root', 'serialize'], function(root, serialize) {
     'use strict';
     var Storage;
     return Storage = (function(localStorage) {
       var clear, item, load, save, storageMap, toString;
       storageMap = {};
       toString = function() {
-        return Elyssa.serialize(storageMap);
+        return serialize(storageMap);
       };
       clear = function() {
         return storageMap = {};

@@ -1,7 +1,8 @@
 (function() {
 
   (function(window, Elyssa) {
-    return Elyssa.deserialize = function(stringedObject, convert) {
+    var deserialize;
+    return deserialize = function(stringedObject, convert) {
       var parsedObject;
       if (!stringedObject) {
         return new Elyssa[convert]();
