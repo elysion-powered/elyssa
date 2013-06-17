@@ -1,7 +1,7 @@
 define 'elyssa/math', ->
   'use strict'
   
-  # Elyssa.Math
+  # Math
   # Static class
   # @mixin
   Math =
