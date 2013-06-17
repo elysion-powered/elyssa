@@ -1,6 +1,6 @@
 do (window = @, Elyssa = @Elyssa or= {}) ->
   
-  Elyssa.deserialize = (stringedObject, convert) ->
+  deserialize = (stringedObject, convert) ->
     return new Elyssa[convert]() unless stringedObject
       
     try
