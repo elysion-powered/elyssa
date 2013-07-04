@@ -13,8 +13,9 @@ define 'elyssa/math', ->
     #
     # @return {Number} The clamped value
     clamp: (value, min, max) ->
-      if typeof value is 'object'
-        {min, max, value} = value
+      {min, max, value} = value if typeof value is 'object'
+        
+      [min, max] = min if Array.isArray min
     
       min = 0.0 unless min?
       max = 1.0 unless max?
