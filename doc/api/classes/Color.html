@@ -1,0 +1,4433 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset='UTF-8'>
+  <title>CoffeeScript API Documentation</title>
+  <link rel='stylesheet' href='../assets/codo.css' type='text/css'>
+  <script src='../assets/codo.js'></script>
+  <script src='../assets/search_data.js'></script>
+</head>
+  <body>
+    <div id='base' data-path='../'></div>
+<div id='header'>
+  <div id='menu'>
+    <a href='../README.md.html' title='Elyssa'>Elyssa</a>
+    &raquo;
+    <a href='../class_index.html' title='Index'>Index</a>
+    &raquo;
+    <span class='title'>Color</span>
+    <nav>
+      <ul>
+        <li class='noframes'>
+          (<a class='noframes' href='#'>no frames</a>)
+        </li>
+      </ul>
+    </nav>
+    <div id='search'>
+      <a id='class_list_link' href='../class_list.html'>Classes</a>
+      <a id='mixin_list_link' href='../mixin_list.html'>Mixins</a>
+      <a id='method_list_link' href='../method_list.html'>Methods</a>
+      <a id='extra_list_link' href='../extra_list.html'>Extras</a>
+    </div>
+  </div>
+  <iframe id='search_frame'></iframe>
+  <div id='fuzzySearch'>
+    <input type='text'>
+    <ol></ol>
+  </div>
+  <div id='help'>
+    <p>
+      Quickly fuzzy find classes, mixins, methods, file:
+    </p>
+    <ul>
+      <li>
+        <span>Ctrl-T</span>
+        Open fuzzy finder dialog
+      </li>
+    </ul>
+    <p>
+      In frame mode you can toggle the list naviation frame on the left side:
+    </p>
+    <ul>
+      <li>
+        <span>Ctrl-L</span>
+        Toggle list view
+      </li>
+    </ul>
+    <p>
+      You can focus a list in frame mode or toggle a tab in frameless mode:
+    </p>
+    <ul>
+      <li>
+        <span>Ctrl-C</span>
+        Class list
+      </li>
+      <li>
+        <span>Ctrl-I</span>
+        Mixin list
+      </li>
+      <li>
+        <span>Ctrl-F</span>
+        File list
+      </li>
+      <li>
+        <span>Ctrl-M</span>
+        Method list
+      </li>
+      <li>
+        <span>Ctrl-E</span>
+        Extras list
+      </li>
+    </ul>
+    <p>
+      You can focus and blur the search input:
+    </p>
+    <ul>
+      <li>
+        <span>Ctrl-S</span>
+        Focus search input
+      </li>
+      <li>
+        <span>Esc</span>
+        Blur search input
+      </li>
+    </ul>
+    <p>
+      In frameless mode you can close the list tab:
+    </p>
+    <ul>
+      <li>
+        <span>Esc</span>
+        Close list tab
+      </li>
+    </ul>
+  </div>
+</div>
+    <div id='content'>
+      <h1>
+        Class:
+        Color
+      </h1>
+      <table class='box'>
+        <tr>
+          <td>Defined in:</td>
+          <td>src&#47;types&#47;color.coffee</td>
+        </tr>
+      </table>
+      <h2>Overview</h2>
+      <div class='docstring'>
+  <p>Color class
+This class allows to modifiy R, G, B and alpha value as well
+It also provides static functions</p>
+</div>
+<div class='tags'>
+</div>
+      <h2>Class Method Summary</h2>
+      <ul class='summary'>
+  <li>
+    <span class='signature'>
+      <a href='#aqua-class'>
+        + (Object) <strong>aqua</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 0 G: 255 B: 255
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#black-class'>
+        + (Object) <strong>black</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 0 G: 0 B: 0
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#blue-class'>
+        + (Object) <strong>blue</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 0 G: 0 B: 255
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#fuchsia-class'>
+        + (Object) <strong>fuchsia</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 255 G: 0 B: 255
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#gray-class'>
+        + (Object) <strong>gray</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 128 G: 128 B: 128
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#green-class'>
+        + (Object) <strong>green</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 0 G: 128 B: 0
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#lime-class'>
+        + (Object) <strong>lime</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 0 G: 255 B: 0
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#maroon-class'>
+        + (Object) <strong>maroon</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 128 G: 0 B: 0
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#navy-class'>
+        + (Object) <strong>navy</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 0 G: 0 B: 128
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#olive-class'>
+        + (Object) <strong>olive</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 128 G: 128 B: 0
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#purple-class'>
+        + (Object) <strong>purple</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 128 G: 0 B: 128
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#red-class'>
+        + (Object) <strong>red</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 255 G: 0 B: 0
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#silver-class'>
+        + (Object) <strong>silver</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 192 G: 192 B: 192
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#teal-class'>
+        + (Object) <strong>teal</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 0 G: 128 B: 128
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#white-class'>
+        + (void) <strong>white</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 255 G: 255 B: 255
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#yellow-class'>
+        + (Object) <strong>yellow</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 255 G: 255 B: 0
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#transparent-class'>
+        + (Object) <strong>transparent</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 0 G: 0 B: 0 A: 0
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#aliceBlue-class'>
+        + (Object) <strong>aliceBlue</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 240 G: 248 B: 255
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#antiqueWhite-class'>
+        + (Object) <strong>antiqueWhite</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 250 G: 235 B: 215
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#aquamarine-class'>
+        + (Object) <strong>aquamarine</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 127 G: 255 B: 212
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#azure-class'>
+        + (Object) <strong>azure</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 240 G: 255 B: 255
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#beige-class'>
+        + (Object) <strong>beige</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 245 G: 245 B: 220
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#bisque-class'>
+        + (Object) <strong>bisque</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 255 G: 228 B: 196
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#blanchedAlmond-class'>
+        + (Object) <strong>blanchedAlmond</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 255 G: 235 B: 205
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#blueViolet-class'>
+        + (Object) <strong>blueViolet</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 138 G: 43 B: 226
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#brown-class'>
+        + (Object) <strong>brown</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 165 G: 42 B: 42
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#burlyWood-class'>
+        + (Object) <strong>burlyWood</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 222 G: 184 B: 135
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#cadetBlue-class'>
+        + (Object) <strong>cadetBlue</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 95 G: 158 B: 160
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#chartreuse-class'>
+        + (Object) <strong>chartreuse</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 127 G: 255 B: 0
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#chocolate-class'>
+        + (Object) <strong>chocolate</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 210 G: 105 B: 30
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#coral-class'>
+        + (Object) <strong>coral</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 255 G: 127 B: 80
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#cornflowerBlue-class'>
+        + (Object) <strong>cornflowerBlue</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 100 G: 149 B: 237
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#cornsilk-class'>
+        + (Object) <strong>cornsilk</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 255 G: 248 B: 220
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#crimson-class'>
+        + (Object) <strong>crimson</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 220 G: 20 B: 60
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#cyan-class'>
+        + (Object) <strong>cyan</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 0 G: 255 B: 255
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#darkBlue-class'>
+        + (Object) <strong>darkBlue</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 0 G: 0 B: 139
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#darkCyan-class'>
+        + (Object) <strong>darkCyan</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 0 G: 139 B: 139
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#darkGoldenRod-class'>
+        + (Object) <strong>darkGoldenRod</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 184 G: 134 B: 11
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#darkGray-class'>
+        + (Object) <strong>darkGray</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 169 G: 169 B: 169
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#darkGreen-class'>
+        + (Object) <strong>darkGreen</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 0 G: 100 B: 0
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#darkKhaki-class'>
+        + (Object) <strong>darkKhaki</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 189 G: 183 B: 107
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#darkMagenta-class'>
+        + (Object) <strong>darkMagenta</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 139 G: 0 B: 139
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#darkOliveGreen-class'>
+        + (Object) <strong>darkOliveGreen</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 85 G: 107 B: 47
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#darkOrange-class'>
+        + (Object) <strong>darkOrange</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 255 G: 140 B: 0
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#darkOrchid-class'>
+        + (Object) <strong>darkOrchid</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 153 G: 50 B: 204
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#darkRed-class'>
+        + (Object) <strong>darkRed</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 139 G: 0 B: 0
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#darkSalmon-class'>
+        + (Object) <strong>darkSalmon</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 233 G: 150 B: 122
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#darkSeaGreen-class'>
+        + (Object) <strong>darkSeaGreen</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 143 G: 188 B: 143
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#darkSlateBlue-class'>
+        + (Object) <strong>darkSlateBlue</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 72 G: 61 B: 139
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#darkSlateGray-class'>
+        + (Object) <strong>darkSlateGray</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 47 G: 79 B: 79
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#darkTurquoise-class'>
+        + (Object) <strong>darkTurquoise</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 0 G: 206 B: 209
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#darkViolet-class'>
+        + (Object) <strong>darkViolet</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 148 G: 0 B: 211
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#deepPink-class'>
+        + (Object) <strong>deepPink</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 255 G: 20 B: 147
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#deepSkyBlue-class'>
+        + (Object) <strong>deepSkyBlue</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 0 G: 191 B: 255
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#dimGray-class'>
+        + (Object) <strong>dimGray</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 105 G: 105 B: 105
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#dodgerBlue-class'>
+        + (Object) <strong>dodgerBlue</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 30 G: 144 B: 255
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#fireBrick-class'>
+        + (Object) <strong>fireBrick</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 178 G: 34 B: 34
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#floralWhite-class'>
+        + (Object) <strong>floralWhite</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 255 G: 250 B: 240
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#forestGreen-class'>
+        + (Object) <strong>forestGreen</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 34 G: 139 B: 34
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#gainsboro-class'>
+        + (Object) <strong>gainsboro</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 220 G: 220 B: 220
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#ghostWhite-class'>
+        + (Object) <strong>ghostWhite</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 248 G: 248 B: 255
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#gold-class'>
+        + (Object) <strong>gold</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 255 G: 215 B: 0
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#goldenRod-class'>
+        + (Object) <strong>goldenRod</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 218 G: 165 B: 32
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#greenYellow-class'>
+        + (Object) <strong>greenYellow</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 173 G: 255 B: 47
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#honeyDew-class'>
+        + (Object) <strong>honeyDew</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 240 G: 255 B: 240
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#hotPink-class'>
+        + (Object) <strong>hotPink</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 255 G: 105 B: 180
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#indianRed-class'>
+        + (Object) <strong>indianRed</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 205 G: 92 B: 92
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#indigo-class'>
+        + (Object) <strong>indigo</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 75 G: 0 B: 130
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#ivory-class'>
+        + (Object) <strong>ivory</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 255 G: 255 B: 240
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#khaki-class'>
+        + (Object) <strong>khaki</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 240 G: 230 B: 140
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#lavender-class'>
+        + (Object) <strong>lavender</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 230 G: 230 B: 250
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#lavenderBlush-class'>
+        + (Object) <strong>lavenderBlush</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 255 G: 240 B: 245
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#lawnGreen-class'>
+        + (Object) <strong>lawnGreen</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 124 G: 252 B: 0
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#lemonChiffon-class'>
+        + (Object) <strong>lemonChiffon</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 255 G: 250 B: 205
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#lightBlue-class'>
+        + (Object) <strong>lightBlue</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 173 G: 216 B: 230
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#lightCoral-class'>
+        + (Object) <strong>lightCoral</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 240 G: 128 B: 128
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#lightCyan-class'>
+        + (Object) <strong>lightCyan</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 224 G: 255 B: 255
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#lightGoldenRodYellow-class'>
+        + (Object) <strong>lightGoldenRodYellow</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 250 G: 250 B: 210
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#lightGray-class'>
+        + (Object) <strong>lightGray</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 211 G: 211 B: 211
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#lightGreen-class'>
+        + (Object) <strong>lightGreen</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 144 G: 238 B: 144
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#lightPink-class'>
+        + (Object) <strong>lightPink</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 255 G: 182 B: 193
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#lightSalmon-class'>
+        + (Object) <strong>lightSalmon</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 255 G: 160 B: 122
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#lightSeaGreen-class'>
+        + (Object) <strong>lightSeaGreen</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 32 G: 178 B: 170
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#lightSkyBlue-class'>
+        + (Object) <strong>lightSkyBlue</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 135 G: 206 B: 250
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#lightSlateGray-class'>
+        + (Object) <strong>lightSlateGray</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 119 G: 136 B: 153
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#lightSteelBlue-class'>
+        + (Object) <strong>lightSteelBlue</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 176 G: 196 B: 222
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#lightYellow-class'>
+        + (Object) <strong>lightYellow</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 255 G: 255 B: 224
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#limeGreen-class'>
+        + (Object) <strong>limeGreen</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 50 G: 205 B: 50
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#linen-class'>
+        + (Object) <strong>linen</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 250 G: 240 B: 230
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#mediumAquaMarine-class'>
+        + (Object) <strong>mediumAquaMarine</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 102 G: 205 B: 170
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#mediumBlue-class'>
+        + (Object) <strong>mediumBlue</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 0 G: 0 B: 205
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#mediumOrchid-class'>
+        + (Object) <strong>mediumOrchid</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 186 G: 85 B: 211
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#mediumPurple-class'>
+        + (Object) <strong>mediumPurple</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 147 G: 112 B: 219
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#mediumSeaGreen-class'>
+        + (Object) <strong>mediumSeaGreen</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 60 G: 179 B: 113
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#mediumSlateBlue-class'>
+        + (Object) <strong>mediumSlateBlue</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 123 G: 104 B: 238
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#mediumSpringGreen-class'>
+        + (Object) <strong>mediumSpringGreen</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 0 G: 250 B: 154
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#mediumTurquoise-class'>
+        + (Object) <strong>mediumTurquoise</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 72 G: 209 B: 204
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#mediumVioletRed-class'>
+        + (Object) <strong>mediumVioletRed</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 199 G: 21 B: 133
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#midnightBlue-class'>
+        + (Object) <strong>midnightBlue</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 25 G: 25 B: 112
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#mintCream-class'>
+        + (Object) <strong>mintCream</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 245 G: 255 B: 250
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#mistyRose-class'>
+        + (Object) <strong>mistyRose</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 255 G: 228 B: 225
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#moccasin-class'>
+        + (Object) <strong>moccasin</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 255 G: 228 B: 181
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#navajoWhite-class'>
+        + (Object) <strong>navajoWhite</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 255 G: 222 B: 173
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#oldLace-class'>
+        + (Object) <strong>oldLace</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 253 G: 245 B: 230
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#oliveDrab-class'>
+        + (Object) <strong>oliveDrab</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 107 G: 142 B: 35
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#orange-class'>
+        + (Object) <strong>orange</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 255 G: 165 B: 0
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#orangeRed-class'>
+        + (Object) <strong>orangeRed</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 255 G: 69 B: 0
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#orchid-class'>
+        + (Object) <strong>orchid</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 218 G: 112 B: 214
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#paleGoldenRod-class'>
+        + (Object) <strong>paleGoldenRod</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 238 G: 232 B: 170
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#paleGreen-class'>
+        + (Object) <strong>paleGreen</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 152 G: 251 B: 152
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#paleTurquoise-class'>
+        + (Object) <strong>paleTurquoise</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 175 G: 238 B: 238
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#paleVioletRed-class'>
+        + (Object) <strong>paleVioletRed</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 219 G: 112 B: 147
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#papayaWhip-class'>
+        + (Object) <strong>papayaWhip</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 255 G: 239 B: 213
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#peachPuff-class'>
+        + (Object) <strong>peachPuff</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 255 G: 218 B: 185
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#peru-class'>
+        + (Object) <strong>peru</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 205 G: 133 B: 63
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#pink-class'>
+        + (Object) <strong>pink</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 255 G: 192 B: 203
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#plum-class'>
+        + (Object) <strong>plum</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 221 G: 160 B: 221
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#powderBlue-class'>
+        + (Object) <strong>powderBlue</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 176 G: 224 B: 230
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#rosyBrown-class'>
+        + (Object) <strong>rosyBrown</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 188 G: 143 B: 143
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#royalBlue-class'>
+        + (Object) <strong>royalBlue</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 65 G: 105 B: 225
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#saddleBrown-class'>
+        + (Object) <strong>saddleBrown</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 139 G: 69 B: 19
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#salmon-class'>
+        + (Object) <strong>salmon</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 250 G: 128 B: 114
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#sandyBrown-class'>
+        + (Object) <strong>sandyBrown</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 244 G: 164 B: 96
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#seaGreen-class'>
+        + (Object) <strong>seaGreen</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 46 G: 139 B: 87
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#seaShell-class'>
+        + (Object) <strong>seaShell</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 255 G: 245 B: 238
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#sienna-class'>
+        + (Object) <strong>sienna</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 160 G: 82 B: 45
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#skyBlue-class'>
+        + (Object) <strong>skyBlue</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 135 G: 206 B: 235
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#slateBlue-class'>
+        + (Object) <strong>slateBlue</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 106 G: 90 B: 205
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#slateGray-class'>
+        + (Object) <strong>slateGray</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 112 G: 128 B: 144
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#snow-class'>
+        + (Object) <strong>snow</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 255 G: 250 B: 250
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#springGreen-class'>
+        + (Object) <strong>springGreen</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 0 G: 255 B: 127
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#steelBlue-class'>
+        + (Object) <strong>steelBlue</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 70 G: 130 B: 180
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#tan-class'>
+        + (Object) <strong>tan</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 210 G: 180 B: 140
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#thistle-class'>
+        + (Object) <strong>thistle</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 216 G: 191 B: 216
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#tomato-class'>
+        + (Object) <strong>tomato</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 255 G: 99 B: 71
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#turquoise-class'>
+        + (Object) <strong>turquoise</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 64 G: 224 B: 208
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#violet-class'>
+        + (Object) <strong>violet</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 238 G: 130 B: 238
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#wheat-class'>
+        + (Object) <strong>wheat</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 245 G: 222 B: 179
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#whiteSmoke-class'>
+        + (Object) <strong>whiteSmoke</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 245 G: 245 B: 245
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#yellowGreen-class'>
+        + (Object) <strong>yellowGreen</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 154 G: 205 B: 50
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#freezeDevBlue-class'>
+        + (Object) <strong>freezeDevBlue</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Returns new object with color values: R: 73 G: 92 B: 108
+    </span>
+  </li>
+</ul>
+      <h2>Instance Method Summary</h2>
+      <ul class='summary'>
+  <li>
+    <span class='signature'>
+      <a href='#constructor-instance'>
+        - (void) <strong>constructor</strong>(param)
+      </a>
+    </span>
+    <span class='constructor note title'>Constructor</span>
+    <span class='desc'>
+      Creates the color class Allows to define R, G, B and A components
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#toString-instance'>
+        - (String) <strong>toString</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Converts the color class into a valid CSS string color
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#toHex-instance'>
+        - (String) <strong>toHex</strong>()
+      </a>
+    </span>
+    <span class='desc'>
+      Converts color into hex color
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#lighten-instance'>
+        - (Object) <strong>lighten</strong>(factor)
+      </a>
+    </span>
+    <span class='desc'>
+      Lighten the color
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#darken-instance'>
+        - (Object) <strong>darken</strong>(factor)
+      </a>
+    </span>
+    <span class='desc'>
+      Darken the color
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#fadeIn-instance'>
+        - (void) <strong>fadeIn</strong>(factor)
+      </a>
+    </span>
+    <span class='desc'>
+      
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#fadeOut-instance'>
+        - (void) <strong>fadeOut</strong>(factor)
+      </a>
+    </span>
+    <span class='desc'>
+      
+    </span>
+  </li>
+</ul>
+      <h2>Class Method Details</h2>
+      <div class='methods'>
+  <div class='method_details'>
+    <p class='signature' id='aqua-class'>
+      + (Object) <strong>aqua</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 0   G: 255 B: 255</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='black-class'>
+      + (Object) <strong>black</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 0   G: 0   B: 0</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='blue-class'>
+      + (Object) <strong>blue</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 0   G: 0   B: 255</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='fuchsia-class'>
+      + (Object) <strong>fuchsia</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 255 G: 0   B: 255</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='gray-class'>
+      + (Object) <strong>gray</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 128 G: 128 B: 128</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='green-class'>
+      + (Object) <strong>green</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 0   G: 128 B: 0</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='lime-class'>
+      + (Object) <strong>lime</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 0   G: 255 B: 0</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='maroon-class'>
+      + (Object) <strong>maroon</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 128 G: 0   B: 0</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='navy-class'>
+      + (Object) <strong>navy</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 0   G: 0   B: 128</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='olive-class'>
+      + (Object) <strong>olive</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 128 G: 128 B: 0</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='purple-class'>
+      + (Object) <strong>purple</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 128 G: 0   B: 128</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='red-class'>
+      + (Object) <strong>red</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 255 G: 0   B: 0</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='silver-class'>
+      + (Object) <strong>silver</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 192 G: 192 B: 192</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='teal-class'>
+      + (Object) <strong>teal</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 0   G: 128 B: 128</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='white-class'>
+      + (void) <strong>white</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 255 G: 255 B: 255</p>
+</div>
+<div class='tags'>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='yellow-class'>
+      + (Object) <strong>yellow</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 255 G: 255 B: 0</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='transparent-class'>
+      + (Object) <strong>transparent</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 0 G: 0 B: 0 A: 0</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='aliceBlue-class'>
+      + (Object) <strong>aliceBlue</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 240 G: 248 B: 255</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='antiqueWhite-class'>
+      + (Object) <strong>antiqueWhite</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 250 G: 235 B: 215</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='aquamarine-class'>
+      + (Object) <strong>aquamarine</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 127 G: 255 B: 212</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='azure-class'>
+      + (Object) <strong>azure</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 240 G: 255 B: 255</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='beige-class'>
+      + (Object) <strong>beige</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 245 G: 245 B: 220</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='bisque-class'>
+      + (Object) <strong>bisque</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 255 G: 228 B: 196</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='blanchedAlmond-class'>
+      + (Object) <strong>blanchedAlmond</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 255 G: 235 B: 205</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='blueViolet-class'>
+      + (Object) <strong>blueViolet</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 138 G: 43  B: 226</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='brown-class'>
+      + (Object) <strong>brown</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 165 G: 42  B: 42</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='burlyWood-class'>
+      + (Object) <strong>burlyWood</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 222 G: 184 B: 135</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='cadetBlue-class'>
+      + (Object) <strong>cadetBlue</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 95  G: 158 B: 160</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='chartreuse-class'>
+      + (Object) <strong>chartreuse</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 127 G: 255 B: 0</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='chocolate-class'>
+      + (Object) <strong>chocolate</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 210 G: 105 B: 30</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='coral-class'>
+      + (Object) <strong>coral</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 255 G: 127 B: 80</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='cornflowerBlue-class'>
+      + (Object) <strong>cornflowerBlue</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 100 G: 149 B: 237</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='cornsilk-class'>
+      + (Object) <strong>cornsilk</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 255 G: 248 B: 220</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='crimson-class'>
+      + (Object) <strong>crimson</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 220 G: 20  B: 60</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='cyan-class'>
+      + (Object) <strong>cyan</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 0   G: 255 B: 255</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='darkBlue-class'>
+      + (Object) <strong>darkBlue</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 0   G: 0   B: 139</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='darkCyan-class'>
+      + (Object) <strong>darkCyan</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 0   G: 139 B: 139</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='darkGoldenRod-class'>
+      + (Object) <strong>darkGoldenRod</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 184 G: 134 B: 11</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='darkGray-class'>
+      + (Object) <strong>darkGray</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 169 G: 169 B: 169</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='darkGreen-class'>
+      + (Object) <strong>darkGreen</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 0   G: 100 B: 0</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='darkKhaki-class'>
+      + (Object) <strong>darkKhaki</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 189 G: 183 B: 107</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='darkMagenta-class'>
+      + (Object) <strong>darkMagenta</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 139 G: 0   B: 139</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='darkOliveGreen-class'>
+      + (Object) <strong>darkOliveGreen</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 85  G: 107 B: 47</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='darkOrange-class'>
+      + (Object) <strong>darkOrange</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 255 G: 140 B: 0</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='darkOrchid-class'>
+      + (Object) <strong>darkOrchid</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 153 G: 50  B: 204</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='darkRed-class'>
+      + (Object) <strong>darkRed</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 139 G: 0   B: 0</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='darkSalmon-class'>
+      + (Object) <strong>darkSalmon</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 233 G: 150 B: 122</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='darkSeaGreen-class'>
+      + (Object) <strong>darkSeaGreen</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 143 G: 188 B: 143</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='darkSlateBlue-class'>
+      + (Object) <strong>darkSlateBlue</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 72  G: 61  B: 139</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='darkSlateGray-class'>
+      + (Object) <strong>darkSlateGray</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 47  G: 79  B: 79</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='darkTurquoise-class'>
+      + (Object) <strong>darkTurquoise</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 0   G: 206 B: 209</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='darkViolet-class'>
+      + (Object) <strong>darkViolet</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 148 G: 0   B: 211</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='deepPink-class'>
+      + (Object) <strong>deepPink</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 255 G: 20  B: 147</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='deepSkyBlue-class'>
+      + (Object) <strong>deepSkyBlue</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 0   G: 191 B: 255</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='dimGray-class'>
+      + (Object) <strong>dimGray</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 105 G: 105 B: 105</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='dodgerBlue-class'>
+      + (Object) <strong>dodgerBlue</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 30  G: 144 B: 255</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='fireBrick-class'>
+      + (Object) <strong>fireBrick</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 178 G: 34  B: 34</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='floralWhite-class'>
+      + (Object) <strong>floralWhite</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 255 G: 250 B: 240</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='forestGreen-class'>
+      + (Object) <strong>forestGreen</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 34  G: 139 B: 34</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='gainsboro-class'>
+      + (Object) <strong>gainsboro</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 220 G: 220 B: 220</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='ghostWhite-class'>
+      + (Object) <strong>ghostWhite</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 248 G: 248 B: 255</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='gold-class'>
+      + (Object) <strong>gold</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 255 G: 215 B: 0</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='goldenRod-class'>
+      + (Object) <strong>goldenRod</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 218 G: 165 B: 32</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='greenYellow-class'>
+      + (Object) <strong>greenYellow</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 173 G: 255 B: 47</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='honeyDew-class'>
+      + (Object) <strong>honeyDew</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 240 G: 255 B: 240</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='hotPink-class'>
+      + (Object) <strong>hotPink</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 255 G: 105 B: 180</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='indianRed-class'>
+      + (Object) <strong>indianRed</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 205 G: 92  B: 92</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='indigo-class'>
+      + (Object) <strong>indigo</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 75  G: 0   B: 130</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='ivory-class'>
+      + (Object) <strong>ivory</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 255 G: 255 B: 240</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='khaki-class'>
+      + (Object) <strong>khaki</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 240 G: 230 B: 140</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='lavender-class'>
+      + (Object) <strong>lavender</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 230 G: 230 B: 250</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='lavenderBlush-class'>
+      + (Object) <strong>lavenderBlush</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 255 G: 240 B: 245</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='lawnGreen-class'>
+      + (Object) <strong>lawnGreen</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 124 G: 252 B: 0</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='lemonChiffon-class'>
+      + (Object) <strong>lemonChiffon</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 255 G: 250 B: 205</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='lightBlue-class'>
+      + (Object) <strong>lightBlue</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 173 G: 216 B: 230</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='lightCoral-class'>
+      + (Object) <strong>lightCoral</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 240 G: 128 B: 128</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='lightCyan-class'>
+      + (Object) <strong>lightCyan</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 224 G: 255 B: 255</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='lightGoldenRodYellow-class'>
+      + (Object) <strong>lightGoldenRodYellow</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 250 G: 250 B: 210</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='lightGray-class'>
+      + (Object) <strong>lightGray</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 211 G: 211 B: 211</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='lightGreen-class'>
+      + (Object) <strong>lightGreen</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 144 G: 238 B: 144</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='lightPink-class'>
+      + (Object) <strong>lightPink</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 255 G: 182 B: 193</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='lightSalmon-class'>
+      + (Object) <strong>lightSalmon</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 255 G: 160 B: 122</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='lightSeaGreen-class'>
+      + (Object) <strong>lightSeaGreen</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 32  G: 178 B: 170</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='lightSkyBlue-class'>
+      + (Object) <strong>lightSkyBlue</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 135 G: 206 B: 250</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='lightSlateGray-class'>
+      + (Object) <strong>lightSlateGray</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 119 G: 136 B: 153</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='lightSteelBlue-class'>
+      + (Object) <strong>lightSteelBlue</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 176 G: 196 B: 222</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='lightYellow-class'>
+      + (Object) <strong>lightYellow</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 255 G: 255 B: 224</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='limeGreen-class'>
+      + (Object) <strong>limeGreen</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 50  G: 205 B: 50</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='linen-class'>
+      + (Object) <strong>linen</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 250 G: 240 B: 230</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='mediumAquaMarine-class'>
+      + (Object) <strong>mediumAquaMarine</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 102 G: 205 B: 170</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='mediumBlue-class'>
+      + (Object) <strong>mediumBlue</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 0   G: 0   B: 205</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='mediumOrchid-class'>
+      + (Object) <strong>mediumOrchid</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 186 G: 85  B: 211</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='mediumPurple-class'>
+      + (Object) <strong>mediumPurple</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 147 G: 112 B: 219</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='mediumSeaGreen-class'>
+      + (Object) <strong>mediumSeaGreen</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 60  G: 179 B: 113</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='mediumSlateBlue-class'>
+      + (Object) <strong>mediumSlateBlue</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 123 G: 104 B: 238</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='mediumSpringGreen-class'>
+      + (Object) <strong>mediumSpringGreen</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 0   G: 250 B: 154</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='mediumTurquoise-class'>
+      + (Object) <strong>mediumTurquoise</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 72  G: 209 B: 204</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='mediumVioletRed-class'>
+      + (Object) <strong>mediumVioletRed</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 199 G: 21  B: 133</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='midnightBlue-class'>
+      + (Object) <strong>midnightBlue</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 25  G: 25  B: 112</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='mintCream-class'>
+      + (Object) <strong>mintCream</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 245 G: 255 B: 250</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='mistyRose-class'>
+      + (Object) <strong>mistyRose</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 255 G: 228 B: 225</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='moccasin-class'>
+      + (Object) <strong>moccasin</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 255 G: 228 B: 181</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='navajoWhite-class'>
+      + (Object) <strong>navajoWhite</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 255 G: 222 B: 173</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='oldLace-class'>
+      + (Object) <strong>oldLace</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 253 G: 245 B: 230</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='oliveDrab-class'>
+      + (Object) <strong>oliveDrab</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 107 G: 142 B: 35</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='orange-class'>
+      + (Object) <strong>orange</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 255 G: 165 B: 0</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='orangeRed-class'>
+      + (Object) <strong>orangeRed</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 255 G: 69  B: 0</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='orchid-class'>
+      + (Object) <strong>orchid</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 218 G: 112 B: 214</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='paleGoldenRod-class'>
+      + (Object) <strong>paleGoldenRod</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 238 G: 232 B: 170</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='paleGreen-class'>
+      + (Object) <strong>paleGreen</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 152 G: 251 B: 152</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='paleTurquoise-class'>
+      + (Object) <strong>paleTurquoise</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 175 G: 238 B: 238</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='paleVioletRed-class'>
+      + (Object) <strong>paleVioletRed</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 219 G: 112 B: 147</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='papayaWhip-class'>
+      + (Object) <strong>papayaWhip</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 255 G: 239 B: 213</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='peachPuff-class'>
+      + (Object) <strong>peachPuff</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 255 G: 218 B: 185</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='peru-class'>
+      + (Object) <strong>peru</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 205 G: 133 B: 63</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='pink-class'>
+      + (Object) <strong>pink</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 255 G: 192 B: 203</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='plum-class'>
+      + (Object) <strong>plum</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 221 G: 160 B: 221</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='powderBlue-class'>
+      + (Object) <strong>powderBlue</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 176 G: 224 B: 230</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='rosyBrown-class'>
+      + (Object) <strong>rosyBrown</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 188 G: 143 B: 143</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='royalBlue-class'>
+      + (Object) <strong>royalBlue</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 65  G: 105 B: 225</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='saddleBrown-class'>
+      + (Object) <strong>saddleBrown</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 139 G: 69  B: 19</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='salmon-class'>
+      + (Object) <strong>salmon</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 250 G: 128 B: 114</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='sandyBrown-class'>
+      + (Object) <strong>sandyBrown</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 244 G: 164 B: 96</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='seaGreen-class'>
+      + (Object) <strong>seaGreen</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 46  G: 139 B: 87</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='seaShell-class'>
+      + (Object) <strong>seaShell</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 255 G: 245 B: 238</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='sienna-class'>
+      + (Object) <strong>sienna</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 160 G: 82  B: 45</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='skyBlue-class'>
+      + (Object) <strong>skyBlue</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 135 G: 206 B: 235</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='slateBlue-class'>
+      + (Object) <strong>slateBlue</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 106 G: 90  B: 205</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='slateGray-class'>
+      + (Object) <strong>slateGray</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 112 G: 128 B: 144</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='snow-class'>
+      + (Object) <strong>snow</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 255 G: 250 B: 250</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='springGreen-class'>
+      + (Object) <strong>springGreen</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 0   G: 255 B: 127</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='steelBlue-class'>
+      + (Object) <strong>steelBlue</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 70  G: 130 B: 180</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='tan-class'>
+      + (Object) <strong>tan</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 210 G: 180 B: 140</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='thistle-class'>
+      + (Object) <strong>thistle</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 216 G: 191 B: 216</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='tomato-class'>
+      + (Object) <strong>tomato</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 255 G: 99  B: 71</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='turquoise-class'>
+      + (Object) <strong>turquoise</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 64  G: 224 B: 208</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='violet-class'>
+      + (Object) <strong>violet</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 238 G: 130 B: 238</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='wheat-class'>
+      + (Object) <strong>wheat</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 245 G: 222 B: 179</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='whiteSmoke-class'>
+      + (Object) <strong>whiteSmoke</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 245 G: 245 B: 245</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='yellowGreen-class'>
+      + (Object) <strong>yellowGreen</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 154 G: 205 B: 50</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='freezeDevBlue-class'>
+      + (Object) <strong>freezeDevBlue</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Returns new object with color values: R: 73  G: 92  B: 108</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+</div>
+      <h2>Constructor Details</h2>
+      <div class='methods'>
+  <div class='method_details'>
+    <p class='signature' id='constructor-instance'>
+      - (void) <strong>constructor</strong>(param)
+    </p>
+    <div class='docstring'>
+  <p>Creates the color class</p><p>Allows to define R, G, B and A components</p>
+</div>
+<div class='tags'>
+</div>
+  </div>
+</div>
+      <h2>Instance Method Details</h2>
+      <div class='methods'>
+  <div class='method_details'>
+    <p class='signature' id='toString-instance'>
+      - (String) <strong>toString</strong>()
+    </p>
+    <div class='docstring'>
+  <p>Converts the color class into a valid CSS string color</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>String</tt>)
+      &mdash;
+      <span class='desc'>The color as a rgb or rgba value, depending on the alpha value</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='toHex-instance'>
+      - (String) <strong>toHex</strong>()
+    </p>
+    <div class='docstring'>
+  <div class='note'>
+    <strong>Note:</strong>
+    Hex colors do not have any information about the alpha value
+  </div>
+  <p>Converts color into hex color</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>String</tt>)
+      &mdash;
+      <span class='desc'>The color as a hex value</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='lighten-instance'>
+      - (Object) <strong>lighten</strong>(factor)
+    </p>
+    <div class='docstring'>
+  <p>Lighten the color</p>
+</div>
+<div class='tags'>
+  <h3>Parameters:</h3>
+  <ul class='param'>
+    <li>
+      <span class='name'>The</span>
+      <span class='type'>
+        (<tt>Number</tt>)
+      </span>
+      &mdash;
+      <span class='desc'>percentage (0.0 - 1.0) the color will be lightened</span>
+    </li>
+  </ul>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='darken-instance'>
+      - (Object) <strong>darken</strong>(factor)
+    </p>
+    <div class='docstring'>
+  <p>Darken the color</p>
+</div>
+<div class='tags'>
+  <h3>Parameters:</h3>
+  <ul class='param'>
+    <li>
+      <span class='name'>The</span>
+      <span class='type'>
+        (<tt>Number</tt>)
+      </span>
+      &mdash;
+      <span class='desc'>percentage (0.0 - 1.0) the color will be darkened</span>
+    </li>
+  </ul>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (<tt>Object</tt>)
+      &mdash;
+      <span class='desc'>The color object</span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='fadeIn-instance'>
+      - (void) <strong>fadeIn</strong>(factor)
+    </p>
+    <div class='tags'>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='fadeOut-instance'>
+      - (void) <strong>fadeOut</strong>(factor)
+    </p>
+    <div class='tags'>
+</div>
+  </div>
+</div>
+    </div>
+    <div id='footer'>
+  Generated on
+  Sat Jul 06 2013 17:37:31 GMT+0200 (W. Europe Daylight Time)
+  by
+  <a href='https://github.com/netzpirat/codo' title='CoffeeScript API documentation generator'>Codo</a>
+  v1.7.0
+  (Node.js v0.10.12).
+  &#10034;
+  Press Ctrl-h to see the keyboard shortcuts
+  &#10034;
+  <a href='http://twitter.com/#!/netzpirat'>@netzpirat</a>
+  &#10034;
+  <a href='https://mksoft.ch'>mksoft.ch</a>
+</div>
+  </body>
+</html>
