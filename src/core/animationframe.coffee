@@ -6,7 +6,7 @@ do ->
     {requestAnimationFrame} = root
   
     unless requestAnimationFrame
-      for x in vendors 
+      for x in vendors
         requestAnimationFrame = root["#{x}RequestAnimationFrame"]
         break if requestAnimationFrame
   
@@ -25,7 +25,8 @@ do ->
   
     unless cancelAnimationFrame
       for x in vendors
-        cancelAnimationFrame = root["#{x}CancelAnimationFrame"] or root["#{x}CancelRequestAnimationFrame"]
+        cancelAnimationFrame = root["#{x}CancelAnimationFrame"] or
+          root["#{x}CancelRequestAnimationFrame"]
         break if cancelAnimationFrame
   
     unless cancelAnimationFrame
