@@ -13,7 +13,7 @@ define 'elyssa/scene', ->
       entityList = []
   
     # Adds an entity to the scene
-    # 
+    #
     # @param {Object} The entity that will be added to the list
     add: (entity) ->
       entityList.push(entity)

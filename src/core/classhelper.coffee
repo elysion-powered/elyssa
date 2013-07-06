@@ -4,10 +4,10 @@ do (root = exports ? this) ->
   root.ClassHelper = (object) ->
     objPrototype = object::
   
-    methods = 
-      property: (prop) -> 
+    methods =
+      property: (prop) ->
         for key, value of prop
-          propObject = 
+          propObject =
             configurable: true,
             enumerable: false,
   
@@ -21,14 +21,14 @@ do (root = exports ? this) ->
         Object.defineProperty object, key, value for key, value of prop
         null
   
-      get: (prop) -> 
+      get: (prop) ->
         for name, getter of prop
           obj = {}
           obj[name] = {get: getter}
           methods.property obj
         null
   
-      set: (prop) -> 
+      set: (prop) ->
         for name, setter of prop
           obj = {}
           obj[name] = {set: setter}

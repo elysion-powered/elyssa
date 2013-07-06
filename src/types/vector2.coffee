@@ -28,7 +28,7 @@ do (window = @, Elyssa = @Elyssa or= {}) ->
     get length: -> window.Math.sqrt(@x * @x + @y * @y)
     
     # Calculates the dot product between two vectors and returns the value
-    @dotProduct: (a, b) -> 
+    @dotProduct: (a, b) ->
       return unless a and b
     
       a.x * b.x + a.y * b.y

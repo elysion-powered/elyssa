@@ -7,5 +7,6 @@ do (window = @, Elyssa = @Elyssa or= {}) ->
       parsedObject = JSON.parse stringedObject
       return new Elyssa[convert] parsedObject
     catch error
-      console.log "Error while converting #{stringedObject} to a #{convert}: #{error}"
+      console.log "Error while converting #{stringedObject}
+        to a #{convert}: #{error}"
       return new Elyssa[convert]()

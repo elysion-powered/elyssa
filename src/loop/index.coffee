@@ -39,7 +39,7 @@ define 'elyssa/loop', ->
     # Pauses all tasks
     #
     # @return {Object} The Elyssa.Loop object
-    @pause: -> 
+    @pause: ->
       isRunning = false
       
       @
@@ -47,7 +47,7 @@ define 'elyssa/loop', ->
     # Resumes all tasks
     #
     # @return {Object} The Elyssa.Loop object
-    @resume: -> 
+    @resume: ->
       isRunning = true
       
       @
@@ -55,7 +55,7 @@ define 'elyssa/loop', ->
     # Deletes all tasks
     #
     # @return {Object} The Elyssa.Loop object
-    @clear: ->     
+    @clear: ->
       taskList = {}
       
       @
@@ -80,7 +80,7 @@ define 'elyssa/loop', ->
     # @param {String} The name of the task that will be paused
     #
     # @return {Object} The Elyssa.Loop object
-    @pauseTask: (taskName) -> 
+    @pauseTask: (taskName) ->
       taskList[taskName].paused = true
       
       @
@@ -90,7 +90,7 @@ define 'elyssa/loop', ->
     # @param {String} The name of the task that will be resumed
     #
     # @return {Object} The Elyssa.Loop object
-    @resumeTask: (taskName) -> 
+    @resumeTask: (taskName) ->
       taskList[taskName].paused = false
       
       @

@@ -5,7 +5,7 @@ define 'elyssa/eventmap', ['root'], ->
    
     constructor: (@sender) ->
       @events = {}
-      @validEvents = []    
+      @validEvents = []
 
     on: (eventName, eventFunction) ->
       return unless eventFunction
@@ -13,7 +13,7 @@ define 'elyssa/eventmap', ['root'], ->
       if @validEvents.length > 0
         return if @validEvents.indexOf(eventName) is -1
       
-      eventDesc = 
+      eventDesc =
         event: eventFunction
         id: -1
         type: ''
@@ -26,19 +26,21 @@ define 'elyssa/eventmap', ['root'], ->
       
       @
       
-    off: (eventName) -> 
-      return unless eventName    
+    off: (eventName) ->
+      return unless eventName
+      
+      eventType = @events[eventName].type
 
-      if @events[eventName].type is 'once' or @events[eventName].type is 'repeat'
-        root.clearInterval @events[eventName].id if @events[eventName].type is 'repeat'
-        root.clearTimeout @events[eventName].id if @events[eventName].type is 'once'
+      if eventType is 'once' or eventType is 'repeat'
+        root.clearInterval @events[eventName].id if eventType is 'repeat'
+        root.clearTimeout @events[eventName].id if eventType is 'once'
 
       delete @events[eventName] if @events[eventName]
 
       @
     
     trigger: (eventName, args...) ->
-      # Break if 
+      # Break if eventName parameter has been omitted
       return unless eventName?
 
       # Differentiate between eventName being an object or a string
@@ -58,14 +60,14 @@ define 'elyssa/eventmap', ['root'], ->
       
       # Walk through all events and call them
       for i in @events[name]
-        triggerFunction = -> 
+        triggerFunction = ->
           if i.sender
             i.event.apply context, [].concat.apply [], [[i.sender], args]
           else
             i.event.apply context, args
         
         triggerEvent = ->
-          if interval      
+          if interval
             if repeat
               i.type = 'repeat'
               i.id = root.setInterval triggerFunction, interval

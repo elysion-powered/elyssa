@@ -5,4 +5,4 @@ define 'elyssa/texture/manager', ->
   
   TextureManager =
     add: (texture) ->
-    remove: (index) ->   
+    remove: (index) ->

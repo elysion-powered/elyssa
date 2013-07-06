@@ -8,7 +8,7 @@ define 'clone', ->
       return obj
   
     if obj instanceof Date
-      return new Date(obj.getTime()) 
+      return new Date obj.getTime()
   
     if obj instanceof RegExp
       flags = ''
@@ -16,7 +16,7 @@ define 'clone', ->
       flags += 'i' if obj.ignoreCase?
       flags += 'm' if obj.multiline?
       flags += 'y' if obj.sticky?
-      return new RegExp(obj.source, flags) 
+      return new RegExp sobj.source, flags
   
     newInstance = new obj.constructor()
   

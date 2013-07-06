@@ -34,13 +34,13 @@ do (window = @, Elyssa = @Elyssa or= {}) ->
     @crossProduct: (a, b) ->
       return unless a and b
       
-      new Elyssa.Vector3 
+      new Elyssa.Vector3
         x: a.y * b.z - b.y * a.z
         y: a.z * b.x - b.z * a.x
         z: a.x * b.y - b.x * a.y
     
     # Calculates the dot product between two vectors and returns the value
-    @dotProduct: (a, b) -> 
+    @dotProduct: (a, b) ->
       return unless a and b
     
       a.x * b.x + a.y * b.y + a.z * b.z

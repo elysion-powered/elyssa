@@ -1,5 +1,5 @@
-do (window = @) -> 
-  'use strict';
+do (window = @) ->
+  'use strict'
   
   ###
     Console object fixes
