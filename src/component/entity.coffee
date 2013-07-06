@@ -26,10 +26,11 @@ define 'elyssa/entity', ->
             functionList[key].push(value)
   
             unless @[key]
-              @[key] = ((key) -> 
-                 (->
-                  functions.apply(this, arguments) for functions in functionList[key]
-                  @)
+              @[key] = ((key) ->
+                (->
+                  for functions in functionList[key]
+                    functions.apply(this, arguments)
+                @)
               )(key)
   
       @
