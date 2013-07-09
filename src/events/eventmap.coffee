@@ -7,6 +7,17 @@ define 'elyssa/eventmap', ['root'], ->
       @events = {}
       @validEvents = []
 
+    serialize: ->
+      JSON.stringify @events, (key, value) ->
+        value = value.toString() if typeof value is 'function'
+        value
+      
+    deserialize: (string) ->
+      @events = JSON.parse string, (key, value) ->
+        if value.indexOf('function') is 0
+          value = new Function(value)()
+        value
+
     on: (eventName, eventFunction) ->
       return unless eventFunction
 
