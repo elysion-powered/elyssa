@@ -8,15 +8,26 @@ define 'elyssa/eventmap', ['root'], ->
       @validEvents = []
 
     serialize: ->
-      JSON.stringify @events, (key, value) ->
-        value = value.toString() if typeof value is 'function'
-        value
+      try
+        result = JSON.stringify @events, (key, value) ->
+          value = value.toString() if typeof value is 'function'
+          value      
+      catch err
+        console.error "Error while serializing eventmap: #{err}"
+      result
       
     deserialize: (string) ->
-      @events = JSON.parse string, (key, value) ->
-        if value.indexOf('function') is 0
-          value = new Function(value)()
-        value
+      try
+        events = JSON.parse string, (key, value) ->
+          if value.indexOf('function') is 0
+            value = new Function(value)()
+          value    
+      catch err
+        console.error "Error while deserializing eventmap: #{err}"
+        return false
+        
+      @events = events
+      true
 
     on: (eventName, eventFunction) ->
       return unless eventFunction
