@@ -1,5 +1,5 @@
 (function() {
-  define('elyssa/loop', function() {
+  define('elyssa/loop', ['requestanimationframe'], function(requestAnimationFrame) {
     'use strict';
     var Loop;
     return Loop = (function() {
@@ -26,7 +26,7 @@
         time = 0;
         animLoop = function() {
           var dt, key, now, value;
-          window.requestAnimationFrame(animLoop);
+          requestAnimationFrame(animLoop);
           now = Date.now();
           dt = now - (time || now);
           time = now;
