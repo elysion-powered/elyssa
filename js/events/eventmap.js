@@ -12,21 +12,37 @@
       }
 
       EventMap.prototype.serialize = function() {
-        return JSON.stringify(this.events, function(key, value) {
-          if (typeof value === 'function') {
-            value = value.toString();
-          }
-          return value;
-        });
+        var err, result;
+        try {
+          result = JSON.stringify(this.events, function(key, value) {
+            if (typeof value === 'function') {
+              value = value.toString();
+            }
+            return value;
+          });
+        } catch (_error) {
+          err = _error;
+          console.error("Error while serializing eventmap: " + err);
+        }
+        return result;
       };
 
       EventMap.prototype.deserialize = function(string) {
-        return this.events = JSON.parse(string, function(key, value) {
-          if (value.indexOf('function') === 0) {
-            value = new Function(value)();
-          }
-          return value;
-        });
+        var err, events;
+        try {
+          events = JSON.parse(string, function(key, value) {
+            if (value.indexOf('function') === 0) {
+              value = new Function(value)();
+            }
+            return value;
+          });
+        } catch (_error) {
+          err = _error;
+          console.error("Error while deserializing eventmap: " + err);
+          return false;
+        }
+        this.events = events;
+        return true;
       };
 
       EventMap.prototype.on = function(eventName, eventFunction) {
