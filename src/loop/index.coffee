@@ -1,4 +1,4 @@
-define 'elyssa/loop', ->
+define 'elyssa/loop', ['requestanimationframe'], (requestAnimationFrame) ->
   'use strict'
   
   # Elyssa.Loop
@@ -20,7 +20,7 @@ define 'elyssa/loop', ->
       time = 0
       
       animLoop = ->
-        window.requestAnimationFrame animLoop
+        requestAnimationFrame animLoop
         
         now = Date.now()
         dt = now - (time or now)
