@@ -3,7 +3,7 @@ CoffeeScript style guide
 * Two spaces for indentation
 * More information: https://github.com/Stoney-FD/coffeescript-style-guide
 
-Please note that Elyssa is essentially public domain (See UNLICENSE.md)
+Please note that Elyssa is public domain (See UNLICENSE.md)
 
 For all non-trivial contributions, I require you to add this waiver to your
 contribution:
