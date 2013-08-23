@@ -1,2 +1,2 @@
-define 'elyssa/events', ['elyssa/eventmap'], ->
+define 'elyssa/events', ['eventmap'], (EventMap) ->
   Events = Events or new EventMap()
