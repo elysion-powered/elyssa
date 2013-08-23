@@ -12,6 +12,7 @@
   "dependencies": {
     "almond": "~0.2.5",
     "checkt": "~1.1.1",
+    "eventmap": "~1.1.0"
   },
   "devDependencies": {
     "mocha": "~1.12.0"
