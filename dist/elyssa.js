@@ -615,7 +615,7 @@
 }).call(this);
 
 (function() {
-  define('elyssa/events', ['elyssa/eventmap'], function() {
+  define('elyssa/events', ['eventmap'], function(EventMap) {
     var Events;
     return Events = Events || new EventMap();
   });
