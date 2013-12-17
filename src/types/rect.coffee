@@ -7,7 +7,11 @@ do (window = @, Elyssa = @Elyssa or= {}) ->
       w: 0
       h: 0
       
-    constructor: ({@x, @y, @w, @h} = defaultValue) ->
+    constructor: (param = defaultValue) ->
+      return new Rect param unless @ instanceof Rect
+      
+      param = {@x, @y, @w, @h}
+      
       @x = defaultValue.x unless @x?
       @y = defaultValue.y unless @y?
       @w = defaultValue.w unless @w?
