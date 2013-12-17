@@ -3,7 +3,11 @@ define 'elyssa/types/size',
   (Rect, serialize, deserialize) ->
     
     class Size
-      constructor: ({@w, @h} = {w: 0, h: 0}) ->
+      constructor: (param = {w: 0, h: 0}) ->
+        return new Size param unless @ instance Size
+        
+        param = {@w, @h}
+        
         @w = 0 unless @w?
         @h = 0 unless @h?
     
