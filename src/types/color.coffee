@@ -12,6 +12,8 @@ define 'elyssa/types/color', ['elyssa/math'], (Math) ->
     #
     # Allows to define R, G, B and A components
     constructor: (param) ->
+      return new Color param unless @ instanceof Color
+      
       param = {r: 0, g: 0, b: 0, a: 255} unless param?
       
       if typeof param is 'string'
